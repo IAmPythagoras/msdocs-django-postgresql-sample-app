@@ -1,0 +1,1410 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<script>
+var TargetActionList = [
+    "Arrow",
+    "Balance",
+    "Bole",
+    "Ewer",
+    "Spire",
+    "Spear",
+    "DragonSight",
+    "ClosedPosition"
+];
+var IconDict = {
+    "Astrologian": [
+        "Arrow",
+        "Ascend",
+        "AspectedBenefic",
+        "AspectedHelios",
+        "Astrodyne",
+        "Balance",
+        "Benefic",
+        "BeneficII",
+        "Bole",
+        "CelestialIntersection",
+        "CelestialOpposition",
+        "CollectiveUnconscious",
+        "Combust",
+        "Divination",
+        "Draw",
+        "EarthlyStar",
+        "EssentialDignity",
+        "Esuna",
+        "Ewer",
+        "Exaltation",
+        "Gravity",
+        "Helios",
+        "Horoscope",
+        "LadyOfCrown",
+        "Lightspeed",
+        "LordOfCrown",
+        "LucidDreaming",
+        "Macrocosmos",
+        "Malefic",
+        "Microcosmos",
+        "MinorArcana",
+        "NeutralSect",
+        "Repose",
+        "Rescue",
+        "Spear",
+        "Spire",
+        "Surecast",
+        "Swiftcast",
+        "Synastry",
+        "wait_ability"
+    ],
+    "Bard": [
+        "ApexArrow",
+        "ArmLength",
+        "ArmyPaeon",
+        "Barrage",
+        "BattleVoice",
+        "BlastArrow",
+        "BloodLetter",
+        "BurstShot",
+        "Causticbite",
+        "EmpyrealArrow",
+        "FootGraze",
+        "HeadGraze",
+        "HeavyShot",
+        "IronJaws",
+        "Ladonsbite",
+        "LegGraze",
+        "MageBallad",
+        "NatureMinne",
+        "Peloton",
+        "PitchPerfect",
+        "RadiantFinale",
+        "RagingStrike",
+        "RainOfDeath",
+        "RefulgentArrow",
+        "RepellingShot",
+        "SecondWind",
+        "Shadowbite",
+        "Sidewinder",
+        "Stormbite",
+        "Troubadour",
+        "wait_ability",
+        "WandererMinuet",
+        "WardenPaean"
+    ],
+    "BlackMage": [
+        "Addle",
+        "AetherialManipulation",
+        "Amplifier",
+        "BetweenTheLines",
+        "BlizzardI",
+        "BlizzardII",
+        "BlizzardIII",
+        "BlizzardIV",
+        "Despair",
+        "FireI",
+        "FireII",
+        "FireIII",
+        "FireIV",
+        "Flare",
+        "Foul",
+        "Freeze",
+        "HighBlizzardII",
+        "HighFireII",
+        "LeyLines",
+        "LucidDreaming",
+        "Manafont",
+        "Manaward",
+        "Paradox",
+        "Scathe",
+        "Sharpcast",
+        "Sleep",
+        "Surecast",
+        "Swiftcast",
+        "ThunderIII",
+        "ThunderIV",
+        "Transpose",
+        "Triplecast",
+        "UmbralSoul",
+        "wait_ability",
+        "Xenoglossy"
+    ],
+    "Dancer": [
+        "ArmLength",
+        "Bladeshower",
+        "Bloodshower",
+        "Cascade",
+        "ClosedPosition",
+        "CuringWaltz",
+        "Devilment",
+        "Emboite",
+        "EnAvant",
+        "Ending",
+        "Entrechat",
+        "FanDanceI",
+        "FanDanceII",
+        "FanDanceIII",
+        "FanDanceIV",
+        "Flourish",
+        "FootGraze",
+        "Fountain",
+        "FountainFall",
+        "HeadGraze",
+        "Improvisation",
+        "ImprovisedFinish",
+        "Jete",
+        "LegGraze",
+        "Peloton",
+        "Pirouette",
+        "ReverseCascade",
+        "RisingWindmill",
+        "SaberDance",
+        "Samba",
+        "SecondWind",
+        "StandardFinish",
+        "StandardStep",
+        "StarfallDance",
+        "TechnicalFinish",
+        "TechnicalStep",
+        "Tillana",
+        "wait_ability",
+        "Windmill"
+    ],
+    "DarkKnight": [
+        "AbyssalDrain",
+        "ArmLength",
+        "Bloodspiller",
+        "BloodWeapon",
+        "CarveAndSpit",
+        "DarkMind",
+        "DarkMissionary",
+        "Delirium",
+        "EdgeOfShadow",
+        "FloodOfShadow",
+        "HardSlash",
+        "Interject",
+        "LivingDead",
+        "LivingShadow",
+        "LowBlow",
+        "Oblation",
+        "Plunge",
+        "Provoke",
+        "Quietus",
+        "Rampart",
+        "Reprisal",
+        "SaltAndDarkness",
+        "SaltedEarth",
+        "Shadowbringer",
+        "ShadowWall",
+        "Shirk",
+        "Souleater",
+        "StalwartSoul",
+        "SyphonStrike",
+        "TheBlackestNight",
+        "Unleash",
+        "Unmend",
+        "wait_ability"
+    ],
+    "Dragoon": [
+        "ArmLength",
+        "BattleLitany",
+        "Bloodbath",
+        "ChaoticSpring",
+        "CoerthanTorment",
+        "Disembowel",
+        "DoomSpike",
+        "draconian_fury",
+        "DragonFireDive",
+        "DragonSight",
+        "ElusizeJump",
+        "FangAndClaw",
+        "Feint",
+        "full_thrust",
+        "Geirskogul",
+        "HeavensThrust",
+        "HighJump",
+        "jump",
+        "LanceCharge",
+        "LegSweep",
+        "LifeSurge",
+        "MirageDive",
+        "Nastrond",
+        "PiercingTalon",
+        "RaidenThrust",
+        "SecondWind",
+        "SonicThrust",
+        "SpineshatterDive",
+        "Stardiver",
+        "TrueNorth",
+        "TrueThrust",
+        "VorpalThrust",
+        "wait_ability",
+        "WheelingThrust",
+        "WyrmwindThrust"
+    ],
+    "Gunbreaker": [
+        "AbdomenTear",
+        "ArmLength",
+        "Aurora",
+        "BlastingZone",
+        "Bloodfest",
+        "BowShock",
+        "BrutalShell",
+        "BurstStrike",
+        "Camouflage",
+        "DemonSlaughter",
+        "DemonSlice",
+        "DoubleDown",
+        "eart_of_stone",
+        "EyeGouge",
+        "FatedCircle",
+        "GnashingFang",
+        "HeartOfCorundum",
+        "HeartOfLight",
+        "Hypervelocity",
+        "Interject",
+        "JugularRip",
+        "KeenEdge",
+        "LightningShot",
+        "LowBlow",
+        "Nebula",
+        "NoMercy",
+        "Provoke",
+        "Rampart",
+        "Reprisal",
+        "RoughDivide",
+        "SavageClaw",
+        "Shirk",
+        "SolidBarrel",
+        "SonicBreak",
+        "Superbolide",
+        "wait_ability",
+        "WickedTalon"
+    ],
+    "Machinist": [
+        "AirAnchor",
+        "AotoCrossbow",
+        "ArmLength",
+        "Automaton",
+        "BarrelStabilizer",
+        "Bioblaster",
+        "ChainSaw",
+        "CleanShot",
+        "crowned_collider",
+        "detonator",
+        "Drill",
+        "Flamethrower",
+        "FootGraze",
+        "GaussRound",
+        "HeadGraze",
+        "HeatBlast",
+        "Hypercharge",
+        "LegGraze",
+        "Peloton",
+        "Reassemble",
+        "Ricochet",
+        "Scattergun",
+        "SecondWind",
+        "SlugShot",
+        "SplitShot",
+        "Tactician",
+        "wait_ability",
+        "Wildfire"
+    ],
+    "Monk": [
+        "Anatman",
+        "ArmLength",
+        "Bloodbath",
+        "Bootshine",
+        "Brotherhood",
+        "CelestialRevolution",
+        "Demolish",
+        "DragonKick",
+        "Enlightenment",
+        "ExirField",
+        "Feint",
+        "FlintStrike",
+        "FormShift",
+        "FourpointFurry",
+        "LegSweep",
+        "Mantra",
+        "Meditation",
+        "PerfectBalance",
+        "PhantomRush",
+        "RiddleOfearth",
+        "RiddleOfFire",
+        "RiddleOfWind",
+        "RisingPhoenix",
+        "Rockbreaker",
+        "SecondWind",
+        "ShadowOfTheDestroyer",
+        "SixSidedStar",
+        "SnapPunch",
+        "TheForbiddenChakra",
+        "Thunderclap",
+        "TrueNorth",
+        "TrueStrike",
+        "TwinSnkes",
+        "wait_ability"
+    ],
+    "Ninja": [
+        "AeolianEdge",
+        "ArmLength",
+        "ArmorCrush",
+        "Bhavacakra",
+        "Bloodbath",
+        "Bunshin",
+        "Chi",
+        "DeathBlossom",
+        "Doton",
+        "DreamWithinADream",
+        "Feint",
+        "FleetinRaiju",
+        "ForkingRaiju",
+        "FumaShuriken",
+        "GokaMekkyaku",
+        "GustSlash",
+        "HakkeMujinsatsu",
+        "HellfrogMedium",
+        "Hide",
+        "Huraijin",
+        "Huton",
+        "HyoshoRanryu",
+        "Hyoton",
+        "Jin",
+        "Kassatsu",
+        "Katon",
+        "LegSweep",
+        "Meisui",
+        "Mug",
+        "PhantomKamaitachi",
+        "Raiton",
+        "SecondWind",
+        "ShadeShift",
+        "Shukuchi",
+        "SpinningEdge",
+        "Suiton",
+        "Ten",
+        "TenChiJin",
+        "ThrowingDagger",
+        "TrickAttack",
+        "TrueNorth",
+        "wait_ability"
+    ],
+    "Paladin": [
+        "ArmLength",
+        "Atonement",
+        "BladeOfFaith",
+        "BladeOfTruth",
+        "BladeOfValor",
+        "CircleOfScorn",
+        "Clemency",
+        "Confiteor",
+        "Cover",
+        "DivineVeil",
+        "Expiacion",
+        "FastBlade",
+        "FightOrFlight",
+        "GoringBlade",
+        "HallowedGround",
+        "HolyCircle",
+        "HolySheltron",
+        "HolySpirit",
+        "Interject",
+        "Intervene",
+        "Intervention",
+        "LowBlow",
+        "PassageOfArms",
+        "Prominence",
+        "Provoke",
+        "Rampart",
+        "Reprisal",
+        "Requiescat",
+        "RiotBlade",
+        "RoyalAuthority",
+        "Sentinel",
+        "ShieldLob",
+        "Shirk",
+        "TotalEclipse",
+        "wait_ability"
+    ],
+    "Reaper": [
+        "ArcaneCircle",
+        "ArcaneCrest",
+        "ArmLength",
+        "Bloodbath",
+        "BloodStalk",
+        "Communio",
+        "CrossReaping",
+        "Enshroud",
+        "Feint",
+        "Gallows",
+        "Gibbet",
+        "Gluttony",
+        "GrimReaping",
+        "GrimSwathe",
+        "Guillotine",
+        "Harpe",
+        "HarvestMoon",
+        "HellIngress",
+        "InfernalSlice",
+        "LegSweep",
+        "LemureScythe",
+        "LemureSlice",
+        "NightmareSlice",
+        "PlentifulHarvest",
+        "Regress",
+        "SecondWind",
+        "ShadowOfDeath",
+        "Slice",
+        "SoulScythe",
+        "SoulSlice",
+        "Soulsow",
+        "SpinningScythe",
+        "TrueNorth",
+        "UnveiledGallows",
+        "UnveiledGibbet",
+        "VoidReaping",
+        "wait_ability",
+        "WaxingSlice",
+        "WhorlOfDeath"
+    ],
+    "RedMage": [
+        "Acceleration",
+        "Addle",
+        "Contre",
+        "Corps",
+        "Embolden",
+        "EnchantedMoulinet",
+        "EnchantedRedoublement",
+        "EnchantedReprise",
+        "EnchantedRiposte",
+        "EnchantedZwerchhau",
+        "Engagement",
+        "Fleche",
+        "Impact",
+        "Jolt",
+        "LucidDreaming",
+        "MagickBarrier",
+        "Manafication",
+        "Moulinet",
+        "Redoublement",
+        "Reprise",
+        "Resolution",
+        "Riposte",
+        "Scorch",
+        "Sleep",
+        "Surecast",
+        "Swiftcast",
+        "Verareo",
+        "Vercure",
+        "Verfire",
+        "Verflare",
+        "Verholy",
+        "Verraise",
+        "Verstone",
+        "Verthunder",
+        "wait_ability",
+        "Zwerchhau"
+    ],
+    "Sage": [
+        "Diagnosis",
+        "Dosis",
+        "Druochole",
+        "DyskrasiaII",
+        "Egeiro",
+        "Esuna",
+        "Eukrasia",
+        "EukrasianDiagnosis",
+        "EukrasianDosis",
+        "EukrasianDosisIII",
+        "EukrasianPrognosis",
+        "Eukrasian_dosis_II",
+        "Haima",
+        "Holos",
+        "Icarus",
+        "Ixochole",
+        "Kardia",
+        "Kerachole",
+        "Krasis",
+        "LucidDreaming",
+        "Panhaima",
+        "Pepsis",
+        "Phlegma",
+        "Physis",
+        "Pneuma",
+        "Prognosis",
+        "Repose",
+        "Rescue",
+        "Rhizomata",
+        "Soteria",
+        "Surecast",
+        "Swiftcast",
+        "Taurochole",
+        "Toxikon",
+        "wait_ability",
+        "Zoe"
+    ],
+    "Samurai": [
+        "ArmLengh",
+        "Bloodbath",
+        "Enpi",
+        "Feint",
+        "Fuga",
+        "Fuko",
+        "Gekko",
+        "Guren",
+        "Gyoten",
+        "Hagakure",
+        "Hakaze",
+        "Higanbana",
+        "Iaijutsu",
+        "Ikishoten",
+        "Jinpu",
+        "KaeshiGoken",
+        "KaeshiHiganbana",
+        "KaeshiNamikiri",
+        "KaeshiSetsugekka",
+        "Kasha",
+        "Kyuten",
+        "LegSweep",
+        "Mangetsu",
+        "Meditate",
+        "Meikyo",
+        "Midare",
+        "OgiNamikiri",
+        "Oka",
+        "SecondWind",
+        "Senei",
+        "Shifu",
+        "Shinten",
+        "Shoha",
+        "ShohaII",
+        "TenkaGoken",
+        "ThirdEye",
+        "TrueNorth",
+        "wait_ability",
+        "Yaten",
+        "Yukikaze"
+    ],
+    "Scholar": [
+        "Adloquium",
+        "Adsadsaetherpact",
+        "Aetherflow",
+        "ArtOfWar",
+        "Biodd",
+        "Biolysis",
+        "BroilIV",
+        "broil_II",
+        "broil_III",
+        "ChainStratagem",
+        "Consolation",
+        "d",
+        "dddd",
+        "DeploymentTactic",
+        "Dissipation",
+        "dissolve_union",
+        "EmergencyTactic",
+        "EnergyDrain",
+        "Esuna",
+        "Excogitation",
+        "Expedient",
+        "FeyBlessing",
+        "FeyIllumination",
+        "Indomitability",
+        "LucidDreaming",
+        "Lustrate",
+        "Physick",
+        "Protraction",
+        "Raise",
+        "Recitation",
+        "Repose",
+        "Rescue",
+        "ruin",
+        "RuinII",
+        "SacredSoil",
+        "Succor",
+        "SummonSelene",
+        "SummonSeraph",
+        "Surecast",
+        "Swiftcast",
+        "wait_ability",
+        "WhisperingDawn"
+    ],
+    "Summoner": [
+        "Addle",
+        "akh_morn",
+        "AOEFountainOfFire",
+        "Cyclone",
+        "Deathflare",
+        "Emerald",
+        "EmeraldCatastrophe",
+        "EnergyDrain",
+        "EnergySyphon",
+        "EnkindleBahamut",
+        "EnkindlePhoenix",
+        "Fester",
+        "Garuda",
+        "gemshine",
+        "Ifrit",
+        "LucidDreaming",
+        "Mountain",
+        "Painflare",
+        "Physick",
+        "Resurrection",
+        "Ruby",
+        "RubyCatastrophe",
+        "RuinIII",
+        "RuinIV",
+        "SearingLight",
+        "Sleep",
+        "Slipstream",
+        "Strike",
+        "Summon",
+        "SummonBahamut",
+        "SummonPhoenix",
+        "Surecast",
+        "Swiftcast",
+        "Titan",
+        "Topaz",
+        "TopazCatastrophe",
+        "TryDisaster",
+        "wait_ability"
+    ],
+    "Warrior": [
+        "ArmLength",
+        "Berserk",
+        "Bloodwhetting",
+        "ChaoticCyclone",
+        "Decimate",
+        "Equilibrium",
+        "FellCleave",
+        "HeavySwing",
+        "Holmgang",
+        "Infuriate",
+        "InnerBeast",
+        "InnerChaos",
+        "InnerRelease",
+        "Interject",
+        "LowBlow",
+        "Maim",
+        "MythrilTempest",
+        "NascentFlash",
+        "Onslaught",
+        "Orogeny",
+        "Overpower",
+        "PrimalRend",
+        "Provoke",
+        "Rampart",
+        "RawIntuition",
+        "Reprisal",
+        "ShakeItOff",
+        "Shirk",
+        "SteelCyclone",
+        "StormEye",
+        "StormPath",
+        "ThrillOfBattle",
+        "Tomahawk",
+        "Upheaval",
+        "Vengeance",
+        "wait_ability"
+    ],
+    "WhiteMage": [
+        "AfflatusMisery",
+        "AfflatusRapture",
+        "AfflatusSolace",
+        "Aquaveil",
+        "Assize",
+        "Asylum",
+        "Bell",
+        "Benediction",
+        "Cure",
+        "CureII",
+        "CureIII",
+        "Dia",
+        "divine_benison",
+        "esuna",
+        "Glare",
+        "Holy",
+        "LucidDreaming",
+        "Medica",
+        "MedicaII",
+        "plenary_indulgence",
+        "PresenceOfMind",
+        "Raise",
+        "Regen",
+        "Repose",
+        "Rescue",
+        "Surecast",
+        "Swiftcast",
+        "Temperance",
+        "Tetragrammaton",
+        "ThinAir",
+        "wait_ability"
+    ]
+}
+</script>
+<script>
+
+var PlayerConfigDict = new Object();
+var nextPlayerID = 0;
+var currentEditPlayerID = 0;
+// This dict will hold every player config info.
+// Every key will represent a player id that is given when adding
+// a new player.
+
+    function Submit(){
+
+    SavePlayerConfiguration(currentEditPlayerID); // Saving since only saves once change player.
+                                                  // So chance it hasn't been saved
+
+    var FightInfo = {
+        "RequirementOn": document.getElementById("RequirementOnCheckBox").checked,
+        "IgnoreMana": document.getElementById("RequirementOnCheckBox").checked
+    }
+
+    var PlayerList = []
+
+    for (let key in PlayerConfigDict){
+        PlayerDict = PlayerConfigDict[key];
+
+        var actionList = [];
+
+        for (let i in PlayerDict["ActionList"]){
+            var action = PlayerDict["ActionList"][i];
+            if (action["Action"] == 'wait_ability'){
+                var nextAction = {
+                    "actionName" : "WaitAbility",
+                    "waitTime" : action["WaitTime"]
+                };
+            } else {
+                var nextAction = {
+                    "actionName" : action["Action"],
+                }
+            }
+
+            if (action["target"] != -1){nextAction["targetID"] = action["target"]}
+            actionList.push(nextAction);
+        }
+
+        var PlayerConfig = {
+            "JobName" : PlayerDict["Job"],
+            "PlayerName" : PlayerDict["PlayerName"],
+            "playerID" : key,
+            "stat" : PlayerDict["Stat"],
+            "actionList" : actionList,
+            "etro_gearset_url" : PlayerDict["etro_gearset_url"],
+            "Auras": []
+        }
+
+        PlayerList.push(PlayerConfig);
+
+    }
+
+    var dataDict = {"data" : {
+        "fightInfo" : FightInfo,
+        "PlayerList" : PlayerList
+    }};
+
+    xhr = new XMLHttpRequest();
+    var url = "/simulate/input/";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+        }
+    }
+var data = JSON.stringify(dataDict);
+xhr.send(data);
+setTimeout(function() {
+    window.location.href='/simulate/simulating/';
+}, 100);
+
+    }
+
+    function addNewPlayer() {
+    
+    PlayerConfigDict[nextPlayerID] = {
+        "PlayerName" : "Player" + nextPlayerID,
+        "PlayerID" : nextPlayerID, // This value is non-editable.
+        "NextActionIndex" : 0,
+        "NextActionID" : 0,
+        "Job" : "BlackMage", // Defaults to BlackMage
+        "etro_gearset_url" : "",
+        "Stat" : {
+            "MainStat" : 390,
+            "WD" : 400,
+            "Det" : 400,
+            "Ten" : 400,
+            "SS" : 400,
+            "SkS" : 400,
+            "Crit" : 400,
+            "DH" : 400
+        },
+        "ActionList" :[]
+    }
+    
+    const boxWrapper = document.getElementById("PlayerRosterViewer");
+    const box = document.createElement("div");
+    box.setAttribute("id", "Edit"+nextPlayerID);
+    box.innerHTML = '<p id="Player'+nextPlayerID+'Name">'+PlayerConfigDict[nextPlayerID]["PlayerName"]+'</p><button class="basicButton" onclick="LoadPlayerConfiguration('+nextPlayerID+')">Edit</button><button class ="basicButton" style="background-color: red;position:relative;left:250px;" onclick="DeletePlayer('+nextPlayerID+')">Delete</button></div>';
+    box.style = "background-color: #333;border-radius: 5px;"
+    boxWrapper.appendChild(box);
+    nextPlayerID++;
+}
+
+    function DeletePlayer(PlayerID){
+        // This function removes a player from the simulation input.
+        // It will ask for a prompt from the user to make sure the action was
+        // deliberate.
+
+        const confirmation = confirm("Are you sure you want to delete the player : " + String(PlayerConfigDict[PlayerID]["PlayerName"]) + "?");
+
+        if (! confirmation){return;} // If not confirmed, we exit
+
+        document.getElementById("Edit"+String(PlayerID)).remove()
+
+        delete PlayerConfigDict[PlayerID];
+
+        for (let id in PlayerConfigDict){
+            currentEditPlayerID = id;
+            LoadPlayerConfiguration(id, save=false);
+            return; // Load any first other player and returns
+        }
+
+        // If we're here there were no other players. So we will clear the screen.
+
+        document.getElementById("ActionListPick").innerHTML = "";
+        document.getElementById("PlayerActionListViewer").innerHTML = "";//Wiping
+
+    }
+
+function UpdateName(){
+    document.getElementById('Player'+currentEditPlayerID+'Name').innerHTML = document.getElementById("PlayerName").value;
+}
+
+function GetTarget(){
+
+    var TargetID = prompt("Enter the PlayerID of who you want to target with this ability");
+
+    return TargetID;
+
+}
+
+function LoadPlayerConfiguration(PlayerID, save=true){
+
+    if (save){SavePlayerConfiguration(currentEditPlayerID);}
+    const box = document.getElementById('Player'+currentEditPlayerID+'Name')
+    box.innerHTML = PlayerConfigDict[currentEditPlayerID]["PlayerName"]
+    document.getElementById("Edit"+PlayerID).setAttribute("style","background-color: #333;border-radius: 5px;border: 3px solid white;")
+    document.getElementById("Edit"+currentEditPlayerID).setAttribute("style","background-color: #333;border-radius: 5px;border: 0px solid white;")
+    currentEditPlayerID = PlayerID;
+
+    document.getElementById("PlayerName").value = PlayerConfigDict[PlayerID]["PlayerName"];
+    document.getElementById("Job").value = PlayerConfigDict[PlayerID]["Job"];
+    document.getElementById("MainStat").value = PlayerConfigDict[PlayerID]["Stat"]["MainStat"];
+    document.getElementById("Crit").value = PlayerConfigDict[PlayerID]["Stat"]["Crit"];
+    document.getElementById("DH").value = PlayerConfigDict[PlayerID]["Stat"]["DH"];
+    document.getElementById("WD").value = PlayerConfigDict[PlayerID]["Stat"]["WD"];
+    document.getElementById("SkS").value = PlayerConfigDict[PlayerID]["Stat"]["SkS"];
+    document.getElementById("SpS").value = PlayerConfigDict[PlayerID]["Stat"]["SS"];
+    document.getElementById("Det").value = PlayerConfigDict[PlayerID]["Stat"]["Det"];
+    document.getElementById("Ten").value = PlayerConfigDict[PlayerID]["Stat"]["Ten"];
+    document.getElementById("etroURL").value = PlayerConfigDict[PlayerID]["etro_gearset_url"];
+    document.getElementById("PlayerIDField").innerHTML = "PlayerID : " + PlayerConfigDict[currentEditPlayerID]["PlayerID"];
+
+    document.getElementById("ActionListPick").innerHTML = "";
+    document.getElementById("PlayerActionListViewer").innerHTML = "";//Wiping
+    PlayerConfigDict[currentEditPlayerID]["NextActionID"] = 0;
+    LoadPlayerActionsPick();
+    LoadPlayerActionList();
+}
+
+function LoadPlayerActionList(){
+    var ActionList = PlayerConfigDict[currentEditPlayerID]["ActionList"];
+
+    for (let i = 0;i<ActionList.length;i++){
+        CreateAddAction(ActionList[i]["Action"], false, false,IsAdded = false, ActionIden = ActionList[i]["ActionID"])();
+    }
+}
+
+function DelActionFromList(ActionID){
+
+    function delAction(){
+        document.getElementById(ActionID).remove();
+        var ActionList = PlayerConfigDict[currentEditPlayerID]["ActionList"]
+        for (let i = 0;i<ActionList.length;i++){
+            if (ActionList[i]["ActionID"] == ActionID)
+                {
+                var action = ActionList[i];
+                break;
+                }
+        }
+
+        for(let i = action["IndexInList"]+1;i<ActionList.length;i++){
+            ActionList[i]["IndexInList"]--;
+        }
+        PlayerConfigDict[currentEditPlayerID]["ActionList"].splice(action["IndexInList"],1);
+    }
+
+    return delAction;
+
+}
+
+function CreateAddAction(ActionID, SpecifyTarget, WaitAbility, IsAdded = true, ActionIden = -1){
+
+    function AddActionToPlayer(){
+    const ActionListViewer = document.getElementById("PlayerActionListViewer");
+    PlayerJob = PlayerConfigDict[currentEditPlayerID]["Job"];
+    if (ActionIden == -1){
+        ActionIden = String(currentEditPlayerID)+String(PlayerConfigDict[currentEditPlayerID]["NextActionID"]);
+    }
+    const newAction = document.createElement('div');
+    newAction.innerHTML = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+ActionID+'.png" width="40px" height="40px" class="Icon">';
+    newAction.onclick = DelActionFromList(ActionIden);
+    newAction.setAttribute("id", ActionIden);
+    ActionListViewer.appendChild(newAction);
+    if (IsAdded) {
+        ActionDict = {
+        "Action" : ActionID,
+        "ActionID" : ActionIden, 
+        "IndexInList" : PlayerConfigDict[currentEditPlayerID]["NextActionIndex"],
+        "target" : SpecifyTarget ? GetTarget() : -1
+        };
+        if (WaitAbility){ActionDict["WaitTime"] = prompt("Input how long (in seconds) you want the player to wait for :");}
+        PlayerConfigDict[currentEditPlayerID]["ActionList"].push(ActionDict);
+    }
+    PlayerConfigDict[currentEditPlayerID]["NextActionIndex"]++;
+    PlayerConfigDict[currentEditPlayerID]["NextActionID"]++;
+
+    }
+
+    return AddActionToPlayer;
+
+}
+
+function SavePlayerConfiguration(PlayerID){
+    PlayerConfigDict[PlayerID]["PlayerName"] = document.getElementById("PlayerName").value;
+    PlayerConfigDict[PlayerID]["Job"] = document.getElementById("Job").value;
+    PlayerConfigDict[PlayerID]["Stat"]["MainStat"] = document.getElementById("MainStat").value;
+    PlayerConfigDict[PlayerID]["Stat"]["Crit"] = document.getElementById("Crit").value;
+    PlayerConfigDict[PlayerID]["Stat"]["DH"] = document.getElementById("DH").value;
+    PlayerConfigDict[PlayerID]["Stat"]["WD"] = document.getElementById("WD").value;
+    PlayerConfigDict[PlayerID]["Stat"]["SkS"] = document.getElementById("SkS").value;
+    PlayerConfigDict[PlayerID]["Stat"]["SS"] = document.getElementById("SpS").value;
+    PlayerConfigDict[PlayerID]["Stat"]["Det"] = document.getElementById("Det").value;
+    PlayerConfigDict[PlayerID]["Stat"]["Ten"] = document.getElementById("Ten").value;
+    PlayerConfigDict[PlayerID]["etro_gearset_url"] = document.getElementById("etroURL").value;
+}
+
+function LoadPlayerActionsPick(ChangingJob=false){
+
+    document.getElementById("ActionListPick").innerHTML = "";//Wiping
+    PlayerConfigDict[currentEditPlayerID]["Job"] = document.getElementById("Job").value;
+    var PlayerJob = PlayerConfigDict[currentEditPlayerID]["Job"];
+    if (ChangingJob){
+        PlayerConfigDict[currentEditPlayerID]['ActionList'] = [];
+        document.getElementById("PlayerActionListViewer").innerHTML = "";
+    } //wiping if changing job
+    var IconNameList = IconDict[PlayerJob];
+    const box = document.getElementById("ActionListPick");
+    for (var i = 0;i<IconNameList.length;i++){
+        const newBox = document.createElement("div");
+        var t = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+IconNameList[i]+'.png" width="60px" height="60px" class="Icon" role="button">';
+        var insideHTML = t
+        newBox.innerHTML = insideHTML;
+        newBox.onclick = CreateAddAction(IconNameList[i],(TargetActionList.includes(IconNameList[i])),(IconNameList[i] == "wait_ability") );
+        box.appendChild(newBox);
+    }
+
+}
+
+</script>
+    <style>
+@import url(//fonts.googleapis.com/css?family=Nunito);
+.PlayerViewerStyle{
+    background-color: #333;
+    border-radius: 5px;
+}
+    .menu:hover{
+        background-color: #333;
+        border-radius: 10px;
+        transition-duration: 150ms;
+    }
+    .menu:not(:hover){
+        transition-duration: 150ms;
+    }
+    .marginHeader {
+        margin-left: 1%;
+        margin-right: 1%;
+        display: flex;
+    }
+    .center {
+      text-align: center;
+      margin: auto;
+      width: 60%;
+      padding: 10px;
+      font-size: large;
+    }
+
+    .heading {
+        font-family: 'Nunito';
+    }
+
+    .body {
+        background-color: rgb(26, 26, 26);
+    }
+
+    .mainText {
+        color: white;
+    }
+
+    .marginZero {
+        margin: 0;
+    }
+
+    .linkBox {
+        display:inline-block; 
+        width:400px; 
+        height:90px;
+        text-decoration: none;
+    }
+
+    .menu{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-right: 20px;
+
+    }
+
+    p {
+        font-family: 'Nunito';
+        color: rgba(255, 255, 255, 0.9);
+    }
+    label {
+        font-family: 'Nunito';
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    h2 {
+        font-family: 'Nunito';
+        color: rgba(255, 255, 255, 0.95);
+    }
+
+    hr {
+        width: 98%;
+        border: none;
+        height: 1px;
+        background-color: #333; 
+    }
+    .middleText {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.1rem;
+        font-family: 'Nunito';
+        font-weight: 400;
+        line-height: 1.5;
+    }
+    .footingText {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1rem;
+        font-family: 'Nunito';
+        font-weight: 400;
+        line-height: 1.5;
+    }
+    .footing {
+        position: absolute;
+        bottom: 0;
+    }
+    .basicButton:hover{
+        background-color: rgb(65, 65, 65);
+        transition-duration: 150ms;
+        border-radius: 10px;
+    }
+    .basicButton:not(:hover){
+        transition-duration: 150ms;
+    }
+    .basicButton {
+        font-family: 'Nunito';
+        background-color: rgba(65, 65, 65, 0.695);
+        color: rgba(255, 255, 255, 0.95);
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    .bigbutton {
+    padding: 10px 20px;
+    font-size: 30px;
+    margin: 4px 2px;
+}
+
+#StatSelector {
+    position:relative;
+    right: 0px;
+    display: flex;
+}
+
+input {
+    background-color: rgba(65, 65, 65, 0.695);
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+    border: none;
+}
+
+select {
+    background-color: rgba(65, 65, 65, 0.695);
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+    border: none;
+}
+
+#StatSelector input {
+    width: 35px;
+    height: 20px;
+}
+.container {
+  margin: 5px;
+  display: flex;
+}
+
+.container p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.PlayerStatInput{
+  position: absolute;
+  width: 1150px;
+  height: 280px;
+  margin: 0 auto; /* centers the div horizontally */
+  right: 10px;
+}
+
+.PlayerRoster{
+    position: absolute;
+    width: 350px;
+    height: 800px;
+    border: 0px solid white;
+    left: 10px;
+}
+.PlayerRosterText{
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    border: 0px solid white;
+    top: 0px;
+}
+.PlayerRosterViewer{
+    position: absolute;
+    width: 95%;
+    height: 80%;
+    border: 0px solid white;
+    top: 10%;
+    background-color:rgb(65, 65, 65);
+    border-radius: 2px;
+}
+.PlayerRosterAdd{
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    border: 0px solid white;
+    bottom: 0px;
+    text-align: center;
+}
+.AddPlayerButton{
+    position: relative;
+    bottom: 0%;
+    padding: 2px;
+    font-size: 20px;
+    margin: 4px 2px;
+
+}
+.PlayerActionListInput{
+    position: absolute;
+width: 1150px;
+height: 89%;
+border: 0px solid white;
+right: 10px;
+bottom: -300px;
+}
+
+ body {
+    width: 100%;
+    height: 1000px;
+ }
+
+.PlayerActionListViewer{
+position: absolute;
+width: 94%;
+height: 49%;
+border: 0px solid white;
+right: 3%;
+top: 0%;
+background-color: #c3c3c3;
+border-radius: 5px;
+display: grid;
+  grid-template-columns: repeat(22,50px);
+  grid-template-rows: repeat(8, 50px); /* Your number of rows */
+  grid-auto-flow: row;
+  direction: ltr;
+}
+.PlayerActionListPick{
+position: absolute;
+width: 94%;
+height: 49%;
+border: 0px solid white;
+right: 3%;
+bottom: 0%;
+background-color: #333;
+border-radius: 5px;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.Icon {
+    cursor: pointer;
+    align-self: center;
+}
+
+.SubmitSimulation{
+    position: absolute;
+  width: 95%;
+  height: 200px;
+  border: 1px solid white;
+  right: 2.5%;
+  bottom: -500px;
+}
+
+
+    </style>
+<title>FFXIV Combat Simulator</title>
+<link rel="icon" type="image/png" href="{% static 'simulate\kirbo.png' %}">
+</head>
+<html class="body">
+<header>
+    <div class="marginHeader">
+        <div class="menu">
+        <a href="/simulate/" class="menu" style="text-decoration: none; color: inherit;">
+        <img src="{% static 'simulate\kirbo.png' %}" alt="Sussy Kirbo" style="margin-right: 10px;" width="40" height="40">
+        <h3 class="heading mainText marginZero">FFXIV Combat Simulator</h3>
+        </a>
+    </div>
+    <div class="menu">
+        <a href="https://github.com/IAmPythagoras/FFXIV-Combat-Simulator" title="github">
+        <img src="{% static 'simulate\github.png' %}" width="40" height="40">
+        </a>
+    </div>
+    <div class="menu">
+        <a href="https://discord.gg/mZXKUNy2sw" title="Discord server">
+        <img src="{% static 'simulate\discord.svg' %}" width="40" height="40">
+        </a>
+    </div>
+    </div>
+</header>
+<hr>
+<div>
+<div class="PlayerRoster" style="border-right: 1px solid #333;">
+    <div class="PlayerRosterText">
+    <h2><center>Player Roster</center></h2>
+    </div>
+    <!--This will let the user see the current roster and also add new players-->
+    <div class="PlayerRosterViewer" id="PlayerRosterViewer">  
+    </div>
+    <div class="PlayerRosterAdd">
+    <button class="AddPlayerButton basicButton bigbutton" onclick="addNewPlayer()">Add Player</button>
+    </div>
+</div>
+
+<div class="PlayerStatInput" style="border-bottom: 1px solid #333; ;">
+    <h2><center>Player configuration</center></h2>
+    <div id="StatSelector">
+        <!--This will let the user edit the stats of the currently selected player-->
+        <div class="container"><p>MainStat : </p><input id="MainStat" type="text" name="MainStat" value="390"></div>
+        <div class="container"><p>Crit : </p><input id="Crit" type="text" name="Crit" value="400"></div>
+        <div class="container"><p>Direct Hit : </p><input id="DH" type="text" name="DH" value="400"></div>
+        <div class="container"><p>Weapon Damage : </p><input id="WD" type="text" name="WD" value="400"></div>
+        <div class="container"><p>Skill Speed : </p><input id="SkS" type="text" name="SkS" value="400"></div>
+        <div class="container"><p>Spell Speed : </p><input id="SpS" type="text" name="SpS" value="400"></div>
+        <div class="container"><p>Determination : </p><input id="Det" type="text" name="Det" value="400"></div>
+        <div class="container"><p>Tenacity : </p><input id="Ten" type="text" name="Ten" value="400"></div>
+    </div>
+    <div class="container">
+        <!--Lets a user simply put an etro gear set link to import the stats-->
+        <p>You can also just use an etro gearset : </p>
+        <input type="text" value="Put etro URL here" style="margin-right: 10px;margin-left: 10px;" id="etroURL">
+        <p  style="color: rgba(255, 255, 255, 0.7);">(If a valid link is put here, it will overwrite the stats when the simulation is launched)</p>
+    </div>
+    <div style="align-items: center;">
+        <div class="container">
+        <p>Job :</p>
+        <select name="Job" id="Job" style="margin-right: 10px;margin-left: 10px;" onchange="LoadPlayerActionsPick(ChangingJob=true)" selected="BlackMage">
+            <option value="BlackMage">BlackMage</option>
+            <option value="RedMage">RedMage</option>
+            <option value="Summoner">Summoner</option>
+            <option value="Ninja">Ninja</option>
+            <option value="Samurai">Samurai</option>
+            <option value="Reaper">Reaper</option>
+            <option value="Monk">Monk</option>
+            <option value="Dragoon">Dragoon</option>
+            <option value="Machinist">Machinist</option>
+            <option value="Dancer">Dancer</option>
+            <option value="Bard">Bard</option>
+            <option value="WhiteMage">WhiteMage</option>
+            <option value="Astrologian">Astrologian</option>
+            <option value="Sage">Sage</option>
+            <option value="Scholar">Scholar</option>
+            <option value="Gunbreaker">Gunbreaker</option>
+            <option value="Warrior">Warrior</option>
+            <option value="DarkKnight">DarkKnight</option>
+            <option value="Paladin">Paladin</option>
+        </select>
+        </div>
+    </div>
+        <div class="container">
+            <!--Lets a user simply put an etro gear set link to import the stats-->
+            <p>Player name :</p>
+            <input type="text" id="PlayerName" style="margin-right: 10px;margin-left: 10px;" onchange="UpdateName()">
+        </div>
+    <div style="align-items: center;">
+        <p id="PlayerIDField"></p>
+    </div>
+    <div style="position: absolute;bottom: -15px;right: 5px;">
+    <p style="color: rgba(255, 255, 255, 0.7);">Note that the stats must include what is gained from food!</p>
+    </div>
+</div>
+<div class="PlayerActionListInput">
+        <!--This will let the user edit the actionList of the currently selected player-->
+    <div class="PlayerActionListViewer" id="PlayerActionListViewer">
+
+    </div>
+    <div class="PlayerActionListPick wrapper" id="ActionListPick">
+
+    </div>
+</div>
+</div>
+<div class="SubmitSimulation">
+    <hr>
+    <h2><center>Fight Configuration</center></h2>
+    <div>
+        <input type="checkbox" id="RequirementOnCheckBox">
+        <label for="RequirementOnCheckBox"> : Stop simulation if an illegal action is detected.</label><br>
+        <input type="checkbox" id="IgnoreManaCheckBox">
+        <label for="IgnoreManaCheckBox"> : Ignore mana requirements.</label>
+    </div>
+    <div><center>
+        <button class="basicButton bigbutton" onclick="Submit()">Simulate</button>
+    </center></div>
+</div>
+
+</html>
