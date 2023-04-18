@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'ffxivdpscalc'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6AE7C558850944028ACDC024191D098E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3B1915DFA5C64790A074B872FD0D4529 }}
