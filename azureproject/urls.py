@@ -18,6 +18,5 @@ from django.urls import include, path
 
 urlpatterns = [
     path('', include('restaurant_review.urls')),
-    path('simulate/', include('simulate.urls')),
     path('admin/', admin.site.urls),
 ]
