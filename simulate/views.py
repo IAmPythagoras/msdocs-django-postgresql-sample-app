@@ -72,11 +72,11 @@ def SimulationResult(request):
     string = base64.b64encode(buf.read())
     uri = urllib.parse.quote(string)
 
-    return render(request, 'simulate\SimulatingResult.html', {"result_str" : result_arr, "graph" : uri})
+    return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri})
 
 def results(request):
     return render(request, '', {})
 
 def credit(request):
-    return render(request, 'simulate\credit.html', {})
+    return render(request, 'simulate/credit.html', {})
 index(None)
