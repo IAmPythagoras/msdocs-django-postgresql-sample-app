@@ -1,0 +1,813 @@
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+WARNING:ffxivcalc.FFLogsAPI:Action Not found , Job : BlackMage , ActionId : 25793 , targetID : 0 , sourceID : 0
+WARNING:ffxivcalc.FFLogsAPI:Since action was not found defaulting to WaitAbility(0).
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : Addle
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : Addle , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 0.01 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.51 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 180 , Damage : 1058
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : LeyLines
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : LeyLines , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 0.01 , Event : begin_cast_oGCD , playerID : 0 , Ability : Swiftcast
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0.01 , Event : end_cast , playerID : 0 , Ability : Swiftcast , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 0.02 , Event : begin_cast_GCD , playerID : 0 , Ability : ThunderIII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0.02 , Event : end_cast , playerID : 0 , Ability : ThunderIII , Potency : 50 , Damage : 354
+DEBUG:ffxivcalc.Fight:Timestamp : 0.03 , Event : begin_cast_oGCD , playerID : 0 , Ability : LucidDreaming
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0.03 , Event : end_cast , playerID : 0 , Ability : LucidDreaming , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 2.15 , Event : begin_cast_GCD , playerID : 0 , Ability : FireII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 4.7 , Event : end_cast , playerID : 0 , Ability : FireII , Potency : 140.0 , Damage : 995
+DEBUG:ffxivcalc.Fight:Timestamp : 4.71 , Event : begin_cast_oGCD , playerID : 0 , Ability : AetherialManipulation
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 4.71 , Event : end_cast , playerID : 0 , Ability : AetherialManipulation , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 4.72 , Event : begin_cast_oGCD , playerID : 0 , Ability : Amplifier
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 4.72 , Event : end_cast , playerID : 0 , Ability : Amplifier , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 4.73 , Event : begin_cast_GCD , playerID : 0 , Ability : FireIII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 7.7 , Event : end_cast , playerID : 0 , Ability : FireIII , Potency : 468.0 , Damage : 3332
+DEBUG:ffxivcalc.Fight:Timestamp : 7.71 , Event : begin_cast_oGCD , playerID : 0 , Ability : Manafont
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 7.71 , Event : end_cast , playerID : 0 , Ability : Manafont , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 7.72 , Event : begin_cast_GCD , playerID : 0 , Ability : ThunderIV
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 9.84 , Event : end_cast , playerID : 0 , Ability : ThunderIV , Potency : 50 , Damage : 354
+DEBUG:ffxivcalc.Fight:Timestamp : 9.85 , Event : begin_cast_oGCD , playerID : 0 , Ability : Transpose
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 9.85 , Event : end_cast , playerID : 0 , Ability : Transpose , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 9.86 , Event : begin_cast_oGCD , playerID : 0 , Ability : Manaward
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 9.86 , Event : end_cast , playerID : 0 , Ability : Manaward , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 9.87 , PlayerID : 0 , RequirementName : FireRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 9.87 , Event : begin_cast_GCD , playerID : 0 , Ability : FireIV
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 12.25 , Event : end_cast , playerID : 0 , Ability : FireIV , Potency : 279.0 , Damage : 1984
+DEBUG:ffxivcalc.Fight:Timestamp : 12.26 , Event : begin_cast_oGCD , playerID : 0 , Ability : BetweenTheLines
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 12.26 , Event : end_cast , playerID : 0 , Ability : BetweenTheLines , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 12.27 , Event : begin_cast_GCD , playerID : 0 , Ability : BlizzardI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 14.39 , Event : end_cast , playerID : 0 , Ability : BlizzardI , Potency : 180 , Damage : 1280
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 14.4 , PlayerID : 0 , RequirementName : FireRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 14.4 , Event : begin_cast_GCD , playerID : 0 , Ability : Flare
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.8 , Event : end_cast , playerID : 0 , Ability : Flare , Potency : 176.0 , Damage : 1252
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 17.81 , PlayerID : 0 , RequirementName : ManaRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 17.81 , Event : begin_cast_GCD , playerID : 0 , Ability : Paradox
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 19.93 , Event : end_cast , playerID : 0 , Ability : Paradox , Potency : 500 , Damage : 3561
+DEBUG:ffxivcalc.Fight:Timestamp : 19.94 , Event : begin_cast_oGCD , playerID : 0 , Ability : Triplecast
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 19.94 , Event : end_cast , playerID : 0 , Ability : Triplecast , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 19.95 , PlayerID : 0 , RequirementName : ManaRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 19.95 , Event : begin_cast_GCD , playerID : 0 , Ability : Despair
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 19.95 , Event : end_cast , playerID : 0 , Ability : Despair , Potency : 612.0 , Damage : 4358
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 22.08 , PlayerID : 0 , RequirementName : ManaRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 22.08 , Event : begin_cast_GCD , playerID : 0 , Ability : Scathe
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 22.08 , Event : end_cast , playerID : 0 , Ability : Scathe , Potency : 100 , Damage : 711
+DEBUG:ffxivcalc.Fight:Timestamp : 24.21 , Event : begin_cast_GCD , playerID : 0 , Ability : Foul
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.21 , Event : end_cast , playerID : 0 , Ability : Foul , Potency : 600 , Damage : 4273
+DEBUG:ffxivcalc.Fight:Timestamp : 24.22 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.22 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 26.34 , Event : begin_cast_GCD , playerID : 0 , Ability : BlizzardIII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 26.34 , Event : end_cast , playerID : 0 , Ability : BlizzardIII , Potency : 182.0 , Damage : 1295
+DEBUG:ffxivcalc.Fight:Timestamp : 28.47 , Event : begin_cast_GCD , playerID : 0 , Ability : Freeze
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 28.47 , Event : end_cast , playerID : 0 , Ability : Freeze , Potency : 120 , Damage : 852
+DEBUG:ffxivcalc.Fight:Timestamp : 28.48 , Event : begin_cast_oGCD , playerID : 0 , Ability : Sharpcast
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 28.48 , Event : end_cast , playerID : 0 , Ability : Sharpcast , Potency : 0 , Damage : 0
+ERROR:django.request:Internal Server Error: /simulate/simulating/
+Traceback (most recent call last):
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\views.py", line 59, in SimulationResult
+    result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\ffxivcalc\Fight.py", line 173, in SimulateFight
+    player.CastingSpell = player.ActionSet[player.NextSpell].Cast(player, self.Enemy)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\ffxivcalc\Jobs\Base_Spell.py", line 121, in Cast
+    if tempSpell.id > 0 and tempSpell.CastTime < Lock : tempSpell.CastTime = 0 #id < 0 are special abilities like DOT, so we do not want them to be affected by that
+TypeError: '<' not supported between instances of 'str' and 'float'
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 180 , Damage : 1058
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 2.5
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\views.py changed, reloading.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : ThunderIII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : ThunderIII , Potency : 50 , Damage : 293
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 29.99 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 29.99
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : ThunderIII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : ThunderIII , Potency : 50 , Damage : 293
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 29.99 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 29.99
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : ThunderIII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : ThunderIII , Potency : 50 , Damage : 293
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 29.99 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 29.99
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : ThunderIII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : ThunderIII , Potency : 50 , Damage : 293
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 29.99 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 29.99
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : ThunderIII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : ThunderIII , Potency : 50 , Damage : 293
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 29.99 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 29.99
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : Summoner for playerID : 0
+WARNING:ffxivcalc.ActionEnum:Unable to match name : akh_morn to an ability id in class : SummonerActions
+WARNING:ffxivcalc.FFLogsAPI:Action Not found , Job : Summoner , ActionId : -1 , targetID : 0 , sourceID : 0
+WARNING:ffxivcalc.FFLogsAPI:Since action was not found defaulting to WaitAbility(0).
+WARNING:ffxivcalc.ActionEnum:Unable to match name : gemshine to an ability id in class : SummonerActions
+WARNING:ffxivcalc.FFLogsAPI:Action Not found , Job : Summoner , ActionId : -1 , targetID : 0 , sourceID : 0
+WARNING:ffxivcalc.FFLogsAPI:Since action was not found defaulting to WaitAbility(0).
+WARNING:ffxivcalc.ActionEnum:Unable to match name : Summon to an ability id in class : SummonerActions
+WARNING:ffxivcalc.FFLogsAPI:Action Not found , Job : Summoner , ActionId : -1 , targetID : 0 , sourceID : 0
+WARNING:ffxivcalc.FFLogsAPI:Since action was not found defaulting to WaitAbility(0).
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : Summoner , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : Addle
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : Addle , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 0.01 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0.01 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 0.02 , PlayerID : 0 , RequirementName : FoFRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 0.02 , Event : begin_cast_GCD , playerID : 0 , Ability : FountainOfFire
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0.76 , Event : end_cast , playerID : 0 , Ability : FountainOfFire , Potency : 540 , Damage : 3178
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 1.76 , PlayerID : 0 , RequirementName : CycloneRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 1.76 , Event : begin_cast_GCD , playerID : 0 , Ability : Cyclone
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : Cyclone , Potency : 430 , Damage : 2530
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 2.51 , PlayerID : 0 , RequirementName : DeathflareRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 2.51 , Event : begin_cast_oGCD , playerID : 0 , Ability : Deathflare
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.25 , Event : end_cast , playerID : 0 , Ability : Deathflare , Potency : 500 , Damage : 2943
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 4.27 , PlayerID : 0 , RequirementName : EmeraldRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 4.27 , Event : begin_cast_GCD , playerID : 0 , Ability : Emerald
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.01 , Event : end_cast , playerID : 0 , Ability : Emerald , Potency : 230 , Damage : 1353
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 5.77 , PlayerID : 0 , RequirementName : EmeraldRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 5.77 , Event : begin_cast_GCD , playerID : 0 , Ability : EmeraldCatastrophe
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.77 , Event : end_cast , playerID : 0 , Ability : EmeraldCatastrophe , Potency : 100 , Damage : 588
+DEBUG:ffxivcalc.Fight:Timestamp : 5.78 , Event : begin_cast_oGCD , playerID : 0 , Ability : EnergyDrain
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 6.52 , Event : end_cast , playerID : 0 , Ability : EnergyDrain , Potency : 200 , Damage : 1177
+DEBUG:ffxivcalc.Fight:Timestamp : 6.53 , Event : begin_cast_oGCD , playerID : 0 , Ability : EnergyDrain
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 7.27 , Event : end_cast , playerID : 0 , Ability : EnergyDrain , Potency : 200 , Damage : 1177
+DEBUG:ffxivcalc.Fight:Timestamp : 7.28 , Event : begin_cast_oGCD , playerID : 0 , Ability : Painflare
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 7.28 , Event : end_cast , playerID : 0 , Ability : Painflare , Potency : 150 , Damage : 882
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 7.29 , PlayerID : 0 , RequirementName : MountainRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 7.29 , Event : begin_cast_oGCD , playerID : 0 , Ability : Mountain
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.03 , Event : end_cast , playerID : 0 , Ability : Mountain , Potency : 150 , Damage : 882
+DEBUG:ffxivcalc.Fight:Timestamp : 8.04 , Event : begin_cast_oGCD , playerID : 0 , Ability : LucidDreaming
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.04 , Event : end_cast , playerID : 0 , Ability : LucidDreaming , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 8.05 , PlayerID : 0 , RequirementName : IfritRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 8.05 , Event : begin_cast_GCD , playerID : 0 , Ability : Ifrit
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.79 , Event : end_cast , playerID : 0 , Ability : Ifrit , Potency : 750 , Damage : 4415
+DEBUG:ffxivcalc.Fight:Timestamp : 8.8 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.8 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 10.56 , PlayerID : 0 , RequirementName : GarudaRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 10.56 , Event : begin_cast_GCD , playerID : 0 , Ability : Garuda
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 11.3 , Event : end_cast , playerID : 0 , Ability : Garuda , Potency : 750 , Damage : 4415
+DEBUG:ffxivcalc.Fight:Timestamp : 11.31 , Event : begin_cast_oGCD , playerID : 0 , Ability : Fester
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 12.05 , Event : end_cast , playerID : 0 , Ability : Fester , Potency : 340 , Damage : 2000
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 12.06 , PlayerID : 0 , RequirementName : EnkindleRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 12.06 , Event : begin_cast_oGCD , playerID : 0 , Ability : EnkindleBahamut
+ERROR:django.request:Internal Server Error: /simulate/simulating/
+Traceback (most recent call last):
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\views.py", line 63, in SimulationResult
+    result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\ffxivcalc\Fight.py", line 235, in SimulateFight
+    player.updateLock() # Update the lock on the player to see if the player's state changes
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\ffxivcalc\Jobs\Player.py", line 437, in updateLock
+    self.CastingSpell.CastFinal(self, self.CastingTarget)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\ffxivcalc\Jobs\Base_Spell.py", line 135, in CastFinal
+    Effect(player, Enemy)#Put effects on Player and/or Enemy
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\ffxivcalc\Jobs\Caster\Summoner\Summoner_Spell.py", line 153, in ApplyEnkindle
+    Player.Pet.TrueLock = False
+AttributeError: 'NoneType' object has no attribute 'TrueLock'
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : Summoner for playerID : 0
+WARNING:ffxivcalc.ActionEnum:Unable to match name : akh_morn to an ability id in class : SummonerActions
+WARNING:ffxivcalc.FFLogsAPI:Action Not found , Job : Summoner , ActionId : -1 , targetID : 0 , sourceID : 0
+WARNING:ffxivcalc.FFLogsAPI:Since action was not found defaulting to WaitAbility(0).
+WARNING:ffxivcalc.ActionEnum:Unable to match name : gemshine to an ability id in class : SummonerActions
+WARNING:ffxivcalc.FFLogsAPI:Action Not found , Job : Summoner , ActionId : -1 , targetID : 0 , sourceID : 0
+WARNING:ffxivcalc.FFLogsAPI:Since action was not found defaulting to WaitAbility(0).
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : Summoner , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : Addle
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : Addle , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 0.01 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0.01 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 0.02 , PlayerID : 0 , RequirementName : FoFRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 0.02 , Event : begin_cast_GCD , playerID : 0 , Ability : FountainOfFire
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0.76 , Event : end_cast , playerID : 0 , Ability : FountainOfFire , Potency : 540 , Damage : 3178
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 1.76 , PlayerID : 0 , RequirementName : CycloneRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 1.76 , Event : begin_cast_GCD , playerID : 0 , Ability : Cyclone
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : Cyclone , Potency : 430 , Damage : 2530
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 2.51 , PlayerID : 0 , RequirementName : DeathflareRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 2.51 , Event : begin_cast_oGCD , playerID : 0 , Ability : Deathflare
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.25 , Event : end_cast , playerID : 0 , Ability : Deathflare , Potency : 500 , Damage : 2943
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 4.27 , PlayerID : 0 , RequirementName : EmeraldRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 4.27 , Event : begin_cast_GCD , playerID : 0 , Ability : Emerald
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.01 , Event : end_cast , playerID : 0 , Ability : Emerald , Potency : 230 , Damage : 1353
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 5.77 , PlayerID : 0 , RequirementName : EmeraldRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 5.77 , Event : begin_cast_GCD , playerID : 0 , Ability : EmeraldCatastrophe
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.77 , Event : end_cast , playerID : 0 , Ability : EmeraldCatastrophe , Potency : 100 , Damage : 588
+DEBUG:ffxivcalc.Fight:Timestamp : 5.78 , Event : begin_cast_oGCD , playerID : 0 , Ability : EnergyDrain
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 6.52 , Event : end_cast , playerID : 0 , Ability : EnergyDrain , Potency : 200 , Damage : 1177
+DEBUG:ffxivcalc.Fight:Timestamp : 6.53 , Event : begin_cast_oGCD , playerID : 0 , Ability : EnergyDrain
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 7.27 , Event : end_cast , playerID : 0 , Ability : EnergyDrain , Potency : 200 , Damage : 1177
+DEBUG:ffxivcalc.Fight:Timestamp : 7.28 , Event : begin_cast_oGCD , playerID : 0 , Ability : Painflare
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 7.28 , Event : end_cast , playerID : 0 , Ability : Painflare , Potency : 150 , Damage : 882
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 7.29 , PlayerID : 0 , RequirementName : MountainRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 7.29 , Event : begin_cast_oGCD , playerID : 0 , Ability : Mountain
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.03 , Event : end_cast , playerID : 0 , Ability : Mountain , Potency : 150 , Damage : 882
+DEBUG:ffxivcalc.Fight:Timestamp : 8.04 , Event : begin_cast_oGCD , playerID : 0 , Ability : LucidDreaming
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.04 , Event : end_cast , playerID : 0 , Ability : LucidDreaming , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 8.05 , PlayerID : 0 , RequirementName : IfritRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 8.05 , Event : begin_cast_GCD , playerID : 0 , Ability : Ifrit
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.79 , Event : end_cast , playerID : 0 , Ability : Ifrit , Potency : 750 , Damage : 4415
+DEBUG:ffxivcalc.Fight:Timestamp : 8.8 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.8 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 10.56 , PlayerID : 0 , RequirementName : GarudaRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 10.56 , Event : begin_cast_GCD , playerID : 0 , Ability : Garuda
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 11.3 , Event : end_cast , playerID : 0 , Ability : Garuda , Potency : 750 , Damage : 4415
+DEBUG:ffxivcalc.Fight:Timestamp : 11.31 , Event : begin_cast_oGCD , playerID : 0 , Ability : Fester
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 12.05 , Event : end_cast , playerID : 0 , Ability : Fester , Potency : 340 , Damage : 2000
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 12.06 , PlayerID : 0 , RequirementName : EnkindleRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 12.06 , Event : begin_cast_oGCD , playerID : 0 , Ability : EnkindleBahamut
+ERROR:django.request:Internal Server Error: /simulate/simulating/
+Traceback (most recent call last):
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\views.py", line 63, in SimulationResult
+    result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\ffxivcalc\Fight.py", line 235, in SimulateFight
+    player.updateLock() # Update the lock on the player to see if the player's state changes
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\ffxivcalc\Jobs\Player.py", line 437, in updateLock
+    self.CastingSpell.CastFinal(self, self.CastingTarget)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\ffxivcalc\Jobs\Base_Spell.py", line 135, in CastFinal
+    Effect(player, Enemy)#Put effects on Player and/or Enemy
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\ffxivcalc\Jobs\Caster\Summoner\Summoner_Spell.py", line 153, in ApplyEnkindle
+    Player.Pet.TrueLock = False
+AttributeError: 'NoneType' object has no attribute 'TrueLock'
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : Ninja for playerID : 0
+WARNING:ffxivcalc.ActionEnum:Unable to match name : FleetinRaiju to an ability id in class : NinjaActions
+WARNING:ffxivcalc.FFLogsAPI:Action Not found , Job : Ninja , ActionId : -1 , targetID : 0 , sourceID : 0
+WARNING:ffxivcalc.FFLogsAPI:Since action was not found defaulting to WaitAbility(0).
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : Ninja , f_WD : 4.42 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : AeolianEdge
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : AeolianEdge , Potency : 200 , Damage : 901
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : ArmLength
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : ArmLength , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 2.5 , Event : begin_cast_GCD , playerID : 0 , Ability : ArmorCrush
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : ArmorCrush , Potency : 200 , Damage : 901
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 2.51 , PlayerID : 0 , RequirementName : BhavacakraRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 2.51 , Event : begin_cast_oGCD , playerID : 0 , Ability : Bhavacakra
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.0 , Event : end_cast , playerID : 0 , Ability : Bhavacakra , Potency : 350 , Damage : 1577
+DEBUG:ffxivcalc.Fight:Timestamp : 3.01 , Event : begin_cast_oGCD , playerID : 0 , Ability : Bloodbath
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.01 , Event : end_cast , playerID : 0 , Ability : Bloodbath , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 3.02 , PlayerID : 0 , RequirementName : BunshinRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 3.02 , Event : begin_cast_oGCD , playerID : 0 , Ability : Bunshin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.51 , Event : end_cast , playerID : 0 , Ability : Bunshin , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 5.01 , Event : begin_cast_GCD , playerID : 0 , Ability : Chi
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.01 , Event : end_cast , playerID : 0 , Ability : Chi , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 5.51 , Event : begin_cast_GCD , playerID : 0 , Ability : DeathBlossom
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.51 , Event : end_cast , playerID : 0 , Ability : DeathBlossom , Potency : 100 , Damage : 450
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 8.02 , PlayerID : 0 , RequirementName : DotonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 8.02 , Event : begin_cast_GCD , playerID : 0 , Ability : Doton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.51 , Event : end_cast , playerID : 0 , Ability : Doton , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 8.52 , PlayerID : 0 , RequirementName : BhavacakraRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 8.52 , Event : begin_cast_oGCD , playerID : 0 , Ability : HellfrogMedium
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 9.01 , Event : end_cast , playerID : 0 , Ability : HellfrogMedium , Potency : 160 , Damage : 721
+DEBUG:ffxivcalc.Fight:Timestamp : 9.02 , Event : begin_cast_oGCD , playerID : 0 , Ability : LegSweep
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 9.02 , Event : end_cast , playerID : 0 , Ability : LegSweep , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 9.52 , PlayerID : 0 , RequirementName : SuitonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 9.52 , Event : begin_cast_GCD , playerID : 0 , Ability : Suiton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 10.01 , Event : end_cast , playerID : 0 , Ability : Suiton , Potency : 500 , Damage : 2254
+DEBUG:ffxivcalc.Fight:Timestamp : 11.02 , Event : begin_cast_GCD , playerID : 0 , Ability : SpinningEdge
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 11.02 , Event : end_cast , playerID : 0 , Ability : SpinningEdge , Potency : 220 , Damage : 991
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 13.53 , PlayerID : 0 , RequirementName : KatonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 13.53 , Event : begin_cast_GCD , playerID : 0 , Ability : Katon
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 14.02 , Event : end_cast , playerID : 0 , Ability : Katon , Potency : 350 , Damage : 1577
+DEBUG:ffxivcalc.Fight:Timestamp : 15.03 , Event : begin_cast_GCD , playerID : 0 , Ability : HakkeMujinsatsu
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 15.03 , Event : end_cast , playerID : 0 , Ability : HakkeMujinsatsu , Potency : 130 , Damage : 585
+DEBUG:ffxivcalc.Fight:Timestamp : 17.54 , Event : begin_cast_GCD , playerID : 0 , Ability : GustSlash
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.54 , Event : end_cast , playerID : 0 , Ability : GustSlash , Potency : 320 , Damage : 1442
+DEBUG:ffxivcalc.Fight:Timestamp : 17.55 , Event : begin_cast_oGCD , playerID : 0 , Ability : Kassatsu
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.55 , Event : end_cast , playerID : 0 , Ability : Kassatsu , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 17.56 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.56 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 17.57 , Event : begin_cast_oGCD , playerID : 0 , Ability : ShadeShift
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.57 , Event : end_cast , playerID : 0 , Ability : ShadeShift , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 20.05 , Event : begin_cast_GCD , playerID : 0 , Ability : Jin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 20.05 , Event : end_cast , playerID : 0 , Ability : Jin , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 20.55 , PlayerID : 0 , RequirementName : KatonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 20.55 , Event : begin_cast_GCD , playerID : 0 , Ability : GokaMekkyaku
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 21.04 , Event : end_cast , playerID : 0 , Ability : GokaMekkyaku , Potency : 600 , Damage : 3515
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 22.05 , PlayerID : 0 , RequirementName : FumaShurikenRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 22.05 , Event : begin_cast_GCD , playerID : 0 , Ability : FumaShuriken
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 22.54 , Event : end_cast , playerID : 0 , Ability : FumaShuriken , Potency : 450 , Damage : 2028
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 23.55 , PlayerID : 0 , RequirementName : HyotonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 23.55 , Event : begin_cast_GCD , playerID : 0 , Ability : Hyoton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.04 , Event : end_cast , playerID : 0 , Ability : Hyoton , Potency : 350 , Damage : 1577
+DEBUG:ffxivcalc.Fight:Timestamp : 24.05 , Event : begin_cast_oGCD , playerID : 0 , Ability : SecondWind
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.05 , Event : end_cast , playerID : 0 , Ability : SecondWind , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 24.06 , Event : begin_cast_oGCD , playerID : 0 , Ability : TrueNorth
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.06 , Event : end_cast , playerID : 0 , Ability : TrueNorth , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 24.07 , Event : begin_cast_oGCD , playerID : 0 , Ability : TrickAttack
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.07 , Event : end_cast , playerID : 0 , Ability : TrickAttack , Potency : 400 , Damage : 1982
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 25.05 , PlayerID : 0 , RequirementName : RaitonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 25.05 , Event : begin_cast_GCD , playerID : 0 , Ability : Raiton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 25.54 , Event : end_cast , playerID : 0 , Ability : Raiton , Potency : 650 , Damage : 3223
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 26.55 , PlayerID : 0 , RequirementName : HyotonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 26.55 , Event : begin_cast_GCD , playerID : 0 , Ability : HyoshoRanryu
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 27.04 , Event : end_cast , playerID : 0 , Ability : HyoshoRanryu , Potency : 1300 , Damage : 6446
+DEBUG:ffxivcalc.Fight:Timestamp : 28.05 , Event : begin_cast_GCD , playerID : 0 , Ability : FleetingRaiju
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 28.05 , Event : end_cast , playerID : 0 , Ability : FleetingRaiju , Potency : 560 , Damage : 2776
+DEBUG:ffxivcalc.Fight:Timestamp : 28.06 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 28.06 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 30.56 , PlayerID : 0 , RequirementName : HutonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 30.56 , Event : begin_cast_GCD , playerID : 0 , Ability : Huton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 31.05 , Event : end_cast , playerID : 0 , Ability : Huton , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 32.06 , Event : begin_cast_GCD , playerID : 0 , Ability : PhantomKamaitachi
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 32.06 , Event : end_cast , playerID : 0 , Ability : PhantomKamaitachi , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 34.19 , Event : begin_cast_GCD , playerID : 0 , Ability : ThrowingDagger
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 34.19 , Event : end_cast , playerID : 0 , Ability : ThrowingDagger , Potency : 120 , Damage : 594
+DEBUG:ffxivcalc.Fight:Timestamp : 34.2 , Event : begin_cast_oGCD , playerID : 0 , Ability : TenChiJin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 34.2 , Event : end_cast , playerID : 0 , Ability : TenChiJin , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 34.21 , Event : begin_cast_oGCD , playerID : 0 , Ability : Mug
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 34.21 , Event : end_cast , playerID : 0 , Ability : Mug , Potency : 150 , Damage : 780
+DEBUG:ffxivcalc.Fight:Timestamp : 36.32 , Event : begin_cast_GCD , playerID : 0 , Ability : Huraijin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 36.32 , Event : end_cast , playerID : 0 , Ability : Huraijin , Potency : 200 , Damage : 1040
+DEBUG:ffxivcalc.Fight:Timestamp : 36.33 , Event : begin_cast_oGCD , playerID : 0 , Ability : Feint
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 36.33 , Event : end_cast , playerID : 0 , Ability : Feint , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 36.34 , Event : begin_cast_oGCD , playerID : 0 , Ability : DreamWithinADream
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 36.34 , Event : end_cast , playerID : 0 , Ability : DreamWithinADream , Potency : 450 , Damage : 2341
+DEBUG:ffxivcalc.Fight:Timestamp : 38.45 , Event : begin_cast_GCD , playerID : 0 , Ability : Hide
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 38.45 , Event : end_cast , playerID : 0 , Ability : Hide , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 38.46 , PlayerID : 0 , RequirementName : MeisuiRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 38.46 , Event : begin_cast_oGCD , playerID : 0 , Ability : Meisui
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 38.95 , Event : end_cast , playerID : 0 , Ability : Meisui , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 38.96 , Event : begin_cast_GCD , playerID : 0 , Ability : Ten
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 38.96 , Event : end_cast , playerID : 0 , Ability : Ten , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 38.96
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+INFO:django.utils.autoreload:C:\Users\antot\AppData\Local\Programs\Python\Python310\Lib\site-packages\ffxivcalc\Jobs\Player.py changed, reloading.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : Ninja for playerID : 0
+WARNING:ffxivcalc.ActionEnum:Unable to match name : FleetinRaiju to an ability id in class : NinjaActions
+WARNING:ffxivcalc.FFLogsAPI:Action Not found , Job : Ninja , ActionId : -1 , targetID : 0 , sourceID : 0
+WARNING:ffxivcalc.FFLogsAPI:Since action was not found defaulting to WaitAbility(0).
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : Ninja , f_WD : 4.42 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : AeolianEdge
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : AeolianEdge , Potency : 200 , Damage : 901
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : ArmLength
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : ArmLength , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 2.5 , Event : begin_cast_GCD , playerID : 0 , Ability : ArmorCrush
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : ArmorCrush , Potency : 200 , Damage : 901
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 2.51 , PlayerID : 0 , RequirementName : BhavacakraRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 2.51 , Event : begin_cast_oGCD , playerID : 0 , Ability : Bhavacakra
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.0 , Event : end_cast , playerID : 0 , Ability : Bhavacakra , Potency : 350 , Damage : 1577
+DEBUG:ffxivcalc.Fight:Timestamp : 3.01 , Event : begin_cast_oGCD , playerID : 0 , Ability : Bloodbath
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.01 , Event : end_cast , playerID : 0 , Ability : Bloodbath , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 3.02 , PlayerID : 0 , RequirementName : BunshinRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 3.02 , Event : begin_cast_oGCD , playerID : 0 , Ability : Bunshin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.51 , Event : end_cast , playerID : 0 , Ability : Bunshin , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 5.01 , Event : begin_cast_GCD , playerID : 0 , Ability : Chi
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.01 , Event : end_cast , playerID : 0 , Ability : Chi , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 5.51 , Event : begin_cast_GCD , playerID : 0 , Ability : DeathBlossom
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.51 , Event : end_cast , playerID : 0 , Ability : DeathBlossom , Potency : 100 , Damage : 450
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 8.02 , PlayerID : 0 , RequirementName : DotonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 8.02 , Event : begin_cast_GCD , playerID : 0 , Ability : Doton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.51 , Event : end_cast , playerID : 0 , Ability : Doton , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 8.52 , PlayerID : 0 , RequirementName : BhavacakraRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 8.52 , Event : begin_cast_oGCD , playerID : 0 , Ability : HellfrogMedium
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 9.01 , Event : end_cast , playerID : 0 , Ability : HellfrogMedium , Potency : 160 , Damage : 721
+DEBUG:ffxivcalc.Fight:Timestamp : 9.02 , Event : begin_cast_oGCD , playerID : 0 , Ability : LegSweep
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 9.02 , Event : end_cast , playerID : 0 , Ability : LegSweep , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 9.52 , PlayerID : 0 , RequirementName : SuitonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 9.52 , Event : begin_cast_GCD , playerID : 0 , Ability : Suiton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 10.01 , Event : end_cast , playerID : 0 , Ability : Suiton , Potency : 500 , Damage : 2254
+DEBUG:ffxivcalc.Fight:Timestamp : 11.02 , Event : begin_cast_GCD , playerID : 0 , Ability : SpinningEdge
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 11.02 , Event : end_cast , playerID : 0 , Ability : SpinningEdge , Potency : 220 , Damage : 991
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 13.53 , PlayerID : 0 , RequirementName : KatonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 13.53 , Event : begin_cast_GCD , playerID : 0 , Ability : Katon
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 14.02 , Event : end_cast , playerID : 0 , Ability : Katon , Potency : 350 , Damage : 1577
+DEBUG:ffxivcalc.Fight:Timestamp : 15.03 , Event : begin_cast_GCD , playerID : 0 , Ability : HakkeMujinsatsu
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 15.03 , Event : end_cast , playerID : 0 , Ability : HakkeMujinsatsu , Potency : 130 , Damage : 585
+DEBUG:ffxivcalc.Fight:Timestamp : 17.54 , Event : begin_cast_GCD , playerID : 0 , Ability : GustSlash
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.54 , Event : end_cast , playerID : 0 , Ability : GustSlash , Potency : 320 , Damage : 1442
+DEBUG:ffxivcalc.Fight:Timestamp : 17.55 , Event : begin_cast_oGCD , playerID : 0 , Ability : Kassatsu
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.55 , Event : end_cast , playerID : 0 , Ability : Kassatsu , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 17.56 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.56 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 17.57 , Event : begin_cast_oGCD , playerID : 0 , Ability : ShadeShift
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.57 , Event : end_cast , playerID : 0 , Ability : ShadeShift , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 20.05 , Event : begin_cast_GCD , playerID : 0 , Ability : Jin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 20.05 , Event : end_cast , playerID : 0 , Ability : Jin , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 20.55 , PlayerID : 0 , RequirementName : KatonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 20.55 , Event : begin_cast_GCD , playerID : 0 , Ability : GokaMekkyaku
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 21.04 , Event : end_cast , playerID : 0 , Ability : GokaMekkyaku , Potency : 600 , Damage : 3515
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 22.05 , PlayerID : 0 , RequirementName : FumaShurikenRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 22.05 , Event : begin_cast_GCD , playerID : 0 , Ability : FumaShuriken
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 22.54 , Event : end_cast , playerID : 0 , Ability : FumaShuriken , Potency : 450 , Damage : 2028
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 23.55 , PlayerID : 0 , RequirementName : HyotonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 23.55 , Event : begin_cast_GCD , playerID : 0 , Ability : Hyoton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.04 , Event : end_cast , playerID : 0 , Ability : Hyoton , Potency : 350 , Damage : 1577
+DEBUG:ffxivcalc.Fight:Timestamp : 24.05 , Event : begin_cast_oGCD , playerID : 0 , Ability : SecondWind
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.05 , Event : end_cast , playerID : 0 , Ability : SecondWind , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 24.06 , Event : begin_cast_oGCD , playerID : 0 , Ability : TrueNorth
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.06 , Event : end_cast , playerID : 0 , Ability : TrueNorth , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 24.07 , Event : begin_cast_oGCD , playerID : 0 , Ability : TrickAttack
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.07 , Event : end_cast , playerID : 0 , Ability : TrickAttack , Potency : 400 , Damage : 1982
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 25.05 , PlayerID : 0 , RequirementName : RaitonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 25.05 , Event : begin_cast_GCD , playerID : 0 , Ability : Raiton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 25.54 , Event : end_cast , playerID : 0 , Ability : Raiton , Potency : 650 , Damage : 3223
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 26.55 , PlayerID : 0 , RequirementName : HyotonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 26.55 , Event : begin_cast_GCD , playerID : 0 , Ability : HyoshoRanryu
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 27.04 , Event : end_cast , playerID : 0 , Ability : HyoshoRanryu , Potency : 1300 , Damage : 6446
+DEBUG:ffxivcalc.Fight:Timestamp : 28.05 , Event : begin_cast_GCD , playerID : 0 , Ability : FleetingRaiju
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 28.05 , Event : end_cast , playerID : 0 , Ability : FleetingRaiju , Potency : 560 , Damage : 2776
+DEBUG:ffxivcalc.Fight:Timestamp : 28.06 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 28.06 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 30.56 , PlayerID : 0 , RequirementName : HutonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 30.56 , Event : begin_cast_GCD , playerID : 0 , Ability : Huton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 31.05 , Event : end_cast , playerID : 0 , Ability : Huton , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 32.06 , Event : begin_cast_GCD , playerID : 0 , Ability : PhantomKamaitachi
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 32.06 , Event : end_cast , playerID : 0 , Ability : PhantomKamaitachi , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 34.19 , Event : begin_cast_GCD , playerID : 0 , Ability : ThrowingDagger
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 34.19 , Event : end_cast , playerID : 0 , Ability : ThrowingDagger , Potency : 120 , Damage : 594
+DEBUG:ffxivcalc.Fight:Timestamp : 34.2 , Event : begin_cast_oGCD , playerID : 0 , Ability : TenChiJin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 34.2 , Event : end_cast , playerID : 0 , Ability : TenChiJin , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 34.21 , Event : begin_cast_oGCD , playerID : 0 , Ability : Mug
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 34.21 , Event : end_cast , playerID : 0 , Ability : Mug , Potency : 150 , Damage : 780
+DEBUG:ffxivcalc.Fight:Timestamp : 36.32 , Event : begin_cast_GCD , playerID : 0 , Ability : Huraijin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 36.32 , Event : end_cast , playerID : 0 , Ability : Huraijin , Potency : 200 , Damage : 1040
+DEBUG:ffxivcalc.Fight:Timestamp : 36.33 , Event : begin_cast_oGCD , playerID : 0 , Ability : Feint
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 36.33 , Event : end_cast , playerID : 0 , Ability : Feint , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 36.34 , Event : begin_cast_oGCD , playerID : 0 , Ability : DreamWithinADream
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 36.34 , Event : end_cast , playerID : 0 , Ability : DreamWithinADream , Potency : 450 , Damage : 2341
+DEBUG:ffxivcalc.Fight:Timestamp : 38.45 , Event : begin_cast_GCD , playerID : 0 , Ability : Hide
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 38.45 , Event : end_cast , playerID : 0 , Ability : Hide , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 38.46 , PlayerID : 0 , RequirementName : MeisuiRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 38.46 , Event : begin_cast_oGCD , playerID : 0 , Ability : Meisui
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 38.95 , Event : end_cast , playerID : 0 , Ability : Meisui , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 38.96 , Event : begin_cast_GCD , playerID : 0 , Ability : Ten
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 38.96 , Event : end_cast , playerID : 0 , Ability : Ten , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 38.96
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : Ninja for playerID : 0
+WARNING:ffxivcalc.ActionEnum:Unable to match name : FleetinRaiju to an ability id in class : NinjaActions
+WARNING:ffxivcalc.FFLogsAPI:Action Not found , Job : Ninja , ActionId : -1 , targetID : 0 , sourceID : 0
+WARNING:ffxivcalc.FFLogsAPI:Since action was not found defaulting to WaitAbility(0).
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : Ninja , f_WD : 4.42 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : AeolianEdge
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : AeolianEdge , Potency : 200 , Damage : 901
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : ArmLength
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : ArmLength , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 2.5 , Event : begin_cast_GCD , playerID : 0 , Ability : ArmorCrush
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : ArmorCrush , Potency : 200 , Damage : 901
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 2.51 , PlayerID : 0 , RequirementName : BhavacakraRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 2.51 , Event : begin_cast_oGCD , playerID : 0 , Ability : Bhavacakra
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.0 , Event : end_cast , playerID : 0 , Ability : Bhavacakra , Potency : 350 , Damage : 1577
+DEBUG:ffxivcalc.Fight:Timestamp : 3.01 , Event : begin_cast_oGCD , playerID : 0 , Ability : Bloodbath
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.01 , Event : end_cast , playerID : 0 , Ability : Bloodbath , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 3.02 , PlayerID : 0 , RequirementName : BunshinRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 3.02 , Event : begin_cast_oGCD , playerID : 0 , Ability : Bunshin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.51 , Event : end_cast , playerID : 0 , Ability : Bunshin , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 5.01 , Event : begin_cast_GCD , playerID : 0 , Ability : Chi
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.01 , Event : end_cast , playerID : 0 , Ability : Chi , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 5.51 , Event : begin_cast_GCD , playerID : 0 , Ability : DeathBlossom
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.51 , Event : end_cast , playerID : 0 , Ability : DeathBlossom , Potency : 100 , Damage : 450
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 8.02 , PlayerID : 0 , RequirementName : DotonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 8.02 , Event : begin_cast_GCD , playerID : 0 , Ability : Doton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.51 , Event : end_cast , playerID : 0 , Ability : Doton , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 8.52 , PlayerID : 0 , RequirementName : BhavacakraRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 8.52 , Event : begin_cast_oGCD , playerID : 0 , Ability : HellfrogMedium
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 9.01 , Event : end_cast , playerID : 0 , Ability : HellfrogMedium , Potency : 160 , Damage : 721
+DEBUG:ffxivcalc.Fight:Timestamp : 9.02 , Event : begin_cast_oGCD , playerID : 0 , Ability : LegSweep
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 9.02 , Event : end_cast , playerID : 0 , Ability : LegSweep , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 9.52 , PlayerID : 0 , RequirementName : SuitonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 9.52 , Event : begin_cast_GCD , playerID : 0 , Ability : Suiton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 10.01 , Event : end_cast , playerID : 0 , Ability : Suiton , Potency : 500 , Damage : 2254
+DEBUG:ffxivcalc.Fight:Timestamp : 11.02 , Event : begin_cast_GCD , playerID : 0 , Ability : SpinningEdge
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 11.02 , Event : end_cast , playerID : 0 , Ability : SpinningEdge , Potency : 220 , Damage : 991
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 13.53 , PlayerID : 0 , RequirementName : KatonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 13.53 , Event : begin_cast_GCD , playerID : 0 , Ability : Katon
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 14.02 , Event : end_cast , playerID : 0 , Ability : Katon , Potency : 350 , Damage : 1577
+DEBUG:ffxivcalc.Fight:Timestamp : 15.03 , Event : begin_cast_GCD , playerID : 0 , Ability : HakkeMujinsatsu
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 15.03 , Event : end_cast , playerID : 0 , Ability : HakkeMujinsatsu , Potency : 130 , Damage : 585
+DEBUG:ffxivcalc.Fight:Timestamp : 17.54 , Event : begin_cast_GCD , playerID : 0 , Ability : GustSlash
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.54 , Event : end_cast , playerID : 0 , Ability : GustSlash , Potency : 320 , Damage : 1442
+DEBUG:ffxivcalc.Fight:Timestamp : 17.55 , Event : begin_cast_oGCD , playerID : 0 , Ability : Kassatsu
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.55 , Event : end_cast , playerID : 0 , Ability : Kassatsu , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 17.56 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.56 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 17.57 , Event : begin_cast_oGCD , playerID : 0 , Ability : ShadeShift
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 17.57 , Event : end_cast , playerID : 0 , Ability : ShadeShift , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 20.05 , Event : begin_cast_GCD , playerID : 0 , Ability : Jin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 20.05 , Event : end_cast , playerID : 0 , Ability : Jin , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 20.55 , PlayerID : 0 , RequirementName : KatonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 20.55 , Event : begin_cast_GCD , playerID : 0 , Ability : GokaMekkyaku
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 21.04 , Event : end_cast , playerID : 0 , Ability : GokaMekkyaku , Potency : 600 , Damage : 3515
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 22.05 , PlayerID : 0 , RequirementName : FumaShurikenRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 22.05 , Event : begin_cast_GCD , playerID : 0 , Ability : FumaShuriken
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 22.54 , Event : end_cast , playerID : 0 , Ability : FumaShuriken , Potency : 450 , Damage : 2028
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 23.55 , PlayerID : 0 , RequirementName : HyotonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 23.55 , Event : begin_cast_GCD , playerID : 0 , Ability : Hyoton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.04 , Event : end_cast , playerID : 0 , Ability : Hyoton , Potency : 350 , Damage : 1577
+DEBUG:ffxivcalc.Fight:Timestamp : 24.05 , Event : begin_cast_oGCD , playerID : 0 , Ability : SecondWind
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.05 , Event : end_cast , playerID : 0 , Ability : SecondWind , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 24.06 , Event : begin_cast_oGCD , playerID : 0 , Ability : TrueNorth
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.06 , Event : end_cast , playerID : 0 , Ability : TrueNorth , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 24.07 , Event : begin_cast_oGCD , playerID : 0 , Ability : TrickAttack
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 24.07 , Event : end_cast , playerID : 0 , Ability : TrickAttack , Potency : 400 , Damage : 1982
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 25.05 , PlayerID : 0 , RequirementName : RaitonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 25.05 , Event : begin_cast_GCD , playerID : 0 , Ability : Raiton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 25.54 , Event : end_cast , playerID : 0 , Ability : Raiton , Potency : 650 , Damage : 3223
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 26.55 , PlayerID : 0 , RequirementName : HyotonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 26.55 , Event : begin_cast_GCD , playerID : 0 , Ability : HyoshoRanryu
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 27.04 , Event : end_cast , playerID : 0 , Ability : HyoshoRanryu , Potency : 1300 , Damage : 6446
+DEBUG:ffxivcalc.Fight:Timestamp : 28.05 , Event : begin_cast_GCD , playerID : 0 , Ability : FleetingRaiju
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 28.05 , Event : end_cast , playerID : 0 , Ability : FleetingRaiju , Potency : 560 , Damage : 2776
+DEBUG:ffxivcalc.Fight:Timestamp : 28.06 , Event : begin_cast_oGCD , playerID : 0 , Ability : WaitAbility
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 28.06 , Event : end_cast , playerID : 0 , Ability : WaitAbility , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 30.56 , PlayerID : 0 , RequirementName : HutonRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 30.56 , Event : begin_cast_GCD , playerID : 0 , Ability : Huton
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 31.05 , Event : end_cast , playerID : 0 , Ability : Huton , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 32.06 , Event : begin_cast_GCD , playerID : 0 , Ability : PhantomKamaitachi
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 32.06 , Event : end_cast , playerID : 0 , Ability : PhantomKamaitachi , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 34.19 , Event : begin_cast_GCD , playerID : 0 , Ability : ThrowingDagger
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 34.19 , Event : end_cast , playerID : 0 , Ability : ThrowingDagger , Potency : 120 , Damage : 594
+DEBUG:ffxivcalc.Fight:Timestamp : 34.2 , Event : begin_cast_oGCD , playerID : 0 , Ability : TenChiJin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 34.2 , Event : end_cast , playerID : 0 , Ability : TenChiJin , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 34.21 , Event : begin_cast_oGCD , playerID : 0 , Ability : Mug
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 34.21 , Event : end_cast , playerID : 0 , Ability : Mug , Potency : 150 , Damage : 780
+DEBUG:ffxivcalc.Fight:Timestamp : 36.32 , Event : begin_cast_GCD , playerID : 0 , Ability : Huraijin
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 36.32 , Event : end_cast , playerID : 0 , Ability : Huraijin , Potency : 200 , Damage : 1040
+DEBUG:ffxivcalc.Fight:Timestamp : 36.33 , Event : begin_cast_oGCD , playerID : 0 , Ability : Feint
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 36.33 , Event : end_cast , playerID : 0 , Ability : Feint , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 36.34 , Event : begin_cast_oGCD , playerID : 0 , Ability : DreamWithinADream
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 36.34 , Event : end_cast , playerID : 0 , Ability : DreamWithinADream , Potency : 450 , Damage : 2341
+DEBUG:ffxivcalc.Fight:Timestamp : 38.45 , Event : begin_cast_GCD , playerID : 0 , Ability : Hide
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 38.45 , Event : end_cast , playerID : 0 , Ability : Hide , Potency : 0 , Damage : 0
+WARNING:ffxivcalc.Base_Spell:FailedRequirementEvent,  , Timestamp : 38.46 , PlayerID : 0 , RequirementName : MeisuiRequirement , Fatal : False , Info : 
+DEBUG:ffxivcalc.Fight:Timestamp : 38.46 , Event : begin_cast_oGCD , playerID : 0 , Ability : Meisui
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 38.95 , Event : end_cast , playerID : 0 , Ability : Meisui , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 38.96 , Event : begin_cast_GCD , playerID : 0 , Ability : Ten
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 38.96 , Event : end_cast , playerID : 0 , Ability : Ten , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 38.96
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 180 , Damage : 1058
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireIII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 3.5 , Event : end_cast , playerID : 0 , Ability : FireIII , Potency : 364.0 , Damage : 2591
+DEBUG:ffxivcalc.Fight:Timestamp : 3.51 , Event : begin_cast_GCD , playerID : 0 , Ability : FireIII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 7.01 , Event : end_cast , playerID : 0 , Ability : FireIII , Potency : 468.0 , Damage : 3332
+DEBUG:ffxivcalc.Fight:Timestamp : 7.02 , Event : begin_cast_GCD , playerID : 0 , Ability : Despair
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 10.02 , Event : end_cast , playerID : 0 , Ability : Despair , Potency : 612.0 , Damage : 4358
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 10.02
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+INFO:django.utils.autoreload:C:\Users\antot\AppData\Local\Programs\Python\Python310\Lib\site-packages\ffxivcalc\__init__.py changed, reloading.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 180 , Damage : 1058
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireIV
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.8 , Event : end_cast , playerID : 0 , Ability : FireIV , Potency : 434.0 , Damage : 3088
+DEBUG:ffxivcalc.Fight:Timestamp : 2.81 , Event : begin_cast_GCD , playerID : 0 , Ability : FireIV
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.61 , Event : end_cast , playerID : 0 , Ability : FireIV , Potency : 434.0 , Damage : 3088
+DEBUG:ffxivcalc.Fight:Timestamp : 5.62 , Event : begin_cast_GCD , playerID : 0 , Ability : Despair
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 8.62 , Event : end_cast , playerID : 0 , Ability : Despair , Potency : 475.99999999999994 , Damage : 3382
+DEBUG:ffxivcalc.Fight:Timestamp : 8.63 , Event : begin_cast_GCD , playerID : 0 , Ability : BlizzardIII
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 10.37 , Event : end_cast , playerID : 0 , Ability : BlizzardIII , Potency : 182.0 , Damage : 1295
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 10.37
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\views.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\urls.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\urls.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\urls.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\urls.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\urls.py changed, reloading.
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : AetherialManipulation
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : AetherialManipulation , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 0.01 , Event : begin_cast_oGCD , playerID : 0 , Ability : Amplifier
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0.01 , Event : end_cast , playerID : 0 , Ability : Amplifier , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 0.02 , Event : begin_cast_GCD , playerID : 0 , Ability : Xenoglossy
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0.02 , Event : end_cast , playerID : 0 , Ability : Xenoglossy , Potency : 800 , Damage : 4709
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 0.02
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+WARNING:django.request:Not Found: /favicon.ico
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_oGCD , playerID : 0 , Ability : AetherialManipulation
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0 , Event : end_cast , playerID : 0 , Ability : AetherialManipulation , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 0.01 , Event : begin_cast_oGCD , playerID : 0 , Ability : Amplifier
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0.01 , Event : end_cast , playerID : 0 , Ability : Amplifier , Potency : 0 , Damage : 0
+DEBUG:ffxivcalc.Fight:Timestamp : 0.02 , Event : begin_cast_GCD , playerID : 0 , Ability : Xenoglossy
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 0.02 , Event : end_cast , playerID : 0 , Ability : Xenoglossy , Potency : 800 , Damage : 4709
+DEBUG:ffxivcalc.Fight:Timestamp : 2.5 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.0 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 180 , Damage : 1058
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 5.0
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\mysite\settings.py changed, reloading.
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\mysite\settings.py changed, reloading.
+ERROR:django.security.DisallowedHost:Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\http\request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING:django.request:Bad Request: /
+ERROR:django.security.DisallowedHost:Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\http\request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING:django.request:Bad Request: /simulate/
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\mysite\settings.py changed, reloading.
+ERROR:django.security.DisallowedHost:Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\utils\deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\http\request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING:django.request:Bad Request: /
+INFO:django.utils.autoreload:C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\mysite\settings.py changed, reloading.
+WARNING:django.request:Not Found: /
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 180 , Damage : 1058
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 251.99999999999997 , Damage : 1787
+DEBUG:ffxivcalc.Fight:Timestamp : 2.51 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.01 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 288.0 , Damage : 2049
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 5.01
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+ERROR:django.request:Internal Server Error: /simulate/simulating/
+Traceback (most recent call last):
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\antot\OneDrive\Bureau\ffxivcalcsite\mysite\simulate\views.py", line 33, in SimulationResult
+    print(request.session['SimulationData'])
+  File "C:\Users\antot\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: 'SimulationData'
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 180 , Damage : 1058
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 251.99999999999997 , Damage : 1787
+DEBUG:ffxivcalc.Fight:Timestamp : 2.51 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.01 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 288.0 , Damage : 2049
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 5.01
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 180 , Damage : 1058
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 251.99999999999997 , Damage : 1787
+DEBUG:ffxivcalc.Fight:Timestamp : 2.51 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.01 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 288.0 , Damage : 2049
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 5.01
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 180 , Damage : 1058
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 251.99999999999997 , Damage : 1787
+DEBUG:ffxivcalc.Fight:Timestamp : 2.51 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.01 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 288.0 , Damage : 2049
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 5.01
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
+DEBUG:ffxivcalc.Helper:Restoring saved file  into Event object.
+DEBUG:ffxivcalc.Helper:Creating job object : BlackMage for playerID : 0
+DEBUG:ffxivcalc.Fight:Initializing damage values for all players.
+DEBUG:ffxivcalc.Fight:ID : 0 , Job : BlackMage , f_WD : 4.44 , f_DET : 1.0 , f_TEN : 1 , f_SPD : 1.0 , f_CritRate : 0.05 , f_CritMult : 0.4 , f_DHRate : 0.0
+DEBUG:ffxivcalc.Fight:Starting simulation with TeamCompositionBonus = 1
+DEBUG:ffxivcalc.Fight:Parameters are -> RequirementOn : False, IgnoreMana : False
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 180 , Damage : 1058
+DEBUG:ffxivcalc.Fight:Timestamp : 0 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 2.5 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 251.99999999999997 , Damage : 1787
+DEBUG:ffxivcalc.Fight:Timestamp : 2.51 , Event : begin_cast_GCD , playerID : 0 , Ability : FireI
+DEBUG:ffxivcalc.Base_Spell:Timestamp : 5.01 , Event : end_cast , playerID : 0 , Ability : FireI , Potency : 288.0 , Damage : 2049
+DEBUG:ffxivcalc.Fight:Player ID 0 has no more actions, Timestamp : 5.01
+DEBUG:ffxivcalc.Fight:Simulation has succesfully finished.
