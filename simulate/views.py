@@ -14,7 +14,7 @@ import base64, urllib
 from ffxivcalc.helperCode import helper_backend
 
 def index(request):
-    return render(request, 'simulate\index.html', {})
+    return render(request, 'simulate/index.html', {})
 @csrf_exempt
 def SimulationInput(request):
     if request.method == "POST":
@@ -25,7 +25,7 @@ def SimulationInput(request):
         print("1")
         return HttpResponse('')
 
-    return render(request, 'simulate\input.html', {})
+    return render(request, 'simulate/input.html', {})
 
 def SimulationResult(request):
     print(request.session['SimulationData'])
