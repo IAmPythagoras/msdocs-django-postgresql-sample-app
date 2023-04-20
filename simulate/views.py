@@ -3,15 +3,13 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 import io
 import matplotlib.pyplot as plt
-import os
 import json
 from copy import deepcopy
-from plotly.offline import plot
 import base64, urllib
-import logging
+#import logging
 
-logging.basicConfig(filename='log.log')
-logging.getLogger("ffxivcalc").setLevel(level=logging.DEBUG)
+#logging.basicConfig(filename='log.log')
+#logging.getLogger("ffxivcalc").setLevel(level=logging.DEBUG)
 
 from ffxivcalc.helperCode import helper_backend
 
