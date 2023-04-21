@@ -21,7 +21,7 @@ def SimulationInput(request):
     if request.method == "POST":
         request.session['SimulationData'] = json.loads(request.body)
         request.session.save()
-        return redirect('SimulationResult') 
+        return HttpResponse('')
 
     return render(request, 'simulate/input.html', {})
 
