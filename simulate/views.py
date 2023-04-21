@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import json
 from copy import deepcopy
 import base64, urllib
+from .Validation import attachmentValidation
 #import logging
 
 #logging.basicConfig(filename='log.log')
@@ -14,137 +15,108 @@ import base64, urllib
 from ffxivcalc.helperCode import helper_backend
 
 def index(request):
+    """
+    This view is the homepage of the website.
+    """
     return render(request, 'simulate/index.html', {})
 
-@csrf_exempt
+@csrf_exempt                 # Will but csrf_exempt for now, since was causing issues. We are doing validations on the request anyway.
 def SimulationInput(request):
+    """
+    This view lets the user setup the simulation for what they want. It only sends the data and does not simulate.
+    """
     if request.method == "POST":
-        #input("kkkk")
+                             # The SimulationInput page will make a POST HTTP request to itself. This will be catched here.
         request.session['SimulationData'] = json.loads(request.body)
+                             # The simulation data is saved in the session. The user will now be redirected to the SimulationResult page
         return HttpResponse('200', status=200)
-
     return render(request, 'simulate/input.html', {})
 
 
 def SimulationResult(request):
-    #input("ok")
+    """
+    This view will retrieve the data from the session and simulate the fight. It validates the file before simulating it.
+    It then displays the result to the user.
+    """
+                             # We are recuperating the simulation data, and deleting it.
+                             # Deleting it will make sure the data is not reused in the same session
+                             # if the user goes back to SimulationInput.
     data = deepcopy(request.session['SimulationData'])
     del request.session['SimulationData']
-    #input("cringe")
-    # Will clean the data so numbers are int
-
+                             # Since some fields from the data were not of the right type, 
+                             # we are casting them into the expected type, as they will otherwise
+                             # fail the validation.
     for player in data["data"]["PlayerList"]:
         player["playerID"] = int(player["playerID"])
         for key in player["stat"]:
             player["stat"][key] = int(player["stat"][key])
-
         for action in player["actionList"]:
             if action["actionName"] == "WaitAbility":
                 action["waitTime"] = float(action["waitTime"])
-
-    # Will add missing data.
+                             # We are adding data that is willingly not editable by the user
     data["data"]["fightInfo"]["fightDuration"] = 500
     data["data"]["fightInfo"]["time_unit"] = 0.01
     data["data"]["fightInfo"]["ShowGraph"] = False
-
-    if not attachmentValidation(data): # If fails the validation, we stop here.
-        return redirect('FailedValidation') 
-
+                             # We will validate the final dictionnary before reading anything from it.
+                             # If it fails, the user is redirected to a FailedValidation view.
+    if not attachmentValidation(data):
+        Msg = ("There was an error when validating the given data. Either there was a corruption of the data "+
+               "or something else happened. If this error persists please let me know through discord.")
+        request.session["ErrorMessage"] = Msg
+        return redirect('Error') 
+                             # We are making a string that represents the whole JSON saved file
+                             # since the user can request to see it. Saving it in the session.
     request.session["JSONFileViewer"] = json.dumps(data, indent=2) # Leaving the data in the session if the user wants to see it.
 
+                             # Restoring the fight object from the data
     Event = helper_backend.RestoreFightObject(data)
-    # Restores the data as an Event object
-
+                             # Configuring the Event object according to the parameters in data
     Event.ShowGraph = data["data"]["fightInfo"]["ShowGraph"]
     Event.RequirementOn = False#data["data"]["fightInfo"]["RequirementOn"]
     Event.IgnoreMana = data["data"]["fightInfo"]["IgnoreMana"]
-    
+                                 # Simulating the fight.
     result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False)
-
-
-    # To make the template better, every element of result_arr will contain 1 line to show in the website.
+                             # result_str contains the result of the simulation.
+                             # We will parse it by line in order to show it clearly to the user.
     result_arr = []
-
     for line in result_str.split("\n"):
         result_arr.append(line)
+                                 # We will save the generated matplotlib figure
+                                 # in order to show it to the user.
     fig = plt.gcf()
     buf = io.BytesIO()
     fig.savefig(buf, format='png', dpi=200)
     buf.seek(0)
     string = base64.b64encode(buf.read())
     uri = urllib.parse.quote(string)
-    #print("ok?")
+
     return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri})
 
 def credit(request):
+    """
+    This view is the credits view.
+    """
     return render(request, 'simulate/credit.html', {})
 
 def JSONFileViewer(request):
+    """
+    This view shows the raw JSON data of the simulation. The string to show is in the JSONFileViewer key
+    in the session.
+    """
     return render(request, 'simulate/JSONFileViewer.html', {'JSONFileStr' : request.session["JSONFileViewer"]})
 
-def FailedValidation(request):
-    return render(request, 'simulate/FailedValidation.html')
-
-def attachmentValidation(data : dict) -> bool:
-    """This function validates the JSON file given to the bot.
-
-    Args:
-        data (dict): Data the bot received.
-
-    Returns:
-        bool: True if the validation is succesful.
+def Error(request):
     """
-    
-    if not(checkNameAndType(data, ["data"], [dict])):
-        return False
-    
-    if not(checkNameAndType(data["data"], ["PlayerList","fightInfo"], [list, dict])):
-        return False
-
-    if not(checkNameAndType(data["data"]["fightInfo"], ["IgnoreMana", "RequirementOn", "ShowGraph","fightDuration",  "time_unit"], 
-                                                       [bool, bool, bool, int, float])):
-        return False
-
-    for player in data["data"]["PlayerList"]:
-        if type(player) != dict:
-            return False
-        
-        if not(checkNameAndType(player, ["Auras", "JobName","PlayerName","actionList",  "etro_gearset_url", "playerID", "stat"],
-                                        [list, str, str, list, str, int, dict])):
-            return False
-
-        if not(checkNameAndType(player["stat"], ["Crit", "DH", "Det", "MainStat", "SS", "SkS", "Ten", "WD"],
-                                                [int, int, int, int, int, int, int, int])):
-            return False
-        
-        for action in player["actionList"]:
-            if not(checkNameAndType(action, ["actionName"], [str]) or 
-                   checkNameAndType(action, ["actionName", "waitTime"], [str, float]) or
-                   checkNameAndType(action, ["actionName", "waitTime"], [str, int])):
-                return False
-    return True
-
-def checkNameAndType(dict : dict, ExpectedKeyName : list, ExpectedType : list) -> bool:
-    """This function checks the dictionnary and valditates the key's name and their types. It returns
-    True if the dictionnary is validated and false otherwise
-
-    dict : The dictionnary to verify.
-    ExpectedKeyName : The expected name of the dictionnary's keys. Must be sorted in alphabetical order.
-    ExpectedType : The expected type of the dictionnary's entry. In the same order as ExpectedKeyName.
+    This view is any error message. It displays the ErrorMessage given to the user. It will display the message
+    saved at the key "ErrorMessage" in the session
     """
+                             # Check if the session has an error message. If it doesn't
+                             # we simply display Error Message. Otherwise we take the message
+                             # and remove it from the session.
+    ErrorMessage = "Error Message."
+    if ("ErrorMessage" in request.session.keys()):
+        ErrorMessage = request.session["ErrorMessage"]
+        del request.session["ErrorMessage"]
+    return render(request, 'simulate/Error.html', {"ErrorMessage" : ErrorMessage})
 
-    # Check Key's name
-    nameList = list(dict.keys())
-    nameList.sort()
-    if nameList != ExpectedKeyName:
-        return False
-    
-    # Will check the type
-    index = 0
-    for name in ExpectedKeyName:
-        if type(dict[name]) != ExpectedType[index]:
-            return False
-        index +=1
-
-    return True
 index(None)
