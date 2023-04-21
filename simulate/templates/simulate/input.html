@@ -822,10 +822,12 @@ var AtLeastOnePlayer = false; // Will let the code know if at least 1 player is 
         }
     }
 var data = JSON.stringify(dataDict);
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+        window.location.href='/simulate/SimulationResult/'
+    }
+}
 xhr.send(data);
-setTimeout(function() {
-    window.location.href='/simulate/SimulationProcessed/';
-}, 0);
 
     }
 

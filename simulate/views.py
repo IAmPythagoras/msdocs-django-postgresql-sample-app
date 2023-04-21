@@ -19,27 +19,18 @@ def index(request):
 @csrf_exempt
 def SimulationInput(request):
     if request.method == "POST":
+        #input("kkkk")
         request.session['SimulationData'] = json.loads(request.body)
-        request.session.save()
-        #print(request.session['SimulationData'])
-        #print("Should redirect now")
-        return HttpResponse('')
+        return HttpResponse('200', status=200)
 
     return render(request, 'simulate/input.html', {})
 
-@csrf_exempt
-def SimulationProcessed(request): # User will wait here until session has SimulationData key
-    while not ('SimulationData' in request.session.keys()):
-        pass
-    return redirect('SimulationResult')
-
 
 def SimulationResult(request):
-    #print("hello")
+    #input("ok")
     data = deepcopy(request.session['SimulationData'])
     del request.session['SimulationData']
-
-
+    #input("cringe")
     # Will clean the data so numbers are int
 
     for player in data["data"]["PlayerList"]:

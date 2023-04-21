@@ -16,8 +16,6 @@ urlpatterns = [
                     #ex : /simulate/JSONFileViewer/
     path('JSONFileViewer/', views.JSONFileViewer, name='JSONFileViewer'),
                         #ex : /simulate/FailedValidation/
-    path('FailedValidation/', views.FailedValidation, name='FailedValidation'),
-                            #ex : /simulate/SimulationProcessed/
-    path('SimulationProcessed/', views.SimulationProcessed, name='SimulationProcessed')
+    path('FailedValidation/', views.FailedValidation, name='FailedValidation')
 ]
 urlpatterns += staticfiles_urlpatterns()
