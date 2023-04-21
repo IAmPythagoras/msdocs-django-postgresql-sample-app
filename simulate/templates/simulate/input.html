@@ -752,11 +752,14 @@ var IconDict = {
 var PlayerConfigDict = new Object();
 var nextPlayerID = 0;
 var currentEditPlayerID = 0;
+var AtLeastOnePlayer = false; // Will let the code know if at least 1 player is was created.
 // This dict will hold every player config info.
 // Every key will represent a player id that is given when adding
 // a new player.
 
     function Submit(){
+
+    if (! AtLeastOnePlayer){alert("You cannot simulate if you have no player!");return;}
 
     SavePlayerConfiguration(currentEditPlayerID); // Saving since only saves once change player.
                                                   // So chance it hasn't been saved
@@ -789,7 +792,7 @@ var currentEditPlayerID = 0;
             if (action["target"] != -1){nextAction["targetID"] = action["target"]}
             actionList.push(nextAction);
         }
-
+        if (actionList.length == 0){alert("Every player must have at least one action. Currently the player " + PlayerDict["PlayerName"] + " has no actions.");return;}
         var PlayerConfig = {
             "JobName" : PlayerDict["Job"],
             "PlayerName" : PlayerDict["PlayerName"],
@@ -827,7 +830,8 @@ setTimeout(function() {
     }
 
     function addNewPlayer() {
-    
+    if (! AtLeastOnePlayer){currentEditPlayerID = nextPlayerID;}// This is to make sure the LoadPlayer function does not load a player that does not exist
+    AtLeastOnePlayer = true;
     PlayerConfigDict[nextPlayerID] = {
         "PlayerName" : "Player" + nextPlayerID,
         "PlayerID" : nextPlayerID, // This value is non-editable.
@@ -877,7 +881,7 @@ setTimeout(function() {
         }
 
         // If we're here there were no other players. So we will clear the screen.
-
+        AtLeastOnePlayer = false;
         document.getElementById("ActionListPick").innerHTML = "";
         document.getElementById("PlayerActionListViewer").innerHTML = "";//Wiping
 
