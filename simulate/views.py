@@ -21,12 +21,21 @@ def SimulationInput(request):
     if request.method == "POST":
         request.session['SimulationData'] = json.loads(request.body)
         request.session.save()
+        #print(request.session['SimulationData'])
+        #print("Should redirect now")
         return HttpResponse('')
 
     return render(request, 'simulate/input.html', {})
 
-def SimulationResult(request):
+@csrf_exempt
+def SimulationProcessed(request): # User will wait here until session has SimulationData key
+    while not ('SimulationData' in request.session.keys()):
+        pass
+    return redirect('SimulationResult')
 
+
+def SimulationResult(request):
+    #print("hello")
     data = deepcopy(request.session['SimulationData'])
     del request.session['SimulationData']
 
@@ -73,11 +82,8 @@ def SimulationResult(request):
     buf.seek(0)
     string = base64.b64encode(buf.read())
     uri = urllib.parse.quote(string)
-
+    #print("ok?")
     return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri})
-
-def results(request):
-    return render(request, '', {})
 
 def credit(request):
     return render(request, 'simulate/credit.html', {})

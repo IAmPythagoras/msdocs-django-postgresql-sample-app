@@ -813,7 +813,7 @@ var AtLeastOnePlayer = false; // Will let the code know if at least 1 player is 
     }};
 
     xhr = new XMLHttpRequest();
-    var url = "/simulate/input/";
+    var url = "/simulate/SimulationInput/";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onreadystatechange = function () { 
@@ -824,8 +824,8 @@ var AtLeastOnePlayer = false; // Will let the code know if at least 1 player is 
 var data = JSON.stringify(dataDict);
 xhr.send(data);
 setTimeout(function() {
-    window.location.href='/simulate/simulating/';
-}, 100);
+    window.location.href='/simulate/SimulationProcessed/';
+}, 0);
 
     }
 
