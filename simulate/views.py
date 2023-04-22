@@ -40,7 +40,15 @@ def SimulationResult(request):
     """
                              # We are recuperating the simulation data, and deleting it.
                              # Deleting it will make sure the data is not reused in the same session
-                             # if the user goes back to SimulationInput.
+                             # if the user goes back to SimulationInput. We first check if it is a key,
+                             # if it is not we redirect to the error page. This error could happen
+                             # If there was an error when putting the data in the session, or if
+                             # SimulationResult was accessed without first going to SimulationInput.
+    if (not "SimulationData" in request.session.keys()):
+        Msg = ("The session does not have a 'SimulationData' key, make sure you access this page by first going to 'SimulationInput'. If this issues persists contact me on discord.")
+        request.session["ErrorMessage"] = Msg
+        return redirect('Error')
+
     data = deepcopy(request.session['SimulationData'])
     del request.session['SimulationData']
                              # Since some fields from the data were not of the right type, 
@@ -72,7 +80,7 @@ def SimulationResult(request):
     Event = helper_backend.RestoreFightObject(data)
                              # Configuring the Event object according to the parameters in data
     Event.ShowGraph = data["data"]["fightInfo"]["ShowGraph"]
-    Event.RequirementOn = False#data["data"]["fightInfo"]["RequirementOn"]
+    Event.RequirementOn = data["data"]["fightInfo"]["RequirementOn"]
     Event.IgnoreMana = data["data"]["fightInfo"]["IgnoreMana"]
                                  # Simulating the fight.
     result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False)
@@ -103,6 +111,10 @@ def JSONFileViewer(request):
     This view shows the raw JSON data of the simulation. The string to show is in the JSONFileViewer key
     in the session.
     """
+    if (not "JSONFileViewer" in request.session.keys()):
+        Msg = ("The session does not have a 'JSONFileViewer' key, make sure you access this page by first going to 'SimulationResult'. If this issues persists contact me on discord.")
+        request.session["ErrorMessage"] = Msg
+        return redirect('Error')
     return render(request, 'simulate/JSONFileViewer.html', {'JSONFileStr' : request.session["JSONFileViewer"]})
 
 def Error(request):

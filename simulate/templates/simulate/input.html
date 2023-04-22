@@ -49,6 +49,7 @@
 
 <div class="PlayerStatInput" style="border-bottom: 1px solid #333; ;">
     <h2><center>Player configuration</center></h2>
+    <div id="PlayerConfigurationText">
     <div id="StatSelector">
         <!--This will let the user edit the stats of the currently selected player-->
         <div class="container"><p>MainStat : </p><input id="MainStat" type="text" name="MainStat" value="390"></div>
@@ -69,7 +70,7 @@
     <div style="align-items: center;">
         <div class="container">
         <p>Job :</p>
-        <select name="Job" id="Job" style="margin-right: 10px;margin-left: 10px;" onchange="LoadPlayerActionsPick(ChangingJob=true)" selected="BlackMage">
+        <select name="Job" id="Job" style="margin-right: 10px;margin-left: 10px;" onchange="LoadPlayerActionsPick(true)" selected="BlackMage">
             <option value="BlackMage">BlackMage</option>
             <option value="RedMage">RedMage</option>
             <option value="Summoner">Summoner</option>
@@ -95,13 +96,14 @@
         <div class="container">
             <!--Lets a user simply put an etro gear set link to import the stats-->
             <p>Player name :</p>
-            <input type="text" id="PlayerName" style="margin-right: 10px;margin-left: 10px;" onchange="UpdateName()">
+            <input type="text" id="PlayerName" style="margin-right: 10px;margin-left: 10px;" onchange="UpdateName()" value="SussyPlayer">
         </div>
     <div style="align-items: center;">
         <p id="PlayerIDField"></p>
     </div>
     <div style="position: absolute;bottom: -15px;right: 5px;">
     <p style="color: rgba(255, 255, 255, 0.7);">Note that the stats must include what is gained from food!</p>
+    </div>
     </div>
 </div>
 <div class="PlayerActionListInput">
@@ -118,9 +120,9 @@
     <hr>
     <h2><center>Fight Configuration</center></h2>
     <div>
-        <input type="checkbox" id="RequirementOnCheckBox">
+        <input type="checkbox" id="RequirementOnCheckBox" onchange="UpdateRequirement()">
         <label for="RequirementOnCheckBox"> : Stop simulation if an illegal action is detected.</label><br>
-        <input type="checkbox" id="IgnoreManaCheckBox">
+        <input type="checkbox" id="IgnoreManaCheckBox" onchange="UpdateManaCheck()">
         <label for="IgnoreManaCheckBox"> : Ignore mana requirements.</label>
     </div>
     <div><center>
