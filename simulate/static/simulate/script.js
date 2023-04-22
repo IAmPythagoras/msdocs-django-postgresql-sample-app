@@ -314,7 +314,7 @@ This function returns a function that adds an action to a player's action list. 
         PlayerJob = PlayerConfigDict[currentEditPlayerID]["Job"];
                                     // Adding the new division in the ActionListViewer
         const newAction = document.createElement('div');
-        newAction.innerHTML = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+ActionID+'.png" width="40px" height="40px" class="Icon">';
+        newAction.innerHTML = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+ActionID+'.png" title="'+ActionID+'" width="40px" height="40px" class="Icon">';
         newAction.onclick = DelActionFromList(Identification);
         newAction.setAttribute("id", Identification);
         ActionListViewer.appendChild(newAction);
@@ -366,9 +366,7 @@ const box = document.getElementById("ActionListPick");
                              // Will now Populate the ActionPicker
 for (var i = 0;i<IconNameList.length;i++){
     const newBox = document.createElement("div");
-    var t = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+IconNameList[i]+'.png" width="60px" height="60px" class="Icon" role="button">';
-    var insideHTML = t
-    newBox.innerHTML = insideHTML;
+    newBox.innerHTML = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+IconNameList[i]+'.png" title="'+IconNameList[i]+'" width="60px" height="60px" class="Icon" role="button">';;
     newBox.onclick = CreateAddAction(IconNameList[i] /*ActionID*/, TargetActionList.includes(IconNameList[i]) /*IsTargetted*/, true /*IsAdded*/, -1 /*ActionIden*/);
     box.appendChild(newBox);
 }
