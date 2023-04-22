@@ -54,6 +54,7 @@ def SimulationResult(request):
                              # Since some fields from the data were not of the right type, 
                              # we are casting them into the expected type, as they will otherwise
                              # fail the validation.
+    data["data"]["fightInfo"]["fightDuration"] = int(data["data"]["fightInfo"]["fightDuration"])
     for player in data["data"]["PlayerList"]:
         player["playerID"] = int(player["playerID"])
         for key in player["stat"]:
@@ -62,7 +63,6 @@ def SimulationResult(request):
             if action["actionName"] == "WaitAbility":
                 action["waitTime"] = float(action["waitTime"])
                              # We are adding data that is willingly not editable by the user
-    data["data"]["fightInfo"]["fightDuration"] = 500
     data["data"]["fightInfo"]["time_unit"] = 0.01
     data["data"]["fightInfo"]["ShowGraph"] = False
                              # We will validate the final dictionnary before reading anything from it.
@@ -89,8 +89,8 @@ def SimulationResult(request):
     result_arr = []
     for line in result_str.split("\n"):
         result_arr.append(line)
-                                 # We will save the generated matplotlib figure
-                                 # in order to show it to the user.
+                             # We will save the generated matplotlib figure
+                             # in order to show it to the user.
     fig = plt.gcf()
     buf = io.BytesIO()
     fig.savefig(buf, format='png', dpi=200)
