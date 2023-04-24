@@ -102,8 +102,6 @@ def SimulationResult(request):
     ReturnCode = log_stream.ReturnCode
     log_str = log_stream.to_str()
 
-    print(ReturnCode)
-
     return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri, "WARNING" : ReturnCode == 1, "CRITICAL" : ReturnCode == 2, "log_str" : log_str})
 
 def credit(request):

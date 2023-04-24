@@ -12,10 +12,8 @@ class LogStream(object):
     def write(self, str):
                              # We will evaluate the level of the log and change the ReturnCode accordingly.
         if (len(str) >= 7 and str[:7] == ("WARNING")):
-            print("Warning detected")
             self.ReturnCode = 1
         elif (len(str) >= 8 and str[:8] == "CRITICAL"):
-            print("Critical detected")
             self.ReturnCode = 2
         self.logs += str
     def flush(self):
@@ -23,7 +21,6 @@ class LogStream(object):
 
     def to_str(self):
         saved_logs = self.logs
-        print("ReturnCode c ", str(self.ReturnCode))
                              # Reseting the stream
         self.logs = ''
         self.ReturnCode = 0
