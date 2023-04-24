@@ -330,6 +330,29 @@ function onlyNumbers(str) {
 	return /^[0-9]*$/.test(str);
 }
 
+function getFormatActionName(str){
+    var nameParsedArray = []
+    var currSubString = ""
+    for (var i = 0; i < str.length; i++) {
+        if (str.charAt(i) == str.charAt(i).toUpperCase() && i != 0 && (str.charAt(i) != "I" && str.charAt(i) != "V")){
+            nameParsedArray.push(currSubString);
+            currSubString = str.charAt(i);
+        } else{
+            currSubString+=str.charAt(i);
+        }
+      }
+    nameParsedArray.push(currSubString);
+    var innerHTML = '<div class="topOfEachOther">'
+    for (var i = 0; i < nameParsedArray.length; i++){
+        word = nameParsedArray[i];
+        innerHTML += "<p>";
+        innerHTML += word;
+        innerHTML += "</p>";
+    }
+    innerHTML += "</div>"
+    return innerHTML
+}
+
 /*
 USER INPUT FUNCTIONS
 */
@@ -366,7 +389,8 @@ const box = document.getElementById("ActionListPick");
                                 // Will now Populate the ActionPicker
 for (var i = 0;i<IconNameList.length;i++){
     const newBox = document.createElement("div");
-    newBox.innerHTML = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+IconNameList[i]+'.png" title="'+IconNameList[i]+'" width="60px" height="60px" class="Icon" role="button">';;
+    newBox.setAttribute("class", "ActionPicker");
+    newBox.innerHTML = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+IconNameList[i]+'.png" title="'+IconNameList[i]+'" width="60px" height="60px" class="Icon" role="button">'+getFormatActionName(IconNameList[i]);
     newBox.onclick = CreateAddAction(IconNameList[i] /*ActionID*/, TargetActionList.includes(IconNameList[i]) /*IsTargetted*/, true /*IsAdded*/, -1 /*ActionIden*/);
     box.appendChild(newBox);
     }

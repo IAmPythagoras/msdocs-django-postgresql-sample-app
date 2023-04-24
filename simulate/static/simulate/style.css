@@ -228,7 +228,7 @@ height: 1000px;
 position: absolute;
 width: 94%;
 height: 49%;
-border: 0px solid white;
+border: 3px solid white;
 right: 3%;
 top: 0%;
 background-color: #c3c3c3;
@@ -244,7 +244,7 @@ direction: ltr;
 position: absolute;
 width: 94%;
 height: 49%;
-border: 0px solid white;
+border: 3px solid black;
 right: 3%;
 bottom: 0%;
 background-color: #333;
@@ -292,5 +292,15 @@ dt {
     height: 100%;
     border-radius: 5px;
     border: 2px solid white;
+}
+
+.ActionPicker {
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
+   }
+.topOfEachOther{
+    font-size: 10px;
 }
 
