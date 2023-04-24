@@ -32,19 +32,42 @@
     </div>
 </header>
 <hr>
-<h2><center>Simulation Results</center></h2>
+<div style="text-align: center;">
+<h2>Simulation Results</h2>
+<h3>Return Code :
+{% if WARNING %}
+<span class="dot" style="background-color: yellow;">
+{% elif CRITICAL %}<span class="dot" style="background-color: red;">
+{% else %}<span class="dot" style="background-color: green;">
+{% endif %}
+</span></h3></div>
+<br>
+</div>
 <center>
-<div class="ResultDiv"><center>
+<div class="ResultDiv">
     {% for line in result_str %}
     <p style="margin-top: 0px;margin-bottom: 0px;">{{ line }}</p><br>
-    {% endfor %}
-</center></div>
+    {% endfor %}</div>
 <a href="/simulate/JSONFileViewer/">
     <button class="basicButton bigbutton">
         View Raw JSON file
     </button>
 </a>
 </center>
+{% if WARNING or CRITICAL%}
+<hr>
+<div>
+<center><h2>Simulation Logs</h2></center>
+{% if WARNING%}
+<p>There was at least one WARNING error during the simulation : </p>
+{% else %}
+<p>There was at least one critical error failed requirement that forced the simulation to stop : </p>
+{% endif %}
+<div class="JSONViewer">
+<p>{{ log_str }}</p>
+</div>
+</div>
+{% endif %}
 <hr><br>
 <div><center>
     <h2>Graph</h2>

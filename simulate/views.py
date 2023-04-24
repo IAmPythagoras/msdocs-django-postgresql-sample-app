@@ -7,12 +7,12 @@ import json
 from copy import deepcopy
 import base64, urllib
 from .Validation import attachmentValidation
-#import logging
-
-#logging.basicConfig(filename='log.log')
-#logging.getLogger("ffxivcalc").setLevel(level=logging.DEBUG)
-
+import logging
 from ffxivcalc.helperCode import helper_backend
+from .Stream import LogStream
+log_stream = LogStream()
+logging.basicConfig(stream=log_stream)
+#logging.getLogger("ffxivcalc").setLevel(level=logging.DEBUG)
 
 def index(request):
     """
@@ -98,7 +98,13 @@ def SimulationResult(request):
     string = base64.b64encode(buf.read())
     uri = urllib.parse.quote(string)
 
-    return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri})
+                             # We will take the logs if any and check what the ReturnCode value is.
+    ReturnCode = log_stream.ReturnCode
+    log_str = log_stream.to_str()
+
+    print(ReturnCode)
+
+    return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri, "WARNING" : ReturnCode == 1, "CRITICAL" : ReturnCode == 2, "log_str" : log_str})
 
 def credit(request):
     """
