@@ -294,3 +294,13 @@ dt {
     border: 2px solid white;
 }
 
+.ActionPicker {
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
+   }
+.topOfEachOther{
+    font-size: 10px;
+}
+
