@@ -34,6 +34,8 @@
 <hr>
 <div style="text-align: center;">
 <h2>Simulation Results</h2>
+<div title="Different return code of the simulation. Green means there were no failed requirements. Yellow means there was a failed requirement
+            but it wasn't fatal to the simulation. Red means there was a failed requirement that was fatal to the simulation.">
 <h3>Return Code :
 {% if WARNING %}
 <span class="dot" style="background-color: yellow;">
@@ -64,7 +66,9 @@
 <p>There was at least one critical error failed requirement that forced the simulation to stop : </p>
 {% endif %}
 <div class="JSONViewer">
-<p>{{ log_str }}</p>
+{% for log_line in log_str %}
+<p>{{ log_line }}</p>
+{% endfor %}
 </div>
 </div>
 {% endif %}

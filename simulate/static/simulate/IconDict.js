@@ -6,7 +6,8 @@ var TargetActionList = [
     "Spire",
     "Spear",
     "DragonSight",
-    "ClosedPosition"
+    "ClosedPosition",
+    "Shirk"
 ];
 var IconDict = {
     "Astrologian": [

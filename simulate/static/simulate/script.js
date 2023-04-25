@@ -334,7 +334,13 @@ function getFormatActionName(str){
     var nameParsedArray = []
     var currSubString = ""
     for (var i = 0; i < str.length; i++) {
-        if (str.charAt(i) == str.charAt(i).toUpperCase() && i != 0 && (str.charAt(i) != "I" && str.charAt(i) != "V")){
+        if (str.charAt(i) == str.charAt(i).toUpperCase() && i != 0 && (str.charAt(i) != "I" && str.charAt(i) != "V" &&str.charAt(i) != "_")){
+                             // We will check if the next work is "The" in which case we will just add a space.
+            if (str.length >= i+2 && str.substring(i,i+3) == "AOE"){
+                currSubString+="The ";
+                i = i+3;
+            }
+            var x = str.substring(i,i+2);
             nameParsedArray.push(currSubString);
             currSubString = str.charAt(i);
         } else{
@@ -342,14 +348,14 @@ function getFormatActionName(str){
         }
       }
     nameParsedArray.push(currSubString);
-    var innerHTML = '<div class="topOfEachOther">'
+    var innerHTML = '<div class="topOfEachOther"><p>'
     for (var i = 0; i < nameParsedArray.length; i++){
         word = nameParsedArray[i];
-        innerHTML += "<p>";
-        innerHTML += word;
-        innerHTML += "</p>";
+        //innerHTML += "<p>";
+        innerHTML += " " + word;
+        //innerHTML += "</p>";
     }
-    innerHTML += "</div>"
+    innerHTML += "</p></div>"
     return innerHTML
 }
 
