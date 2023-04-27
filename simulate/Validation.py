@@ -33,6 +33,7 @@ def attachmentValidation(data : dict) -> bool:
         for action in player["actionList"]:
             if not(checkNameAndType(action, ["actionName"], [str]) or 
                    checkNameAndType(action, ["actionName", "waitTime"], [str, float]) or
+                   checkNameAndType(action, ["actionName", "targetID"], [str, int]) or
                    checkNameAndType(action, ["actionName", "waitTime"], [str, int])):
                 return False
     return True

@@ -62,6 +62,8 @@ def SimulationResult(request):
         for action in player["actionList"]:
             if action["actionName"] == "WaitAbility":
                 action["waitTime"] = float(action["waitTime"])
+            if "targetID" in action.keys():
+                action["targetID"] = int(action["targetID"])
                              # We are adding data that is willingly not editable by the user
     data["data"]["fightInfo"]["time_unit"] = 0.01
     data["data"]["fightInfo"]["ShowGraph"] = False
@@ -71,6 +73,7 @@ def SimulationResult(request):
         Msg = ("There was an error when validating the given data. Either there was a corruption of the data "+
                "or something else happened. If this error persists please let me know through discord.")
         request.session["ErrorMessage"] = Msg
+        print(data)
         return redirect('Error') 
                              # We are making a string that represents the whole JSON saved file
                              # since the user can request to see it. Saving it in the session.

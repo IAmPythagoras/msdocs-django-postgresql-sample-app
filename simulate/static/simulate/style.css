@@ -298,8 +298,20 @@ dt {
     display: grid;
     align-items: center; 
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 5px;
+    column-gap: 1px;
+    border-radius: 10px;
    }
+
+.ActionPicker:hover {
+cursor: pointer;
+transition-duration: 500ms;
+background-color: rgba(255, 255, 255, 0.1);
+}
+.ActionPicker:not(:hover){
+transition-duration: 200ms;
+background-color: rgba(255, 255, 255, 0);
+}
+
 .topOfEachOther{
     font-size: 10px;
 }

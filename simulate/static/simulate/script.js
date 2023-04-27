@@ -124,6 +124,7 @@ corresponds to the ActionIden of the action.
         }
                                 // Remove the action from the player's actionlist
         PlayerConfigDict[currentEditPlayerID]["ActionList"].splice(action["IndexInList"],1);
+        PlayerConfigDict[currentEditPlayerID]["NextActionIndex"]--;
     }
 
 return delAction;
@@ -148,7 +149,7 @@ This function returns a function that adds an action to a player's action list. 
     if (IsAdded) {
                                 // Giving new ActionIdentification since action we are adding
         Identification = String(currentEditPlayerID)+String(PlayerConfigDict[currentEditPlayerID]["NextActionID"]);
-        PlayerConfigDict[currentEditPlayerID]["NextActionID"]++;
+        //PlayerConfigDict[currentEditPlayerID]["NextActionID"]++;
                                 // Action is the action's name
                                 // ActionID is a unique value for the action in the actionlist of the player (it is a concatenation of the player's ID and the NextactionID value of the player)
                                 // Index in list corresponds to the index of the action in the action list of the player.
@@ -334,12 +335,8 @@ function getFormatActionName(str){
     var nameParsedArray = []
     var currSubString = ""
     for (var i = 0; i < str.length; i++) {
-        if (str.charAt(i) == str.charAt(i).toUpperCase() && i != 0 && (str.charAt(i) != "I" && str.charAt(i) != "V" &&str.charAt(i) != "_")){
+        if (str.charAt(i) == str.charAt(i).toUpperCase() && (str.length - i ) > 3 && str.charAt(i) != "_"){
                              // We will check if the next work is "The" in which case we will just add a space.
-            if (str.length >= i+2 && str.substring(i,i+3) == "AOE"){
-                currSubString+="The ";
-                i = i+3;
-            }
             var x = str.substring(i,i+2);
             nameParsedArray.push(currSubString);
             currSubString = str.charAt(i);
@@ -434,6 +431,7 @@ document.getElementById("PlayerIDField").innerHTML = "PlayerID : " + PlayerConfi
 document.getElementById("ActionListPick").innerHTML = "";
 document.getElementById("PlayerActionListViewer").innerHTML = "";
 PlayerConfigDict[currentEditPlayerID]["NextActionID"] = 0;
+PlayerConfigDict[currentEditPlayerID]["NextActionIndex"] = 0;
 
 LoadPlayerActionsPick(false /* ChangingJob */);
 LoadPlayerActionList();
