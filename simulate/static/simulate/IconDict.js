@@ -288,7 +288,7 @@ var IconDict = {
         "Wildfire",
         "Automaton",
         "BarrelStabilizer",
-        "detonator",
+        "Detonator",
         "Flamethrower",
         "Bioblaster",
         "Scattergun",

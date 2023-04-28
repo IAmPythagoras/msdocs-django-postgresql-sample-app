@@ -10,9 +10,11 @@ from .Validation import attachmentValidation
 import logging
 from ffxivcalc.helperCode import helper_backend
 from .Stream import LogStream
+
 log_stream = LogStream()
 logging.basicConfig(stream=log_stream)
-#logging.getLogger("ffxivcalc").setLevel(level=logging.DEBUG)
+                             # Silencing django logging
+logging.getLogger("django").setLevel(level=logging.DEBUG)
 
 def index(request):
     """

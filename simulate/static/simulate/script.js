@@ -158,10 +158,36 @@ This function returns a function that adds an action to a player's action list. 
         "Action" : ActionID,
         "ActionID" : Identification, 
         "IndexInList" : PlayerConfigDict[currentEditPlayerID]["NextActionIndex"],
-        "target" :  IsTargetted ? GetTarget() : -1
+        "target" :  -1
         };
                                 // If the action is waitability, we ask for a duration for it.
-        if (ActionID == "wait_ability"){ActionDict["WaitTime"] = prompt("Input how long (in seconds) you want the player to wait for :");}
+        if (ActionID == "wait_ability"){
+            ActionDict["WaitTime"] = prompt("Input how long (in seconds) you want the player to wait for :");
+
+                             // Will validate the input
+            if (ActionDict["WaitTime"] == null ||     /* User hit cancel */
+                ActionDict["WaitTime"] == ""   ||     /* User did not input anything */
+                !onlyNumbers(ActionDict["WaitTime"])) /* User input has letters */
+                {
+                alert("Invalid input for wait_ability. The action will not be added.");
+                return;
+                }
+        }                    // If there is a player target, we ask for it
+        if (IsTargetted){
+            var TargetID = prompt("Enter the PlayerID of who you want to target with this ability");
+            
+                             // We will validate the input
+            if (TargetID == null ||       /* User hit cancel */
+                TargetID == ""   ||       /* User did not input anything */
+                !onlyNumbers(TargetID) ||   /* User input has letters */
+                !(TargetID in PlayerConfigDict) ||/* User targets a non existing player */
+                TargetID == currentEditPlayerID) /* Player targets itself */
+            {
+            alert("Invalid target input. The action will not be added.");
+            return;
+            }      
+            ActionDict["target"] = TargetID;
+        }
         
         PlayerConfigDict[currentEditPlayerID]["ActionList"].push(ActionDict);
     }
@@ -172,9 +198,10 @@ This function returns a function that adds an action to a player's action list. 
         // Get the ActionListViewer to add the div.
         const ActionListViewer = document.getElementById("PlayerActionListViewer");
         PlayerJob = PlayerConfigDict[currentEditPlayerID]["Job"];
+        var ActionTitle = ActionID + (IsTargetted ? " targetID : " + ActionDict["target"] : "") + (ActionID == "wait_ability" ? " time : " + ActionDict["WaitTime"] : "")
                                     // Adding the new division in the ActionListViewer
         const newAction = document.createElement('div');
-        newAction.innerHTML = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+ActionID+'.png" title="'+ActionID+'" width="40px" height="40px" class="Icon">';
+        newAction.innerHTML = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+ActionID+'.png" title="'+ActionTitle+'" width="40px" height="40px" class="Icon">';
         newAction.onclick = DelActionFromList(Identification);
         newAction.setAttribute("id", Identification);
         ActionListViewer.appendChild(newAction);
@@ -316,7 +343,7 @@ function Submit(){
     xhr.onreadystatechange = function() {
                                  // When the request has been processed, the user is sent to the SimulationResult page. If there was an error the user is notified and we return.
     if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-        window.location.href='/simulate/SimulationResult/'
+        window.open('/simulate/SimulationResult/', '_blank').focus();
     }
     }
                                  // Sends the request.
@@ -348,24 +375,22 @@ function getFormatActionName(str){
     var innerHTML = '<div class="topOfEachOther"><p>'
     for (var i = 0; i < nameParsedArray.length; i++){
         word = nameParsedArray[i];
-        //innerHTML += "<p>";
         innerHTML += " " + word;
-        //innerHTML += "</p>";
     }
-    innerHTML += "</p></div>"
-    return innerHTML
+    innerHTML += "</p></div>";
+    return innerHTML;
+}
+
+function ValidPlayerID(id){
+    for (let i = 0; i< PlayerConfigDict["PlayerList"].length;i++){
+        if (PlayerConfigDict["PlayerList"][i]["PlayerID"] == String(id)){return true;}
+    }
+    return false;
 }
 
 /*
 USER INPUT FUNCTIONS
 */
-function GetTarget(){
-    /*
-    This function is called to ask the user for a player to target with an action.
-    */
-    var TargetID = prompt("Enter the PlayerID of who you want to target with this ability");
-    return TargetID;
-    }
 
 /*
 LOADING DATA INTO VIEWER FUNCTIONS OR SAVING DATA

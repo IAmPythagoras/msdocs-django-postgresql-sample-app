@@ -11,11 +11,15 @@ class LogStream(object):
                              # 2 is a failed simulation
     def write(self, str):
                              # We will evaluate the level of the log and change the ReturnCode accordingly.
-        if (len(str) >= 7 and str[:7] == "WARNING"):
-            self.ReturnCode = 1
-        elif (len(str) >= 8 and str[:8] == "CRITICAL"):
-            self.ReturnCode = 2
-        self.logs += [str]
+        str_split = str.split(":")
+
+        if (str_split[1].split(".")[0] == "ffxivcalc"): 
+            if (str_split[0] == "WARNING"):
+                self.ReturnCode = 1
+            elif (str_split[0] == "CRITICAL"):
+                self.ReturnCode = 2
+
+            self.logs += [str]
     def flush(self):
         pass
 
