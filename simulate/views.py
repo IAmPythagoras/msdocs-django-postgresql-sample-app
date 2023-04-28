@@ -68,7 +68,7 @@ def SimulationResult(request):
     data["data"]["fightInfo"]["time_unit"] = 0.01
     data["data"]["fightInfo"]["ShowGraph"] = False
                              # We will validate the final dictionnary before reading anything from it.
-                             # If it fails, the user is redirected to a FailedValidation view.
+                             # If it fails, the user is redirected to an Error view with a failed validation message.
     if not attachmentValidation(data):
         Msg = ("There was an error when validating the given data. Either there was a corruption of the data "+
                "or something else happened. If this error persists please let me know through discord.")
