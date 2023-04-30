@@ -64,7 +64,7 @@
     <div class="container">
         <!--Lets a user simply put an etro gear set link to import the stats-->
         <p>You can also just use an etro gearset : </p>
-        <input type="text" value="Put etro URL here" style="margin-right: 10px;margin-left: 10px;" id="etroURL">
+        <input type="text" style="margin-right: 10px;margin-left: 10px;" id="etroURL">
         <p  style="color: rgba(255, 255, 255, 0.7);">(If a valid link is put here, it will overwrite the stats when the simulation is launched)</p>
     </div>
     <div style="align-items: center;">
@@ -142,6 +142,11 @@
     </div>
     <p style="color: red;">The simulation's result will open in a new tab so make sure your browser is not blocking it</p>
     </center>
+    <div style="float:right;bottom:100px;position: relative;" class="container"
+     title="Sets the logging level to DEBUG.">
+        <p>DEBUG mode : </p>
+        <input type="checkbox" id="DebugMode" onchange="UpdateDebugMode()">
+    </div>
 </div>
 
 </html>

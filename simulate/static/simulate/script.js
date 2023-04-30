@@ -16,9 +16,28 @@ var AtLeastOnePlayer = false;
                              // These values corresponds to the checkbox in Fight configuration
 var RequirementOn = false;
 var IgnoreMana = false;
+var DebugMode = false;
 /* 
 GLOBAL VARIABLE DECLARATION END
 */     
+
+/*
+VALIDATION FUNCTIONS
+*/
+
+function validateWaitTime(UserInput){
+    return UserInput == null ||     /* User hit cancel */
+           UserInput == ""   ||     /* User did not input anything */
+           !onlyNumbers(UserInput); /* User input has letters */
+}
+
+function validateTarget(UserInput){
+    return UserInput == null ||                 /* User hit cancel */
+           UserInput == ""   ||                 /* User did not input anything */
+          !(onlyNumbers(UserInput)) ||          /* User input has letters */
+          !(UserInput in PlayerConfigDict) ||   /* User targets a non existing player */
+           UserInput == currentEditPlayerID;    /* Player targets itself */
+}
 
 /*
 FUNCTION INTERACTING WITH WHAT IS DISPLAYED
@@ -74,7 +93,7 @@ function DeletePlayer(PlayerID){
 This function removes a player from the simulation input.
 It will ask for a prompt from the user to make sure the action was deliberate.
 */
-    const confirmation = confirm("Are you sure you want to delete the player : " + String(PlayerConfigDict[PlayerID]["PlayerName"]) + "?");
+    const confirmation = confirm("Are you sure you want to delete the player : " + String(PlayerConfigDict[PlayerID]["PlayerName"]) + "? Make sure that there are no actions targetting this player if you delete it.");
     if (! confirmation){return;}
                              // Removing the player from the PlayerConfigDict and from the roster viewer
     document.getElementById("Edit"+String(PlayerID)).remove()
@@ -104,13 +123,15 @@ corresponds to the ActionIden of the action.
     function delAction(){
     /*
     Deletes an action from the player's action list.
-    */
-                                // Removes the division from the viewer
-        document.getElementById(ActionID).remove();
+    If is wait_ability or any targetted action it will ask the user
+    if they wish to change the wait_timer or the target. If not it will delete
+    the action.
+    */  
+        var doc = document.getElementById(ActionID);
         var ActionList = PlayerConfigDict[currentEditPlayerID]["ActionList"];
         var action;
 
-                                //Find the Action with the ActionIden
+                             //Find the Action with the ActionIden
         for (let i = 0;i<ActionList.length;i++){
             if (ActionList[i]["ActionID"] == ActionID)
                 {
@@ -118,10 +139,51 @@ corresponds to the ActionIden of the action.
                 break;
                 }
         }
+
+        if (action["target"] != -1)
+            {
+                             // We will ask the user if they want to simply change the target.
+                var UserInput = prompt("This action has a player target. If you wish to change the target enter a valid playerID. Otherwise "+
+                                       "simply click on 'Ok' or 'Cancel' with no input to delete the action.");
+                
+                if (UserInput != null && UserInput != ""){
+                             // User wants change the target
+                    if (validateTarget(UserInput)){
+                        alert("The input player ID is unvalid. The operation is cancelled.");
+                        return;
+                    }
+                    action["target"] = UserInput;
+                             // Will also change the title value.
+                    doc.removeAttribute("title");
+                    doc.setAttribute("title", ActionViewerDocTitle(action, true));
+                    return;
+                }
+            }
+        else if (action["Action"] == "wait_ability")
+            {
+                             // We will ask the user if they want to simply change the target.
+                var UserInput = prompt("If you want to change the wait time enter a valid input. Otherwise simply click on 'Ok' or 'Cancel' with no input to delete the action.");
+                
+                if (UserInput != null && UserInput != ""){
+                             // User wants to change the wait time
+                    if (validateWaitTime(UserInput)){
+                        alert("The wait time is unvalid. The operation is cancelled.");
+                        return;
+                    }
+                    action["WaitTime"] = UserInput;
+                             // Will also change the title value.
+                    doc.removeAttribute("title");
+                    doc.setAttribute("title", ActionViewerDocTitle(action, false));
+                    return;
+                }
+            }
+
                                 // Adjust the IndexInList of the other actions.
         for(let i = action["IndexInList"]+1;i<ActionList.length;i++){
             ActionList[i]["IndexInList"]--;
         }
+                                // Removes the division from the viewer
+        document.getElementById(ActionID).remove();
                                 // Remove the action from the player's actionlist
         PlayerConfigDict[currentEditPlayerID]["ActionList"].splice(action["IndexInList"],1);
         PlayerConfigDict[currentEditPlayerID]["NextActionIndex"]--;
@@ -165,9 +227,7 @@ This function returns a function that adds an action to a player's action list. 
             ActionDict["WaitTime"] = prompt("Input how long (in seconds) you want the player to wait for :");
 
                              // Will validate the input
-            if (ActionDict["WaitTime"] == null ||     /* User hit cancel */
-                ActionDict["WaitTime"] == ""   ||     /* User did not input anything */
-                !onlyNumbers(ActionDict["WaitTime"])) /* User input has letters */
+            if (validateWaitTime(ActionDict["WaitTime"])) 
                 {
                 alert("Invalid input for wait_ability. The action will not be added.");
                 return;
@@ -177,11 +237,7 @@ This function returns a function that adds an action to a player's action list. 
             var TargetID = prompt("Enter the PlayerID of who you want to target with this ability");
             
                              // We will validate the input
-            if (TargetID == null ||       /* User hit cancel */
-                TargetID == ""   ||       /* User did not input anything */
-                !onlyNumbers(TargetID) ||   /* User input has letters */
-                !(TargetID in PlayerConfigDict) ||/* User targets a non existing player */
-                TargetID == currentEditPlayerID) /* Player targets itself */
+            if (validateTarget(TargetID))
             {
             alert("Invalid target input. The action will not be added.");
             return;
@@ -194,18 +250,23 @@ This function returns a function that adds an action to a player's action list. 
     else {
                              // Repopulating the ActionListViewer. So the Identification is simply the one given
         Identification = ActionIden;
+                             // Finding the action dictionnary
+        for (let i = 0;i<PlayerConfigDict[currentEditPlayerID]["ActionList"].length;i++){
+            if (PlayerConfigDict[currentEditPlayerID]["ActionList"][i]["ActionID"] == Identification){
+                ActionDict = PlayerConfigDict[currentEditPlayerID]["ActionList"][i];
+            }
+        }
     }
         // Get the ActionListViewer to add the div.
         const ActionListViewer = document.getElementById("PlayerActionListViewer");
         PlayerJob = PlayerConfigDict[currentEditPlayerID]["Job"];
-        var ActionTitle = ActionID + (IsTargetted ? " targetID : " + ActionDict["target"] : "") + (ActionID == "wait_ability" ? " time : " + ActionDict["WaitTime"] : "")
                                     // Adding the new division in the ActionListViewer
         const newAction = document.createElement('div');
-        newAction.innerHTML = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+ActionID+'.png" title="'+ActionTitle+'" width="40px" height="40px" class="Icon">';
+        newAction.setAttribute("title", ActionViewerDocTitle(ActionDict, IsTargetted));
+        newAction.innerHTML = '<img src="/static/simulate/PVEIcons/'+PlayerJob+'/'+ActionID+'.png" width="40px" height="40px" class="Icon">';
         newAction.onclick = DelActionFromList(Identification);
         newAction.setAttribute("id", Identification);
         ActionListViewer.appendChild(newAction);
-
                                 // Incrementing the ID and index
     PlayerConfigDict[currentEditPlayerID]["NextActionIndex"]++;
     PlayerConfigDict[currentEditPlayerID]["NextActionID"]++;
@@ -255,6 +316,7 @@ else if(NewValue == "false"){
 }
 function UpdateRequirement(){RequirementOn=document.getElementById("RequirementOnCheckBox").checked;}
 function UpdateManaCheck(){IgnoreMana=!IgnoreMana;}
+function UpdateDebugMode(){DebugMode=!DebugMode;}
 function UpdateName(){
     /*
     This function is called when a Player's name is updated in order to also update the name in the Roster Viewer.
@@ -291,7 +353,7 @@ function Submit(){
         PlayerDict = PlayerConfigDict[key];
                                  // Validating the values of the stats
         for (let i in PlayerDict["Stat"]){
-            if(! onlyNumbers(PlayerDict["Stat"][i])){
+            if(!onlyNumbers(PlayerDict["Stat"][i])){
                 alert("Invalid stat "+ i +" for player"+ PlayerDict["PlayerName"]);
                 return;
             }
@@ -331,10 +393,13 @@ function Submit(){
     
     }
                                  // dataDict is what will be sent in the POST request.
-    var dataDict = {"data" : {
-        "fightInfo" : FightInfo,
-        "PlayerList" : PlayerList
-    }};
+    var dataDict = {
+        "data" : {
+            "fightInfo" : FightInfo,
+            "PlayerList" : PlayerList
+        },
+        "mode" : DebugMode
+    };
                                  // POST request Logic
     xhr = new XMLHttpRequest();
     var url = "/simulate/SimulationInput/";
@@ -354,6 +419,11 @@ function Submit(){
 /*
 HELPER FUNCTIONS
 */
+
+function ActionViewerDocTitle(Action, IsTargetted){
+    return Action["Action"] + (IsTargetted ? " targetID : " + Action["target"] : "") + (Action["Action"] == "wait_ability" ? " time : " + Action["WaitTime"] : "")
+}
+
 function onlyNumbers(str) {
 	return /^[0-9]*$/.test(str);
 }
@@ -469,7 +539,7 @@ var ActionList = PlayerConfigDict[currentEditPlayerID]["ActionList"];
 
 for (let i = 0;i<ActionList.length;i++){
     var Action = ActionList[i]
-    CreateAddAction(Action["Action"] /*ActionID*/, false /*IsAdded*/, false /*IsAdded*/, Action["ActionID"]/*ActionIdentification*/)();
+    CreateAddAction(Action["Action"] /*ActionID*/, Action["target"]!= -1 /*IsTargetted*/, false /*IsAdded*/, Action["ActionID"]/*ActionIdentification*/)();
 }
 }
 function SavePlayerConfiguration(PlayerID){

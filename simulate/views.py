@@ -11,10 +11,12 @@ import logging
 from ffxivcalc.helperCode import helper_backend
 from .Stream import LogStream
 
+from ffxivcalc.helperCode.exceptions import *
+
+
 log_stream = LogStream()
 logging.basicConfig(stream=log_stream)
-                             # Silencing django logging
-logging.getLogger("django").setLevel(level=logging.DEBUG)
+logging.getLogger("ffxivcalc").setLevel(level=logging.WARNING)
 
 def index(request):
     """
@@ -40,74 +42,111 @@ def SimulationResult(request):
     This view will retrieve the data from the session and simulate the fight. It validates the file before simulating it.
     It then displays the result to the user.
     """
-                             # We are recuperating the simulation data, and deleting it.
-                             # Deleting it will make sure the data is not reused in the same session
-                             # if the user goes back to SimulationInput. We first check if it is a key,
-                             # if it is not we redirect to the error page. This error could happen
-                             # If there was an error when putting the data in the session, or if
-                             # SimulationResult was accessed without first going to SimulationInput.
-    if (not "SimulationData" in request.session.keys()):
-        Msg = ("The session does not have a 'SimulationData' key, make sure you access this page by first going to 'SimulationInput'. If this issues persists contact me on discord.")
-        request.session["ErrorMessage"] = Msg
-        return redirect('Error')
+    try:
+                            # We are recuperating the simulation data, and deleting it.
+                            # Deleting it will make sure the data is not reused in the same session
+                            # if the user goes back to SimulationInput. We first check if it is a key,
+                            # if it is not we redirect to the error page. This error could happen
+                            # If there was an error when putting the data in the session, or if
+                            # SimulationResult was accessed without first going to SimulationInput.
+        if (not "SimulationData" in request.session.keys()):
+            Msg = ("The session does not have a 'SimulationData' key, make sure you access this page by first going to 'SimulationInput'. If this issues persists contact me on discord.")
+            request.session["ErrorMessage"] = Msg
+            return redirect('Error')
 
-    data = deepcopy(request.session['SimulationData'])
-    del request.session['SimulationData']
-                             # Since some fields from the data were not of the right type, 
-                             # we are casting them into the expected type, as they will otherwise
-                             # fail the validation.
-    data["data"]["fightInfo"]["fightDuration"] = int(data["data"]["fightInfo"]["fightDuration"])
-    for player in data["data"]["PlayerList"]:
-        player["playerID"] = int(player["playerID"])
-        for key in player["stat"]:
-            player["stat"][key] = int(player["stat"][key])
-        for action in player["actionList"]:
-            if action["actionName"] == "WaitAbility":
-                action["waitTime"] = float(action["waitTime"])
-            if "targetID" in action.keys():
-                action["targetID"] = int(action["targetID"])
-                             # We are adding data that is willingly not editable by the user
-    data["data"]["fightInfo"]["time_unit"] = 0.01
-    data["data"]["fightInfo"]["ShowGraph"] = False
-                             # We will validate the final dictionnary before reading anything from it.
-                             # If it fails, the user is redirected to an Error view with a failed validation message.
-    if not attachmentValidation(data):
-        Msg = ("There was an error when validating the given data. Either there was a corruption of the data "+
-               "or something else happened. If this error persists please let me know through discord.")
+        data = deepcopy(request.session['SimulationData'])
+        del request.session['SimulationData']
+
+                                # We check if the DEBUG mode is true or not.
+        mode = data["mode"]
+        del data["mode"]        # We remove it so it doesn't interfere with validation.
+
+                                # Since some fields from the data were not of the right type, 
+                                # we are casting them into the expected type, as they will otherwise
+                                # fail the validation.
+        data["data"]["fightInfo"]["fightDuration"] = int(data["data"]["fightInfo"]["fightDuration"])
+        for player in data["data"]["PlayerList"]:
+            player["playerID"] = int(player["playerID"])
+            for key in player["stat"]:
+                player["stat"][key] = int(player["stat"][key])
+            for action in player["actionList"]:
+                if action["actionName"] == "WaitAbility":
+                    action["waitTime"] = float(action["waitTime"])
+                if "targetID" in action.keys():
+                    action["targetID"] = int(action["targetID"])
+            
+                                    # We check if the player is a ninja. In which case we will have to 
+                                    # change TenChiJin mudra's
+                if player["JobName"] == "Ninja":
+                    for index in range(len(player["actionList"])):
+                        action = player["actionList"][index]
+                        if action["actionName"] == "TenChiJin":
+                                    # Then we have to change the next Ten, Chi or Jin to Ten2, Chi2, Jin2
+                                    # We just check the next 3 abilities and will add 2 if ten,chi or jin
+                                for i in range(index+1,index+4):
+                                    if (player["actionList"][i]["actionName"] == "Ten" or
+                                        player["actionList"][i]["actionName"] == "Chi" or 
+                                        player["actionList"][i]["actionName"] == "Jin"):
+                                        player["actionList"][i]["actionName"] += "2" 
+
+                                # We are adding data that is willingly not editable by the user
+        data["data"]["fightInfo"]["time_unit"] = 0.05
+        data["data"]["fightInfo"]["ShowGraph"] = False
+                                # We will validate the final dictionnary before reading anything from it.
+                                # If it fails, the user is redirected to an Error view with a failed validation message.
+        if not attachmentValidation(data):
+            Msg = ("There was an error when validating the given data. Either there was a corruption of the data "+
+                "or something else happened. If this error persists please let me know through discord.")
+            request.session["ErrorMessage"] = Msg
+            return redirect('Error') 
+                                # We are making a string that represents the whole JSON saved file
+                                # since the user can request to see it. Saving it in the session.
+        request.session["JSONFileViewer"] = json.dumps(data, indent=2) # Leaving the data in the session if the user wants to see it.
+
+                                # Restoring the fight object from the data
+        Event = helper_backend.RestoreFightObject(data)
+                                # Configuring the Event object according to the parameters in data
+        Event.ShowGraph = data["data"]["fightInfo"]["ShowGraph"]
+        Event.RequirementOn = data["data"]["fightInfo"]["RequirementOn"]
+        Event.IgnoreMana = data["data"]["fightInfo"]["IgnoreMana"]
+                                    # Simulating the fight and logging if DEBUG mode
+        if mode: logging.getLogger("ffxivcalc").setLevel(level=logging.DEBUG)
+        result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False, PPSGraph=False)
+        if mode: 
+                                # Reverting changes
+            mode = False
+            logging.getLogger("ffxivcalc").setLevel(level=logging.WARNING)
+                                # result_str contains the result of the simulation.
+                                # We will parse it by line in order to show it clearly to the user.
+        result_arr = []
+        for line in result_str.split("\n"):
+            result_arr.append(line)
+                                # We will save the generated matplotlib figure
+                                # in order to show it to the user.
+        plt.legend(fontsize=5)
+        fig = plt.gcf()
+        buf = io.BytesIO()
+        fig.savefig(buf, format='png', dpi=200)
+        buf.seek(0)
+        string = base64.b64encode(buf.read())
+        uri = urllib.parse.quote(string)
+
+                                # We will take the logs if any and check what the ReturnCode value is.
+        ReturnCode = log_stream.ReturnCode
+        log_str = log_stream.to_str()
+
+        return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri, "WARNING" : ReturnCode == 1, "CRITICAL" : ReturnCode == 2, "log_str" : log_str})
+    except InvalidTarget as Error:
+        Msg = ("An action had an invalid target and the simulation was not able to continue.\n" +
+        " Error message : " + str(Error))
         request.session["ErrorMessage"] = Msg
-        print(data)
         return redirect('Error') 
-                             # We are making a string that represents the whole JSON saved file
-                             # since the user can request to see it. Saving it in the session.
-    request.session["JSONFileViewer"] = json.dumps(data, indent=2) # Leaving the data in the session if the user wants to see it.
-
-                             # Restoring the fight object from the data
-    Event = helper_backend.RestoreFightObject(data)
-                             # Configuring the Event object according to the parameters in data
-    Event.ShowGraph = data["data"]["fightInfo"]["ShowGraph"]
-    Event.RequirementOn = data["data"]["fightInfo"]["RequirementOn"]
-    Event.IgnoreMana = data["data"]["fightInfo"]["IgnoreMana"]
-                                 # Simulating the fight.
-    result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False)
-                             # result_str contains the result of the simulation.
-                             # We will parse it by line in order to show it clearly to the user.
-    result_arr = []
-    for line in result_str.split("\n"):
-        result_arr.append(line)
-                             # We will save the generated matplotlib figure
-                             # in order to show it to the user.
-    fig = plt.gcf()
-    buf = io.BytesIO()
-    fig.savefig(buf, format='png', dpi=200)
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = urllib.parse.quote(string)
-
-                             # We will take the logs if any and check what the ReturnCode value is.
-    ReturnCode = log_stream.ReturnCode
-    log_str = log_stream.to_str()
-
-    return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri, "WARNING" : ReturnCode == 1, "CRITICAL" : ReturnCode == 2, "log_str" : log_str})
+    except Exception as Error:
+        Msg = ("An unknown error happened and '"+Error.__class__.__name__+"' was raised. If this persists reach out on discord.\n" +
+               " Error message : " + str(Error))
+        request.session["ErrorMessage"] = Msg
+        return redirect('Error') 
+    
 
 def credit(request):
     """
