@@ -17,6 +17,7 @@ var AtLeastOnePlayer = false;
 var RequirementOn = false;
 var IgnoreMana = false;
 var DebugMode = false;
+var ResultNewTab = true;
 /* 
 GLOBAL VARIABLE DECLARATION END
 */     
@@ -28,7 +29,7 @@ VALIDATION FUNCTIONS
 function validateWaitTime(UserInput){
     return UserInput == null ||     /* User hit cancel */
            UserInput == ""   ||     /* User did not input anything */
-           !onlyNumbers(UserInput); /* User input has letters */
+           (!onlyNumbers(UserInput) && !onlyFloat(UserInput)); /* User input has letters */
 }
 
 function validateTarget(UserInput){
@@ -317,6 +318,13 @@ else if(NewValue == "false"){
 function UpdateRequirement(){RequirementOn=document.getElementById("RequirementOnCheckBox").checked;}
 function UpdateManaCheck(){IgnoreMana=!IgnoreMana;}
 function UpdateDebugMode(){DebugMode=!DebugMode;}
+function UpdateResultNewTab(){
+    ResultNewTab=!ResultNewTab;
+    if (ResultNewTab)
+        document.getElementById("NewTabAlert").innerHTML= "The simulation's result will open in a new tab so make sure your browser is not blocking it";
+    else
+    document.getElementById("NewTabAlert").innerHTML= "Careful! You will loose the Simulation's input when simulating if you do not open in a new tab!"; // Wiping
+}
 function UpdateName(){
     /*
     This function is called when a Player's name is updated in order to also update the name in the Roster Viewer.
@@ -408,7 +416,8 @@ function Submit(){
     xhr.onreadystatechange = function() {
                                  // When the request has been processed, the user is sent to the SimulationResult page. If there was an error the user is notified and we return.
     if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-        window.open('/simulate/SimulationResult/', '_blank').focus();
+        if (ResultNewTab) window.open('/simulate/SimulationResult/', '_blank').focus();
+        else window.location.href = '/simulate/SimulationResult/';
     }
     }
                                  // Sends the request.
@@ -424,8 +433,12 @@ function ActionViewerDocTitle(Action, IsTargetted){
     return Action["Action"] + (IsTargetted ? " targetID : " + Action["target"] : "") + (Action["Action"] == "wait_ability" ? " time : " + Action["WaitTime"] : "")
 }
 
+function onlyFloat(str) {
+	return /^\d*[.]\d*$/.test(str);
+}
+
 function onlyNumbers(str) {
-	return /^[0-9]*$/.test(str);
+	return /^\d*$/.test(str);
 }
 
 function getFormatActionName(str){

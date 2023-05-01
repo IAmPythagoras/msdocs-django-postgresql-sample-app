@@ -90,7 +90,7 @@ def SimulationResult(request):
                                         player["actionList"][i]["actionName"] += "2" 
 
                                 # We are adding data that is willingly not editable by the user
-        data["data"]["fightInfo"]["time_unit"] = 0.05
+        data["data"]["fightInfo"]["time_unit"] = 0.01
         data["data"]["fightInfo"]["ShowGraph"] = False
                                 # We will validate the final dictionnary before reading anything from it.
                                 # If it fails, the user is redirected to an Error view with a failed validation message.
@@ -178,5 +178,11 @@ def Error(request):
         ErrorMessage = request.session["ErrorMessage"]
         del request.session["ErrorMessage"]
     return render(request, 'simulate/Error.html', {"ErrorMessage" : ErrorMessage})
+
+def help(request):
+    """
+    Help page.
+    """
+    return render(request, 'simulate/help.html', {})
 
 index(None)

@@ -29,6 +29,11 @@
         <img src="{% static 'simulate/discord.svg' %}" width="40" height="40">
         </a>
     </div>
+    <div class="menu">
+        <a href="/simulate/help" title="Help">
+        <img src="{% static 'simulate/help.png' %}" width="40" height="40">
+        </a>
+    </div>
     </div>
 </header>
 <hr>
@@ -49,7 +54,7 @@
             <p>
                 Note that the simulator is still in active development and bugs may be encountered. The results may not perfectly replicate in-game performance 
                 (for instance, the program does not account for lag and assumes an average crit rate),but they will give a very good idea of how in game damage
-                would look like given a set of actions.
+                would look like given a set of actions. It also (for now) cannot account for more than 1 target but some work is being done in that direction.
             </p>
             <p>
                 If you are interested in how the simulator works behind the scenes and other things it can do, I recommend checking out the GitHub page by clicking 

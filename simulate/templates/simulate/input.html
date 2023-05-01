@@ -31,6 +31,11 @@
         <img src="{% static 'simulate\discord.svg' %}" width="40" height="40">
         </a>
     </div>
+    <div class="menu">
+        <a href="/simulate/help" title="Help">
+        <img src="{% static 'simulate/help.png' %}" width="40" height="40">
+        </a>
+    </div>
     </div>
 </header>
 <hr>
@@ -136,11 +141,16 @@
             <p>Fight Max Duration (seconds) : </p>
             <input id="FightDuration" type="number" name="MainStat" value="200">
         </div>
+        <div class="container" style="margin: 0px;"
+        title="Open the result in a new tab.">
+            <p>Open the result in a new tab (recommend) :  </p>
+            <input type="checkbox" id="ResultNewTab" onchange="UpdateResultNewTab()" checked="true">
+        </div>
+        <p style="color: red;" id="NewTabAlert">The simulation's result will open in a new tab so make sure your browser is not blocking it</p>
     </div>
     <div><center>
         <button class="basicButton bigbutton" onclick="Submit()">Simulate</button>
     </div>
-    <p style="color: red;">The simulation's result will open in a new tab so make sure your browser is not blocking it</p>
     </center>
     <div style="float:right;bottom:100px;position: relative;" class="container"
      title="Sets the logging level to DEBUG.">
