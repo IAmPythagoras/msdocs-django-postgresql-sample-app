@@ -185,4 +185,23 @@ def help(request):
     """
     return render(request, 'simulate/help.html', {})
 
+
+def NotFoundError(request, exp):
+    """
+    Adress not found. HTTP 404
+    """
+    Msg = ("The requested page does not exist. Please validate the url.")
+    request.session["ErrorMessage"] = Msg
+    return redirect('Error') 
+
+def ServerDiedMoment(request):
+    """
+    HTTP 500
+    """
+    Msg = ("There either was an error with the server or the specified URL does not exist. Reach out on discord if this persists")
+    request.session["ErrorMessage"] = Msg
+    return redirect('Error') 
+
+
+
 index(None)
