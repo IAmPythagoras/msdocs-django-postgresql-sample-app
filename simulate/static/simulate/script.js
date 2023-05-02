@@ -73,7 +73,7 @@ const boxWrapper = document.getElementById("PlayerRosterViewer");
 const box = document.createElement("div");
                              // Every div has a unique ID to access it
 box.setAttribute("id", "Edit"+nextPlayerID);
-box.innerHTML = '<p id="Player'+nextPlayerID+'Name">'+PlayerConfigDict[nextPlayerID]["PlayerName"]+'</p><button class="basicButton" onclick="LoadPlayerConfiguration('+nextPlayerID+')">Edit</button><button class ="basicButton" style="background-color: red;position:absolute;right:5%;" onclick="DeletePlayer('+nextPlayerID+')">Delete</button></div>';
+box.innerHTML = '<p id="Player'+nextPlayerID+'Name">'+PlayerConfigDict[nextPlayerID]["PlayerName"]+' ID - '+nextPlayerID+'</p><button class="basicButton" onclick="LoadPlayerConfiguration('+nextPlayerID+')">Edit</button><button class ="basicButton" style="background-color: red;position:absolute;right:5%;" onclick="DeletePlayer('+nextPlayerID+')">Delete</button></div>';
 box.setAttribute("style","background-color: #333;border-radius: 5px;border: 1px solid #333;");
 boxWrapper.appendChild(box);
                              // If there is no player, we have to set the currentEditPlayerID as the newly created playerID (nextPlayerID)
@@ -329,7 +329,7 @@ function UpdateName(){
     /*
     This function is called when a Player's name is updated in order to also update the name in the Roster Viewer.
     */
-    document.getElementById('Player'+currentEditPlayerID+'Name').innerHTML = document.getElementById("PlayerName").value;
+    document.getElementById('Player'+currentEditPlayerID+'Name').innerHTML = document.getElementById("PlayerName").value + " ID - " + currentEditPlayerID;
     }
 /*
 HTTP REQUEST RELATED FUNCTIONS
@@ -515,7 +515,7 @@ if (save){SavePlayerConfiguration(currentEditPlayerID);}
 
                                 // This puts a white border around the player we want to edit.
 const box = document.getElementById('Player'+currentEditPlayerID+'Name');
-box.innerHTML = PlayerConfigDict[currentEditPlayerID]["PlayerName"];
+box.innerHTML = PlayerConfigDict[currentEditPlayerID]["PlayerName"] + " ID - "+currentEditPlayerID;
 document.getElementById("Edit"+PlayerID).setAttribute("style","background-color: #333;border-radius: 5px;border: 3px solid white;");
                                 // If a new player was created and there was no previous players, then currentEditPlayerID == PlayerID. So we skip this part.
 if (PlayerID != currentEditPlayerID){document.getElementById("Edit"+currentEditPlayerID).setAttribute("style","background-color: #333;border-radius: 5px;border: 1px solid #333;");}

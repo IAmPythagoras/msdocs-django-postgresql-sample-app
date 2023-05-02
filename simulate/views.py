@@ -64,7 +64,7 @@ def SimulationResult(request):
                                 # Since some fields from the data were not of the right type, 
                                 # we are casting them into the expected type, as they will otherwise
                                 # fail the validation.
-        data["data"]["fightInfo"]["fightDuration"] = int(data["data"]["fightInfo"]["fightDuration"])
+        data["data"]["fightInfo"]["fightDuration"] = float(data["data"]["fightInfo"]["fightDuration"])
         for player in data["data"]["PlayerList"]:
             player["playerID"] = int(player["playerID"])
             for key in player["stat"]:

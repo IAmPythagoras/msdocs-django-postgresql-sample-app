@@ -15,7 +15,7 @@ def attachmentValidation(data : dict) -> bool:
         return False
 
     if not(checkNameAndType(data["data"]["fightInfo"], ["IgnoreMana", "RequirementOn", "ShowGraph","fightDuration",  "time_unit"], 
-                                                       [bool, bool, bool, int, float])):
+                                                       [bool, bool, bool, float, float])):
         return False
 
     for player in data["data"]["PlayerList"]:
