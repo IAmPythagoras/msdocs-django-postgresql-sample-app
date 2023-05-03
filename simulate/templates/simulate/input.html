@@ -136,6 +136,11 @@
             <input type="checkbox" id="IgnoreManaCheckBox" onchange="UpdateManaCheck()">
         </div>
         <div class="container" style="margin: 0px;"
+        title="This will give the 5% bonus regardless of team composition">
+            <p>5% bonus (regardless of team composition) : </p>
+            <input type="checkbox" id="TeamCompBonus" onchange="UpdateTeamCompBonus()">
+        </div>
+        <div class="container" style="margin: 0px;"
         title="The maximum fight duration of the simulation in seconds. The simulation will stop
         when the timer reaches that value and will return the current results. Must be a positive value and be lower than 300.">
             <p>Fight Max Duration (seconds) : </p>

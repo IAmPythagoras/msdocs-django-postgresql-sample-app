@@ -56,10 +56,13 @@ def SimulationResult(request):
 
         data = deepcopy(request.session['SimulationData'])
         del request.session['SimulationData']
-
                                 # We check if the DEBUG mode is true or not.
-        mode = data["mode"]
-        del data["mode"]        # We remove it so it doesn't interfere with validation.
+        mode = data["mode"]      
+                                # We check if the TeamCompBonus is true or not.
+        TeamBonusComp = data["TeamCompBonus"]
+        del data["mode"]  
+        del data["TeamCompBonus"]  
+                                # We remove it so it doesn't interfere with validation.
 
                                 # Since some fields from the data were not of the right type, 
                                 # we are casting them into the expected type, as they will otherwise
@@ -111,7 +114,7 @@ def SimulationResult(request):
         Event.IgnoreMana = data["data"]["fightInfo"]["IgnoreMana"]
                                     # Simulating the fight and logging if DEBUG mode
         if mode: logging.getLogger("ffxivcalc").setLevel(level=logging.DEBUG)
-        result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False, PPSGraph=False)
+        result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False, PPSGraph=False, MaxTeamBonus=TeamBonusComp)
         if mode: 
                                 # Reverting changes
             mode = False

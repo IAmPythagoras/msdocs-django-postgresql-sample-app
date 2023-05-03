@@ -18,6 +18,7 @@ var RequirementOn = false;
 var IgnoreMana = false;
 var DebugMode = false;
 var ResultNewTab = true;
+var TeamCompBonus = false;
 /* 
 GLOBAL VARIABLE DECLARATION END
 */     
@@ -318,6 +319,7 @@ else if(NewValue == "false"){
 function UpdateRequirement(){RequirementOn=document.getElementById("RequirementOnCheckBox").checked;}
 function UpdateManaCheck(){IgnoreMana=!IgnoreMana;}
 function UpdateDebugMode(){DebugMode=!DebugMode;}
+function UpdateTeamCompBonus(){TeamCompBonus=!TeamCompBonus}
 function UpdateResultNewTab(){
     ResultNewTab=!ResultNewTab;
     if (ResultNewTab)
@@ -406,7 +408,8 @@ function Submit(){
             "fightInfo" : FightInfo,
             "PlayerList" : PlayerList
         },
-        "mode" : DebugMode
+        "mode" : DebugMode,
+        "TeamCompBonus" : TeamCompBonus
     };
                                  // POST request Logic
     xhr = new XMLHttpRequest();
