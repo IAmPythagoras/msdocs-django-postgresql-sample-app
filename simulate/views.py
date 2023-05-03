@@ -60,8 +60,11 @@ def SimulationResult(request):
         mode = data["mode"]      
                                 # We check if the TeamCompBonus is true or not.
         TeamBonusComp = data["TeamCompBonus"]
+                                # We check if MaxPotencyPlentifulHarvest is true or not
+        MaxPotencyPlentifulHarvest = data["MaxPotencyPlentifulHarvest"]
         del data["mode"]  
         del data["TeamCompBonus"]  
+        del data["MaxPotencyPlentifulHarvest"]
                                 # We remove it so it doesn't interfere with validation.
 
                                 # Since some fields from the data were not of the right type, 
@@ -114,7 +117,7 @@ def SimulationResult(request):
         Event.IgnoreMana = data["data"]["fightInfo"]["IgnoreMana"]
                                     # Simulating the fight and logging if DEBUG mode
         if mode: logging.getLogger("ffxivcalc").setLevel(level=logging.DEBUG)
-        result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False, PPSGraph=False, MaxTeamBonus=TeamBonusComp)
+        result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False, PPSGraph=False, MaxTeamBonus=TeamBonusComp, MaxPotencyPlentifulHarvest=MaxPotencyPlentifulHarvest)
         if mode: 
                                 # Reverting changes
             mode = False

@@ -19,6 +19,7 @@ var IgnoreMana = false;
 var DebugMode = false;
 var ResultNewTab = true;
 var TeamCompBonus = false;
+var MaxPotencyPlentifulHarvest = false;
 /* 
 GLOBAL VARIABLE DECLARATION END
 */     
@@ -319,7 +320,8 @@ else if(NewValue == "false"){
 function UpdateRequirement(){RequirementOn=document.getElementById("RequirementOnCheckBox").checked;}
 function UpdateManaCheck(){IgnoreMana=!IgnoreMana;}
 function UpdateDebugMode(){DebugMode=!DebugMode;}
-function UpdateTeamCompBonus(){TeamCompBonus=!TeamCompBonus}
+function UpdateTeamCompBonus(){TeamCompBonus=!TeamCompBonus;}
+function UpdateMaxPotencyPlentifulHarvest(){MaxPotencyPlentifulHarvest=!MaxPotencyPlentifulHarvest;}
 function UpdateResultNewTab(){
     ResultNewTab=!ResultNewTab;
     if (ResultNewTab)
@@ -409,7 +411,8 @@ function Submit(){
             "PlayerList" : PlayerList
         },
         "mode" : DebugMode,
-        "TeamCompBonus" : TeamCompBonus
+        "TeamCompBonus" : TeamCompBonus,
+        "MaxPotencyPlentifulHarvest" : MaxPotencyPlentifulHarvest
     };
                                  // POST request Logic
     xhr = new XMLHttpRequest();
