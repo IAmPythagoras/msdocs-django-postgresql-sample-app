@@ -79,7 +79,14 @@
 {% endif %}
 <hr><br>
 <div><center>
-    <h2>Graph</h2>
+    <h2>DPS Vs. Time</h2>
     <img src="data:image/png;base64,{{ graph }}" style="border-radius: 5px;border: red solid 3px;">
 </center></div>
+{% if has_dist %}
+<hr><br>
+<div><center>
+    <h2>DPS Distribution</h2>
+    <img src="data:image/png;base64,{{ graph_dist }}" style="border-radius: 5px;border: red solid 3px;">
+</center></div>
+{% endif %}
 </html>

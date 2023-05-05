@@ -55,7 +55,7 @@
 <h3>Player Roster</h3>
 <img class="helpimg" style="height:500px;" src="{% static 'simulate/help/roster.png' %}">
 <p>
-    This shows all players added to the simulation. Their name will be displayed and the player currently being edited will have a white box around itself.  <br>
+    This shows all players added to the simulation, up to a maximum of 8 players. Their name will be displayed and the player currently being edited will have a white box around itself.  <br>
     To add players to the fight simulation, click the button "Add Player" at the bottom. You may edit or delete a player once it has been created.<br>
     When deleting a player, you will be asked if that is really what you want to do, and to be sure that no other player is targetting<br>
     this player with abilities (in which case the simulation will not work and you will receive an error).<br>
@@ -96,11 +96,13 @@
     not be able to do in the game. If this option is not checked, the simulation will not stop, but you will be warned in the results that the action set <br>
     for the player cannot be replicated in game. The "Ignore Mana Requirement" option will allow the simulation to ignore MP requirements when using <br>
     an action, but you will not be warned if the simulation detects at any point that there was not enough MP for an action. The "5% bonus" option will <br>
-    allow the simulation to give the 5% main stat bonus regardless of the team composition of the simulation. The "Have Plentiful Harvest always apply maximum potency" option <br>
-    will allow every casting of plentiful harvest to have maximum potency regardless of the other player's action. The "Fight Max Duration" option is the <br>
-    maximum duration in seconds the fight will last for. Note that if every player has no more actions to do, the simulation will stop before the max duration is reached.<br>
-    The "Open result in a new tab" option will display the result page in a new tab. Checking this box is recommended, as the inputs will not be saved if the user leaves and returns to the page.<br>
-    The "DEBUG mode" option will display all the DEBUG logs from the simulation. This is not very useful to the common user and should stay unchecked.<br>
+    allow the simulation to give the 5% main stat bonus regardless of the team composition. The "Have Plentiful Harvest always apply maximum potency" option <br>
+    will make every casting of plentiful harvest have maximum potency. The "Number of random simulations" is the number of time the <br>
+    simulator will simulate a random simulation in order to generate the DPS distribution. There is a maximum of 50'000 iterations spread throughout all of the players.<br>
+    In other words, if the fight has 1 player, it can do 50'000 random simulation. If it has 2 players, it can do 25'000 iterations, if it has 4 players it can do 12'500 iterations, etc. <br>
+    The "Fight Max Duration" option is the maximum duration in seconds the fight will last for. Note that if every player has no more actions to do, the simulation will stop before the max duration is <br>
+    reached. The "Open result in a new tab" option will display the result page in a new tab. Checking this box is recommended, as the inputs will not be saved if the user leaves and returns to the <br>
+    page. The "DEBUG mode" option will display all the DEBUG logs from the simulation. This is not very useful to the common user and should stay unchecked.<br>
     The "Simulate" button will launch a simulation with the current configurations you have entered. You will then be taken to the result page or to an error page.
 </p>
 </div>
@@ -145,10 +147,19 @@
 </div>
 <hr style="width:50%;">
 <div>
-<h3>Graph</h3>
+<h3>DPS Vs. Time graph</h3>
 <img class="helpimg" style ="width: 800px;" src="{% static 'simulate/help/graph.png' %}">
 <p>
     This section simply displays the resulting DPS graph of the simulation. You can see the DPS of every player against the duration of the simulation.
+</p>
+</div>
+
+<hr style="width:50%;">
+<div>
+<h3>DPS Distribution graph</h3>
+<img class="helpimg" style ="width: 800px;" src="{% static 'simulate/help/dist_graph.png' %}">
+<p>
+    This section displays the resulting DPS distribution of the simulation. The orange line corresponds to the expected DPS.
 </p>
 </div>
 

@@ -49,6 +49,7 @@
     </div>
     <div class="PlayerRosterAdd">
     <button class="AddPlayerButton basicButton bigbutton" onclick="addNewPlayer()">Add Player</button>
+    <p><span id="player_counter">0</span>/8 player(s)</p>
     </div>
 </div>
 
@@ -146,10 +147,15 @@
             <input type="checkbox" id="MaxPotencyPlentifulHarvest" onchange="UpdateMaxPotencyPlentifulHarvest()">
         </div>
         <div class="container" style="margin: 0px;"
+        title="Number of random simulation to generate DPS distribution ((50'000 max between all players):)">
+            <p>Number of random simulations for DPS distribution generation : </p>
+            <input type="number" id="NumberRandomSimulation" value="0">
+        </div>
+        <div class="container" style="margin: 0px;"
         title="The maximum fight duration of the simulation in seconds. The simulation will stop
         when the timer reaches that value and will return the current results. Must be a positive value and be lower than 300.">
             <p>Fight Max Duration (seconds) : </p>
-            <input id="FightDuration" type="number" name="MainStat" value="200">
+            <input id="FightDuration" type="number" value="200">
         </div>
         <div class="container" style="margin: 0px;"
         title="Open the result in a new tab.">
@@ -158,8 +164,12 @@
         </div>
         <p style="color: red;" id="NewTabAlert">The simulation's result will open in a new tab so make sure your browser is not blocking it</p>
     </div>
+    <div id="ProcessingDiv" style="text-align: center;" hidden>
+        <p style="color: red;">Your simulation is in queue. A new page with the result will automatically open when your simulation has been processed.</p>
+        <img src="{% static 'simulate/processing.gif' %}" width="40" height="40">
+    </div>
     <div><center>
-        <button class="basicButton bigbutton" onclick="Submit()">Simulate</button>
+        <button class="basicButton bigbutton" onclick="Submit()"><span id="ButtonText">Simulate</span></button>
     </div>
     </center>
     <div style="float:right;bottom:100px;position: relative;" class="container"
