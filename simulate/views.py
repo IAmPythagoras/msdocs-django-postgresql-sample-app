@@ -10,7 +10,7 @@ from .Validation import attachmentValidation
 import logging
 from ffxivcalc.helperCode import helper_backend
 from .Stream import LogStream
-
+import os
 from ffxivcalc.helperCode.exceptions import *
 
 
@@ -29,12 +29,23 @@ def SimulationInput(request):
     """
     This view lets the user setup the simulation for what they want. It only sends the data and does not simulate.
     """
+                             # Reset session
+    if "SimulationData" in request.session.keys(): del request.session['SimulationData']
     if request.method == "POST":
                              # The SimulationInput page will make a POST HTTP request to itself. This will be catched here.
         request.session['SimulationData'] = json.loads(request.body)
                              # The simulation data is saved in the session. The user will now be redirected to the SimulationResult page
         return HttpResponse('200', status=200)
     return render(request, 'simulate/input.html', {})
+
+@csrf_exempt
+def WaitingQueue(request):
+    """
+    This view is a waiting queue for the simulation to run. After clicking "Simulate" in SimulationInput. Users are brought
+    here. The page will send a POST request every 1 seconds. If the FIGHT_ID_PROCESS corresponds to the user, it will be process 
+    and the user is brought to Simulation Result.
+    """
+    return render(request, 'simulate/Waiting.html', {})
 
 
 def SimulationResult(request):
@@ -62,6 +73,17 @@ def SimulationResult(request):
         TeamBonusComp = data["TeamCompBonus"]
                                 # We check if MaxPotencyPlentifulHarvest is true or not
         MaxPotencyPlentifulHarvest = data["MaxPotencyPlentifulHarvest"]
+                                # We take the value of n
+        n = int(data["NumberRandomSimulation"])
+        l = len(data["data"]["PlayerList"])
+        if (n * l > 50000 or
+           (float(data["data"]["fightInfo"]["fightDuration"]) > 300 or float(data["data"]["fightInfo"]["fightDuration"]) < 0 ) or
+            l>8):
+            Msg = ("Invalid value for 'n', 'NumberOfPlayer' or 'fightDuration'. If this error persists please let me know through discord.")
+            request.session["ErrorMessage"] = Msg
+            return redirect('Error') 
+
+        del data["NumberRandomSimulation"]
         del data["mode"]  
         del data["TeamCompBonus"]  
         del data["MaxPotencyPlentifulHarvest"]
@@ -117,7 +139,10 @@ def SimulationResult(request):
         Event.IgnoreMana = data["data"]["fightInfo"]["IgnoreMana"]
                                     # Simulating the fight and logging if DEBUG mode
         if mode: logging.getLogger("ffxivcalc").setLevel(level=logging.DEBUG)
-        result_str, fig = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False, PPSGraph=False, MaxTeamBonus=TeamBonusComp, MaxPotencyPlentifulHarvest=MaxPotencyPlentifulHarvest)
+                                    # result_str is the result in text
+                                    # fig is the graph of DPS
+                                    # fig2 is the graph of DPS distribution
+        result_str, fig, fig2 = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False, PPSGraph=False, MaxTeamBonus=TeamBonusComp, MaxPotencyPlentifulHarvest=MaxPotencyPlentifulHarvest, n = n)
         if mode: 
                                 # Reverting changes
             mode = False
@@ -129,19 +154,24 @@ def SimulationResult(request):
             result_arr.append(line)
                                 # We will save the generated matplotlib figure
                                 # in order to show it to the user.
-        plt.legend(fontsize=5)
-        fig = plt.gcf()
+                                # DPS Vs.Time
         buf = io.BytesIO()
         fig.savefig(buf, format='png', dpi=200)
         buf.seek(0)
         string = base64.b64encode(buf.read())
         uri = urllib.parse.quote(string)
-
+                                # DPS Distribution
+        if n >= 1:
+            buf2 = io.BytesIO()
+            fig2.savefig(buf2, format='png', dpi=200)
+            buf2.seek(0)
+            string2 = base64.b64encode(buf2.read())
+            uri2 = urllib.parse.quote(string2)
                                 # We will take the logs if any and check what the ReturnCode value is.
         ReturnCode = log_stream.ReturnCode
         log_str = log_stream.to_str()
 
-        return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri, "WARNING" : ReturnCode == 1, "CRITICAL" : ReturnCode == 2, "log_str" : log_str})
+        return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri, "has_dist" : n >= 1,"graph_dist" : uri2 if n>=1 else None, "WARNING" : ReturnCode == 1, "CRITICAL" : ReturnCode == 2, "log_str" : log_str})
     except InvalidTarget as Error:
         Msg = ("An action had an invalid target and the simulation was not able to continue.\n" +
         " Error message : " + str(Error))

@@ -5,6 +5,7 @@ GLOBAL VARIABLE DECLARATION
                              // for the simulation. This will be sent as a POST request to the server
                              // when the player wants to simulate.
 var PlayerConfigDict = new Object();   
+var NumberOfPlayer = 0;
                              // This represents the next given ID to a new player. Every player has a unique ID.
                              // This value is never decremented and is a unique value for every player, but it will be incremented every time we add a player.
 var nextPlayerID = 0;
@@ -20,6 +21,8 @@ var DebugMode = false;
 var ResultNewTab = true;
 var TeamCompBonus = false;
 var MaxPotencyPlentifulHarvest = false;
+                             // Flag to know if we sent a simulation
+var InQueue = false;
 /* 
 GLOBAL VARIABLE DECLARATION END
 */     
@@ -49,6 +52,12 @@ function addNewPlayer() {
 /* 
 This function is called when the user wishes the create a new player. It appends to PlayerConfigDict, and adds a new div in the html page.
 */
+
+if (Object.keys(PlayerConfigDict).length >= 8){
+    alert("You cannot have more than 8 players.");
+    return;
+}
+
 
 PlayerConfigDict[nextPlayerID] = {
     "PlayerName" : "Player" + nextPlayerID,
@@ -89,6 +98,9 @@ boxWrapper.appendChild(box);
 }
                              // Increment nextPlayerID.
 nextPlayerID++;
+                             // Increment number player
+NumberOfPlayer++;
+UpdateNumberPlayerDisplay();
 }
 
 function DeletePlayer(PlayerID){
@@ -98,6 +110,9 @@ It will ask for a prompt from the user to make sure the action was deliberate.
 */
     const confirmation = confirm("Are you sure you want to delete the player : " + String(PlayerConfigDict[PlayerID]["PlayerName"]) + "? Make sure that there are no actions targetting this player if you delete it.");
     if (! confirmation){return;}
+                             // Updating player counter
+    NumberOfPlayer--;
+    UpdateNumberPlayerDisplay();
                              // Removing the player from the PlayerConfigDict and from the roster viewer
     document.getElementById("Edit"+String(PlayerID)).remove()
     delete PlayerConfigDict[PlayerID];
@@ -335,6 +350,9 @@ function UpdateName(){
     */
     document.getElementById('Player'+currentEditPlayerID+'Name').innerHTML = document.getElementById("PlayerName").value + " ID - " + currentEditPlayerID;
     }
+function UpdateNumberPlayerDisplay(){
+    document.getElementById("player_counter").innerHTML = String(NumberOfPlayer);
+}
 /*
 HTTP REQUEST RELATED FUNCTIONS
 */
@@ -343,11 +361,29 @@ function Submit(){
     This function is called when Submitting a SimulationInput. It will make sure it is valid 
     and will put the information in a suitable way for the library to use it.
     */
+
+    if (InQueue){
+        var UserInput = confirm("Your simulation is in queue. Are you sure you want to leave the queue?");
+        if (UserInput){
+            InQueue = false;
+            document.getElementById("ProcessingDiv").setAttribute("hidden", "true");
+            document.getElementById("ButtonText").innerHTML = "Simulate"
+            return;
+        }
+        else{return;}
+    }
+
                                  // We check if there is at least one player. If not we exit and alert the user.
-    if (! AtLeastOnePlayer){alert("You cannot simulate if you have no player!");return;}
+    if (! AtLeastOnePlayer){alert("The simulation needs at least one player.");return;}
     var FightDuration = document.getElementById("FightDuration").value;
     if (FightDuration <= 0 || FightDuration > 300){alert("The fight's duration must be between 0 and 300 secconds.");return;}
-    
+    var n_player = Object.keys(PlayerConfigDict).length;
+    if (document.getElementById("NumberRandomSimulation").value * n_player > 50000)
+        {
+        alert("The number of random simulation to generate DPS distribution is too high for the number of player(s). It must be lower than or equal to "+String(50000/n_player)+" (50000 iterations spread through all player(s).)");
+        return;
+        }
+
                                  // We save the currently edited player's input.
     SavePlayerConfiguration(currentEditPlayerID);
     
@@ -412,7 +448,8 @@ function Submit(){
         },
         "mode" : DebugMode,
         "TeamCompBonus" : TeamCompBonus,
-        "MaxPotencyPlentifulHarvest" : MaxPotencyPlentifulHarvest
+        "MaxPotencyPlentifulHarvest" : MaxPotencyPlentifulHarvest,
+        "NumberRandomSimulation" : document.getElementById("NumberRandomSimulation").value
     };
                                  // POST request Logic
     xhr = new XMLHttpRequest();
@@ -421,14 +458,24 @@ function Submit(){
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onreadystatechange = function() {
                                  // When the request has been processed, the user is sent to the SimulationResult page. If there was an error the user is notified and we return.
-    if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-        if (ResultNewTab) window.open('/simulate/SimulationResult/', '_blank').focus();
+    if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200 && InQueue) {
+        if (ResultNewTab) {
+            window.open('/simulate/SimulationResult/', '_blank').focus();
+            InQueue = false;
+            document.getElementById("ProcessingDiv").setAttribute("hidden", "true");
+            document.getElementById("ButtonText").innerHTML = "Simulate"
+            return;
+        }
         else window.location.href = '/simulate/SimulationResult/';
     }
     }
                                  // Sends the request.
     var data = JSON.stringify(dataDict);
+    InQueue = true;
+    document.getElementById("ButtonText").innerHTML = "Leave Queue"
     xhr.send(data);
+    document.getElementById("ProcessingDiv").removeAttribute("hidden"); 
+    //window.location.href = '/simulate/WaitingQueue/';
     }
 
 /*

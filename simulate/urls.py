@@ -1,7 +1,6 @@
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from . import views
-
 urlpatterns = [
                              # ex: /simulate/
     path('', views.index, name='index'),
@@ -18,6 +17,8 @@ urlpatterns = [
                              # ex : /simulate/Error/
     path('Error/', views.Error, name='Error'),
                              # ex : /simulate/help/
-    path('help/', views.help, name='help')
+    path('help/', views.help, name='help'),
+                                 # ex : /simulate/WaitingQueue/
+    path('WaitingQueue/', views.WaitingQueue, name='WaitingQueue')
 ]
 urlpatterns += staticfiles_urlpatterns()

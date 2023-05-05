@@ -26,7 +26,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['ffxivdpscalc.azurewebsites.net','127.0.0.1']
 
-
+import environ# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 # Application definition
 
 INSTALLED_APPS = [
