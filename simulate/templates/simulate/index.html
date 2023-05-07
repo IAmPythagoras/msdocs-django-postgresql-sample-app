@@ -46,8 +46,6 @@
                 The simulator is also able to detect if a chosen action is illegal, in which case the simulation will stop and notify the user; you can disable this option in the 
                 simulation page. If you have any questions, feel free to join the Discord server dedicated to the project by clicking the Discord logo above or browse the help page 
                 by clicking on the question mark icon above.
-                
-                </section>
             </p>
             <a href="/simulate/SimulationInput/">
                 <button class="basicButton bigbutton">
@@ -55,7 +53,10 @@
                 </button>
             </a>
             <p>
-                Note that the simulator is still in active development and bugs may be encountered (reporting a bug if any is found is higly appreciated). The results may not perfectly replicate 
+                Note that this online simulator has some imposed restrictions in order to limit computation time. These limitations include :<span style="color: red;"> maximum of 8 players per simulations, 
+                maximum length of simulation is 150 seconds, maximum number of actions per player is 120 and the simulator will not compute the DPS distribution.</span> If you need more than
+                what the online simulator can offer, download the python library on your own machine and no such restrictions will be present.
+                Furthermore, the simulator is still in active development and bugs may be encountered (reporting a bug if any is found is higly appreciated). The results may not perfectly replicate 
                 in-game performance  (for instance, the program does not account for lag and assumes an average crit rate),but they will give a very good idea of how in game damage
                 would look like given a set of actions. It also (for now) cannot account for more than 1 target but some work is being done in that direction.
             </p>

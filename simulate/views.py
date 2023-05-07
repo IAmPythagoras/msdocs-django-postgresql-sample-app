@@ -73,17 +73,14 @@ def SimulationResult(request):
         TeamBonusComp = data["TeamCompBonus"]
                                 # We check if MaxPotencyPlentifulHarvest is true or not
         MaxPotencyPlentifulHarvest = data["MaxPotencyPlentifulHarvest"]
-                                # We take the value of n
-        n = int(data["NumberRandomSimulation"])
+                                # Make sure values are within expected range
         l = len(data["data"]["PlayerList"])
-        if (n * l > 50000 or
-           (float(data["data"]["fightInfo"]["fightDuration"]) > 300 or float(data["data"]["fightInfo"]["fightDuration"]) < 0 ) or
+        if ((float(data["data"]["fightInfo"]["fightDuration"]) > 150 or float(data["data"]["fightInfo"]["fightDuration"]) < 0 ) or
             l>8):
-            Msg = ("Invalid value for 'n', 'NumberOfPlayer' or 'fightDuration'. If this error persists please let me know through discord.")
+            Msg = ("Invalid value for 'NumberOfPlayer' or 'fightDuration'. If this error persists please let me know through discord.")
             request.session["ErrorMessage"] = Msg
             return redirect('Error') 
 
-        del data["NumberRandomSimulation"]
         del data["mode"]  
         del data["TeamCompBonus"]  
         del data["MaxPotencyPlentifulHarvest"]
@@ -94,6 +91,12 @@ def SimulationResult(request):
                                 # fail the validation.
         data["data"]["fightInfo"]["fightDuration"] = float(data["data"]["fightInfo"]["fightDuration"])
         for player in data["data"]["PlayerList"]:
+                                # Check length of action list
+            if len(player["actionList"])>120:
+                Msg = ("Invalid number of actions for at least one player. If this issues persists contact me on discord.")
+                request.session["ErrorMessage"] = Msg
+                return redirect('Error')
+
             player["playerID"] = int(player["playerID"])
             for key in player["stat"]:
                 player["stat"][key] = int(player["stat"][key])
@@ -142,7 +145,7 @@ def SimulationResult(request):
                                     # result_str is the result in text
                                     # fig is the graph of DPS
                                     # fig2 is the graph of DPS distribution
-        result_str, fig, fig2 = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False, PPSGraph=False, MaxTeamBonus=TeamBonusComp, MaxPotencyPlentifulHarvest=MaxPotencyPlentifulHarvest, n = n)
+        result_str, fig, fig2 = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False, PPSGraph=False, MaxTeamBonus=TeamBonusComp, MaxPotencyPlentifulHarvest=MaxPotencyPlentifulHarvest)
         if mode: 
                                 # Reverting changes
             mode = False
@@ -160,18 +163,11 @@ def SimulationResult(request):
         buf.seek(0)
         string = base64.b64encode(buf.read())
         uri = urllib.parse.quote(string)
-                                # DPS Distribution
-        if n >= 1:
-            buf2 = io.BytesIO()
-            fig2.savefig(buf2, format='png', dpi=200)
-            buf2.seek(0)
-            string2 = base64.b64encode(buf2.read())
-            uri2 = urllib.parse.quote(string2)
                                 # We will take the logs if any and check what the ReturnCode value is.
         ReturnCode = log_stream.ReturnCode
         log_str = log_stream.to_str()
 
-        return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri, "has_dist" : n >= 1,"graph_dist" : uri2 if n>=1 else None, "WARNING" : ReturnCode == 1, "CRITICAL" : ReturnCode == 2, "log_str" : log_str})
+        return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri,"WARNING" : ReturnCode == 1, "CRITICAL" : ReturnCode == 2, "log_str" : log_str})
     except InvalidTarget as Error:
         Msg = ("An action had an invalid target and the simulation was not able to continue.\n" +
         " Error message : " + str(Error))

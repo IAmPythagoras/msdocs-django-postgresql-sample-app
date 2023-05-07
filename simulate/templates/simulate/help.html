@@ -97,11 +97,9 @@
     for the player cannot be replicated in game. The "Ignore Mana Requirement" option will allow the simulation to ignore MP requirements when using <br>
     an action, but you will not be warned if the simulation detects at any point that there was not enough MP for an action. The "5% bonus" option will <br>
     allow the simulation to give the 5% main stat bonus regardless of the team composition. The "Have Plentiful Harvest always apply maximum potency" option <br>
-    will make every casting of plentiful harvest have maximum potency. The "Number of random simulations" is the number of time the <br>
-    simulator will simulate a random simulation in order to generate the DPS distribution. There is a maximum of 50'000 iterations spread throughout all of the players.<br>
-    In other words, if the fight has 1 player, it can do 50'000 random simulation. If it has 2 players, it can do 25'000 iterations, if it has 4 players it can do 12'500 iterations, etc. <br>
-    The "Fight Max Duration" option is the maximum duration in seconds the fight will last for. Note that if every player has no more actions to do, the simulation will stop before the max duration is <br>
-    reached. The "Open result in a new tab" option will display the result page in a new tab. Checking this box is recommended, as the inputs will not be saved if the user leaves and returns to the <br>
+    will make every casting of plentiful harvest have maximum potency. The "Fight Max Duration" option is the maximum duration in seconds the fight will last for. 
+    Note that if every player has no more actions to do, the simulation will stop before the max duration is reached. The "Open result in a new tab" option will<br>
+    display the result page in a new tab. Checking this box is recommended, as the inputs will not be saved if the user leaves and returns to the <br>
     page. The "DEBUG mode" option will display all the DEBUG logs from the simulation. This is not very useful to the common user and should stay unchecked.<br>
     The "Simulate" button will launch a simulation with the current configurations you have entered. You will then be taken to the result page or to an error page.
 </p>
@@ -153,16 +151,6 @@
     This section simply displays the resulting DPS graph of the simulation. You can see the DPS of every player against the duration of the simulation.
 </p>
 </div>
-
-<hr style="width:50%;">
-<div>
-<h3>DPS Distribution graph</h3>
-<img class="helpimg" style ="width: 800px;" src="{% static 'simulate/help/dist_graph.png' %}">
-<p>
-    This section displays the resulting DPS distribution of the simulation. The orange line corresponds to the expected DPS.
-</p>
-</div>
-
 </div>
 </body>
 </html>

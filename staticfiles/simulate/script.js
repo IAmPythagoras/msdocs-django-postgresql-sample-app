@@ -224,9 +224,12 @@ This function returns a function that adds an action to a player's action list. 
                              // If IsAdded is true, then it will be created, if it is false the value in ActionIden will 
                              // be used.
     var Identification = "";
-                                // If the action is added (and not repopulated), we create an entirely new 
-                                // entry for it in the actionlist of the player.
+                             // If the action is added (and not repopulated), we create an entirely new 
+                             // entry for it in the actionlist of the player.
     if (IsAdded) {
+
+                             // First check if player has reached action limit
+        if (PlayerConfigDict[currentEditPlayerID]["ActionList"].length>=120){alert("Action limit reached. Cannot add more than 120 actions per player.");return;}
                                 // Giving new ActionIdentification since action we are adding
         Identification = String(currentEditPlayerID)+String(PlayerConfigDict[currentEditPlayerID]["NextActionID"]);
         //PlayerConfigDict[currentEditPlayerID]["NextActionID"]++;
@@ -376,13 +379,7 @@ function Submit(){
                                  // We check if there is at least one player. If not we exit and alert the user.
     if (! AtLeastOnePlayer){alert("The simulation needs at least one player.");return;}
     var FightDuration = document.getElementById("FightDuration").value;
-    if (FightDuration <= 0 || FightDuration > 300){alert("The fight's duration must be between 0 and 300 secconds.");return;}
-    var n_player = Object.keys(PlayerConfigDict).length;
-    if (document.getElementById("NumberRandomSimulation").value * n_player > 50000)
-        {
-        alert("The number of random simulation to generate DPS distribution is too high for the number of player(s). It must be lower than or equal to "+String(50000/n_player)+" (50000 iterations spread through all player(s).)");
-        return;
-        }
+    if (FightDuration <= 0 || FightDuration > 150){alert("The fight's duration must be between 0 and 150 secconds.");return;}
 
                                  // We save the currently edited player's input.
     SavePlayerConfiguration(currentEditPlayerID);
@@ -448,8 +445,7 @@ function Submit(){
         },
         "mode" : DebugMode,
         "TeamCompBonus" : TeamCompBonus,
-        "MaxPotencyPlentifulHarvest" : MaxPotencyPlentifulHarvest,
-        "NumberRandomSimulation" : document.getElementById("NumberRandomSimulation").value
+        "MaxPotencyPlentifulHarvest" : MaxPotencyPlentifulHarvest
     };
                                  // POST request Logic
     xhr = new XMLHttpRequest();
