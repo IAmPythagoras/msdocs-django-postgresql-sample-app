@@ -25,10 +25,6 @@ SECRET_KEY = 'django-insecure-nni481n*hf74j*+ocf+gk%(*o46i1ss)kaaw9#r$l*9!!@9kd&
 DEBUG = False
 
 ALLOWED_HOSTS = ['ffxivdpscalc.azurewebsites.net']
-
-import environ# Initialise environment variables
-env = environ.Env()
-environ.Env.read_env()
 # Application definition
 
 INSTALLED_APPS = [
