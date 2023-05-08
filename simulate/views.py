@@ -148,7 +148,6 @@ def SimulationResult(request):
         result_str, fig, fig2 = Event.SimulateFight(0.01,data["data"]["fightInfo"]["fightDuration"], vocal=False, PPSGraph=False, MaxTeamBonus=TeamBonusComp, MaxPotencyPlentifulHarvest=MaxPotencyPlentifulHarvest)
         if mode: 
                                 # Reverting changes
-            mode = False
             logging.getLogger("ffxivcalc").setLevel(level=logging.WARNING)
                                 # result_str contains the result of the simulation.
                                 # We will parse it by line in order to show it clearly to the user.
@@ -167,7 +166,7 @@ def SimulationResult(request):
         ReturnCode = log_stream.ReturnCode
         log_str = log_stream.to_str()
 
-        return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri,"WARNING" : ReturnCode == 1, "CRITICAL" : ReturnCode == 2, "log_str" : log_str})
+        return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri,"WARNING" : ReturnCode == 1 or mode, "CRITICAL" : ReturnCode == 2, "log_str" : log_str})
     except InvalidTarget as Error:
         Msg = ("An action had an invalid target and the simulation was not able to continue.\n" +
         " Error message : " + str(Error))

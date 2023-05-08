@@ -7,7 +7,8 @@ var TargetActionList = [
     "Spear",
     "DragonSight",
     "ClosedPosition",
-    "Shirk"
+    "Shirk",
+    "Intervention"
 ];
 var IconDict = {
     "Astrologian": [
@@ -305,30 +306,29 @@ var IconDict = {
         "Potion"
     ],
     "Monk": [
-        "Bootshine",
+        "BootShine",
         "DragonKick",
         "ShadowOfTheDestroyer",
         "TrueStrike",
-        "TwinSnkes",
+        "TwinSnakes",
         "FourpointFurry",
         "Demolish",
         "SnapPunch",
         "Rockbreaker",
-        "ExirField",
+        "ElixirField",
         "CelestialRevolution",
         "RisingPhoenix",
         "PhantomRush",
         "TheForbiddenChakra",
         "Brotherhood",
         "Enlightenment",
-        "FlintStrike",
         "FormShift",
         "Mantra",
         "PerfectBalance",
         "SixSidedStar",
         "Thunderclap",
         "Anatman",
-        "RiddleOfearth",
+        "RiddleOfEarth",
         "RiddleOfFire",
         "RiddleOfWind",
         "Meditation",
@@ -362,7 +362,7 @@ var IconDict = {
         "Suiton",
         "GokaMekkyaku",
         "HyoshoRanryu",
-        "FleetinRaiju",
+        "FleetingRaiju",
         "ForkingRaiju",
         "Mug",
         "TrickAttack",

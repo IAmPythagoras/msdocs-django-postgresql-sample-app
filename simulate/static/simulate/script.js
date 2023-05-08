@@ -540,6 +540,8 @@ var PlayerJob = PlayerConfigDict[currentEditPlayerID]["Job"];
                                 // actionlist of the player and the actionlist viewer.
 if (ChangingJob){
     PlayerConfigDict[currentEditPlayerID]['ActionList'] = [];
+    PlayerConfigDict[currentEditPlayerID]['NextActionIndex'] = 0;
+    PlayerConfigDict[currentEditPlayerID]['NextActionID'] = 0;
     document.getElementById("PlayerActionListViewer").innerHTML = "";
 }
 
