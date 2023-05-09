@@ -9,7 +9,7 @@ urlpatterns = [
                              # ex : /simulate/results/
     path('SimulationResult/', views.SimulationResult, name='SimulationResult'),
                              # ex : /simulate/simulating/
-    path('simulating/', views.SimulationResult, name='simulating'),
+    #path('simulating/', views.SimulationResult, name='simulating'),
                              # ex : /simulate/credit/
     path('credit/', views.credit, name='credit'),
                              # ex : /simulate/JSONFileViewer/
@@ -18,7 +18,9 @@ urlpatterns = [
     path('Error/', views.Error, name='Error'),
                              # ex : /simulate/help/
     path('help/', views.help, name='help'),
-                                 # ex : /simulate/WaitingQueue/
-    path('WaitingQueue/', views.WaitingQueue, name='WaitingQueue')
+                             # ex : /simulate/WaitingQueue/
+    path('More/', views.More, name='More')
+                             # ex : /simulate/WaitingQueue/
+    #path('WaitingQueue/', views.WaitingQueue, name='WaitingQueue')
 ]
 urlpatterns += staticfiles_urlpatterns()

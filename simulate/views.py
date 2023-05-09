@@ -233,6 +233,10 @@ def ServerDiedMoment(request):
     request.session["ErrorMessage"] = Msg
     return redirect('Error') 
 
-
+def More(request):
+    """
+    This view will contain more information on how the simulator works and also on other ressources that I find interesting.
+    """
+    return render(request, 'simulate/More.html', {})
 
 index(None)

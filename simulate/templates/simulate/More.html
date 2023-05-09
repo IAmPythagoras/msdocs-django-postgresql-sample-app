@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'simulate/style.css' %}"/>
+<title>FFXIV Combat Simulator</title>
+<link rel="icon" type="image/png" href="{% static 'simulate\kirbo.png' %}">
+</head>
+<html class="body">
+<header>
+    <div class="marginHeader">
+        <div class="menu">
+        <a href="/simulate/" class="menu" style="text-decoration: none; color: inherit;">
+        <img src="{% static 'simulate\kirbo.png' %}" alt="Sussy Kirbo" style="margin-right: 10px;" width="40" height="40">
+        <h3 class="heading mainText marginZero">FFXIV Combat Simulator</h3>
+        </a>
+    </div>
+    <div class="menu">
+        <a href="https://github.com/IAmPythagoras/FFXIV-Combat-Simulator" title="github">
+        <img src="{% static 'simulate\github.png' %}" width="40" height="40">
+        </a>
+    </div>
+    <div class="menu">
+        <a href="https://discord.gg/mZXKUNy2sw" title="Discord server">
+        <img src="{% static 'simulate\discord.svg' %}" width="40" height="40">
+        </a>
+    </div>
+    <div class="menu">
+        <a href="/simulate/help" title="Help">
+        <img src="{% static 'simulate/help.png' %}" width="40" height="40">
+        </a>
+    </div>
+    <div class="menu">
+        <a href="/simulate/More" title="More">
+        <img src="{% static 'simulate/More.png' %}" width="40" height="40">
+        </a>
+    </div>
+    </div>
+</header>
+<hr>
+<body>
+
+<div style="text-align: center;">
+<p>Find out more about the ffxiv-combat-simulator and other relevant alternative ressources.</p>
+</div>
+
+<hr>
+
+<div>
+<h3>FFXIV Combat Simulator</h3>
+<p>
+    This is the simulator that powers this website. Started more than a year ago, the goal was to make a simulator for FFXIV publicly available and break away from the older method
+    of using spread sheets to optimize rotations. This simulator can do any number of player at the same time, for any amount of time, for any number of actions, for any players' stats and will 
+    accurately compute the expected DPS with raid buffs and personnal buffs taken into account. It has the option to check for the validity of a rotation and alert the user if a 
+    rotation is not legal in the game. It can accurately track a player's mana in order to plan rotations that require very precise mana tic and mana usage.
+</p>
+<p>
+    The simulator is able to compute the DPS distribution of every player in the raid, but that feature is not available on the website in order to limit the computation time.
+    You can however do that step yourself and follow <a href="https://iampythagoras.github.io/userinterface.html">this</a> tutorial in order to compute the DPS distribution of your own simulation taken from the website. The simulator will show a graph of DPS Vs. Time 
+    of every player and it can be configured to also show the PPS (Potency Per Second) Vs. Time. The simulator can also show a very detailed log of what happened in the simulation and the 
+    exact moment events happened, this can be used to tweak a rotation for maximum efficiency.
+</p>
+<p>
+    This simulator does not have any kind of rotation solver that would use A.I. (or any other algorithm) in order to automatically optimize a rotation. It does however have functionalities
+    already built-in that would facilitate the development of such tools. Read <a href="https://iampythagoras.github.io/customize_fight.html#">this</a> for more information.
+</p>
+<p>
+    This simulator is still in active development, and I plan to add the following functionalities in the future : Healing and enemy attacks, Blue Mage, more than one enemy in a simulation,
+    Enemy HP bar, rDPS/aDPS/nDPS approximations, Enemity simulation, functioning mitigation, functionning AOEs (on multiple enemies), Player HP and death, Player movement and more. Some of these features
+    are already being worked on, but I cannot say which feature will be available first or if they ever will be. I am however willing to work more on functionalities that the community deems more
+    necessary.
+</p>
+<p>
+    For more information you can read the <a href="https://iampythagoras.github.io/index.html">documentation</a>, join the discord by clicking the discord logo above or send me a DM on discord Pythagoras#6312.
+</p>
+</div>
+
+<hr>
+
+<div>
+<h3>Another FF14 Combat Sim</h3>
+</div>
+<hr>
+</body>
+</html>
