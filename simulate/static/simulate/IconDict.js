@@ -602,7 +602,7 @@ var IconDict = {
         "Lustrate",
         "Physick",
         "Protraction",
-        "Raise",
+        "Resurrection",
         "Recitation",
         "SacredSoil",
         "Succor",
