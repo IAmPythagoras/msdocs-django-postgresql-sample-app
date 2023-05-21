@@ -287,6 +287,7 @@ var IconDict = {
         "ChainSaw",
         "Hypercharge",
         "Wildfire",
+        "Reassemble",
         "Automaton",
         "BarrelStabilizer",
         "Detonator",
