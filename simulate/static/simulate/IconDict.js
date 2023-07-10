@@ -56,6 +56,7 @@ var IconDict = {
     "Bard": [
         "BurstShot",
         "RefulgentArrow",
+        "Barrage",
         "IronJaws",
         "Stormbite",
         "Causticbite",
