@@ -169,7 +169,7 @@ def SimulationResult(request):
         return render(request, 'simulate/SimulatingResult.html', {"result_str" : result_arr, "graph" : uri,"WARNING" : ReturnCode == 1 or mode, "CRITICAL" : ReturnCode == 2, "log_str" : log_str})
     except InvalidTarget as Error:
         Msg = ("An action had an invalid target and the simulation was not able to continue.\n" +
-        " Error message : " + str(Error))
+        " Error message : " + str(Error) + ". If this persists reach out on discord.\n")
         request.session["ErrorMessage"] = Msg
         return redirect('Error') 
     except Exception as Error:
